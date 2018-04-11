@@ -1,0 +1,119 @@
+{
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.control.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "Media Control - Get",
+  "definitions": {
+    "oic.r.media.action": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "maxLength": 256,
+          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
+          "format": "uri"
+        },
+        "rel": {
+          "anyOf":[
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "minItems": 1,
+              "default": "self"
+            },
+            {
+              "type": "string",
+              "maxLength": 64,
+              "default": "self"
+            }
+          ],
+          "description": "The relation of the target URI referenced by the link to the context URI"
+        },
+        "action": {
+          "enum": ["play", "stop", "pause", "fastforward", "rewind", "stepforward", "stepbackward", "seek"],
+          "readOnly": true,
+          "description": "The name of the media action."
+        },
+        "allowed_values": {
+          "type": "array",
+          "description": "The allowed values for the action",
+          "readOnly": true,
+          "minItems": 1,
+          "items": {
+            "type": "number"
+          }
+        },
+        "allowed_range": {
+          "type": "array",
+          "description": "The allowed range for the action",
+          "readOnly": true,
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        },
+        "range_step": {
+          "type": "number",
+          "readOnly": true,
+          "description": "Step value across the defined range"
+        }
+      },
+      "required": ["action"]
+    },
+    "oic.r.media.control": {
+      "type": "object",
+      "properties": {
+        "playState": {
+          "type": "boolean",
+          "description": "Allowed media control play state values."
+        },
+        "mediaSpeed": {
+          "type": "number",
+          "description": "Allowed media control play speed values."
+        },
+        "mediaLocation":   {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "maxLength": 256,
+              "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI."
+            },
+            {
+              "type": "string",
+              "format": "date-time",
+              "description": "Reference time for the absolute time in ISO8601 format."
+            },
+            {
+              "type": "number",
+              "description": "Supports Rate Control for float values and Frame By Frame for integer values for both positive and negative values."
+            }
+          ]
+        },
+        "lastAction": {
+          "type": "string",
+          "description": "Last Action received for media control."
+        },
+        "actions":  {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/oic.r.media.action"
+          },
+          "description": "The array of media actions that are supported for media control."
+        }
+      },
+      "required": ["playState","mediaSpeed","mediaLocation"]
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "oic.core-schema.json#/definitions/oic.core"},
+    {"$ref": "#/definitions/oic.r.media.control"}
+  ]
+}

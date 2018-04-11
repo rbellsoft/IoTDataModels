@@ -1,0 +1,48 @@
+{
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2016, 2017 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "Media",
+  "definitions": {
+    "oic.r.media": {
+      "type": "object",
+      "properties": {
+        "mediaName": {
+          "type": "string",
+          "description": "Specifies the Short user-friendly name of the media"
+        },
+        "mediaDescription": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Specifies the Long user-friendly synopsis of the media"
+        },
+        "url": {
+          "type": "string",
+          "description": "url for the media instance"
+        },
+        "sdp": {
+          "type": "array",
+          "description": "Array of strings, one per SDP line",
+          "items": {
+            "type": "string",
+            "description": "SDP media or attribute line"
+          }
+        },
+        "mediaArtwork":  {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "oic.r.icon-schema.json#/definitions/oic.r.icon"
+          },
+          "description": "The array of icons that are used to support the media element."
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "#/definitions/oic.r.media"}
+  ],
+  "required": ["mediaName","url","sdp"]
+}
