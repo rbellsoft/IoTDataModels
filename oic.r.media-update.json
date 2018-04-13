@@ -7,11 +7,11 @@
     "oic.r.media": {
       "type": "object",
       "properties": {
-        "mediaName": {
+        "title": {
           "type": "string",
           "description": "Specifies the Short user-friendly name of the media"
         },
-        "mediaDescription": {
+        "description": {
           "type": "string",
           "readOnly": true,
           "description": "Specifies the Long user-friendly synopsis of the media"
@@ -44,5 +44,5 @@
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "#/definitions/oic.r.media"}
   ],
-  "required": ["mediaName","url","sdp"]
+  "required": ["title","url","sdp"]
 }

@@ -30,7 +30,7 @@ traits:
       This resource specifies a list of media or other media lists that an OCF Server supports.
         title: A human readable title for the media list.
         mediaList: An array of media elements.  Each element contains:
-            mediaName: A human readable name for the media.
+            title: A human readable name for the media.
             url: A URL at which the specified media type can be accessed.
         The media list can support multiple modes.
         modeList: The list of modes that can be support as few or as many modes by the server are as follows:
@@ -62,8 +62,8 @@ traits:
                 "title": "My Playlist",
                 "mediaList": [
                   {
-                    "mediaName": "Song 1",
-                    "mediaDescription": "Long user-friendly synopsis of Song 1",
+                    "title": "Song 1",
+                    "description": "Long user-friendly synopsis of Song 1",
                     "url": "/example/url/1",
                     "sdp": [
                       "m=audio 2 RTP/AVP 97",
@@ -84,8 +84,8 @@ traits:
                       ]
                   },
                   {
-                    "mediaName": "Song 2",
-                    "mediaDescription": "Long user-friendly synopsis of Song 2",
+                    "title": "Song 2",
+                    "description": "Long user-friendly synopsis of Song 2",
                     "url": "/example/url/2",
                     "sdp": [
                       "m=audio 2 RTP/AVP 97",
@@ -106,8 +106,8 @@ traits:
                       ]
                   },
                   {
-                    "mediaName": "Song 3",
-                    "mediaDescription": "Long user-friendly synopsis of Song 3",
+                    "title": "Song 3",
+                    "description": "Long user-friendly synopsis of Song 3",
                     "url": "/example/url/3",
                     "sdp": [
                       "m=audio 2 RTP/AVP 97",
@@ -128,8 +128,8 @@ traits:
                       ]
                   },
                   {
-                    "mediaName": "Song 4",
-                    "mediaDescription": "Long user-friendly synopsis of Song 4",
+                    "title": "Song 4",
+                    "description": "Long user-friendly synopsis of Song 4",
                     "url": "/example/url/4",
                     "sdp": [
                       "m=audio 2 RTP/AVP 97",
@@ -236,8 +236,8 @@ traits:
               "title": "My Playlist",
               "mediaList": [
                 {
-                  "mediaName": "Song 1",
-                  "mediaDescription": "Long user-friendly synopsis of Song 1",
+                  "title": "Song 1",
+                  "description": "Long user-friendly synopsis of Song 1",
                   "url": "/example/url/1",
                   "sdp": [
                     "m=audio 2 RTP/AVP 97",
@@ -258,8 +258,8 @@ traits:
                     ]
                 },
                 {
-                  "mediaName": "Song 2",
-                  "mediaDescription": "Long user-friendly synopsis of Song 2",
+                  "title": "Song 2",
+                  "description": "Long user-friendly synopsis of Song 2",
                   "url": "/example/url/2",
                   "sdp": [
                     "m=audio 2 RTP/AVP 97",
@@ -280,8 +280,8 @@ traits:
                     ]
                 },
                 {
-                  "mediaName": "Song 3",
-                  "mediaDescription": "Long user-friendly synopsis of Song 3",
+                  "title": "Song 3",
+                  "description": "Long user-friendly synopsis of Song 3",
                   "url": "/example/url/3",
                   "sdp": [
                     "m=audio 2 RTP/AVP 97",
@@ -302,8 +302,8 @@ traits:
                     ]
                 },
                 {
-                  "mediaName": "Song 4",
-                  "mediaDescription": "Long user-friendly synopsis of Song 4",
+                  "title": "Song 4",
+                  "description": "Long user-friendly synopsis of Song 4",
                   "url": "/example/url/4",
                   "sdp": [
                     "m=audio 2 RTP/AVP 97",
