@@ -1,0 +1,66 @@
+{
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.image.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "Media Image",
+  "definitions": {
+    "oic.r.media.image": {
+      "type": "object",
+      "properties": {
+        "artists": {
+          "type": "array",
+          "description": "List of artists that recored the song",
+          "items": {
+            "type": "string"
+          }
+        },
+        "composers": {
+          "type": "array",
+          "description": "List of composers that wrote the song",
+          "items": {
+            "type": "string"
+          }
+        },
+        "album": {
+          "type": "string",
+          "description": "Which album the song and picture belongs to (if applicable)"
+        },
+        "albumArtwork":  {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "oic.r.icon-schema.json#/definitions/oic.r.icon"
+          },
+          "description": "The array of icons that are used as the Thumbnail of the album art or artist."
+        },
+        "track": {
+          "type": "integer",
+          "description": "The track number from the album"
+        },
+        "genre": {
+          "type": "string",
+          "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "The track number from the album"
+        },
+        "year": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Reference time for the The date and/or time that the media was published/created in ISO8601 format."
+        },
+        "copyright": {
+          "type": "string",
+          "description": "Copyright notice by the copyright holder"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"}
+    {"$ref": "#/definitions/oic.r.media.image"}
+  ]
+}

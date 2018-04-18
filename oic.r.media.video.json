@@ -1,0 +1,86 @@
+{
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.video.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "Media Video",
+  "definitions": {
+    "oic.r.media.video": {
+      "type": "object",
+      "properties": {
+        "cast": {
+          "type": "array",
+          "description": "List of cast that acted in the movie",
+          "items": {
+            "type": "string"
+          }
+        },
+        "directors": {
+          "type": "array",
+          "description": "List of directors that directed the movie",
+          "items": {
+            "type": "string"
+          }
+        },
+        "producers": {
+          "type": "array",
+          "description": "List of producers that produced the movie",
+          "items": {
+            "type": "string"
+          }
+        },
+        "studio": {
+          "type": "array",
+          "description": "List of studios that produced the movie",
+          "items": {
+            "type": "string"
+          }
+        },
+        "writers": {
+          "type": "array",
+          "description": "List of writers that wrote the movie",
+          "items": {
+            "type": "string"
+          }
+        },
+        "music": {
+          "type": "array",
+          "description": "List of music that wrote the music",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coverArtwork":  {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "oic.r.icon-schema.json#/definitions/oic.r.icon"
+          },
+          "description": "The array of icons that are used as the Thumbnail of the cover art or artist."
+        },
+        "genre": {
+          "type": "string",
+          "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "The track number from the album"
+        },
+        "year": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Reference time for the The date and/or time that the media was published/created in ISO8601 format."
+        },
+        "copyright": {
+          "type": "string",
+          "description": "Copyright notice by the copyright holder"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"}
+    {"$ref": "#/definitions/oic.r.media.video"}
+  ]
+}
