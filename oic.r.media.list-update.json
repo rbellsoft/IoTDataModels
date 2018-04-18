@@ -76,7 +76,7 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "$ref": "oic.r.media-update.json#/definitions/oic.r.media"
+            "$ref": "oic.r.media-core.json#/definitions/oic.r.media-core"
           },
           "description": "The array of media resources in the media list."
         },
