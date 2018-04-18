@@ -2,9 +2,9 @@
   "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media-core.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
-  "title": "Media",
+  "title": "Media Core",
   "definitions": {
-    "oic.r.media-core": {
+    "oic.r.media.core": {
       "type": "object",
       "properties": {
         "title": {
@@ -42,7 +42,7 @@
   "type": "object",
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
-    {"$ref": "#/definitions/oic.r.media"}
+    {"$ref": "#/definitions/oic.r.media.core"}
   ],
   "required": ["title","url","sdp"]
 }
