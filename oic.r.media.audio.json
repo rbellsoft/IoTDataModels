@@ -60,7 +60,7 @@
   "type": "object",
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
-    {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"}
+    {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"},
     {"$ref": "#/definitions/oic.r.media.audio"}
   ]
 }
