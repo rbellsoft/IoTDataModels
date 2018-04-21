@@ -11,14 +11,9 @@
           "type": "string",
           "description": "Specifies the Short user-friendly name of the media"
         },
-        "description": {
-          "type": "string",
-          "readOnly": true,
-          "description": "Specifies the Long user-friendly synopsis of the media"
-        },
         "url": {
           "type": "string",
-          "description": "url for the media instance"
+          "description": "url for the media content"
         },
         "sdp": {
           "type": "array",
@@ -27,6 +22,11 @@
             "type": "string",
             "description": "SDP media or attribute line"
           }
+        },
+        "description": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Specifies the Long user-friendly synopsis of the media content"
         },
         "mediaArtwork":  {
           "type": "array",
