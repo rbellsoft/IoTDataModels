@@ -1,0 +1,68 @@
+#%RAML 0.8
+title: OICMediaText
+version: v1.1.0-20180418
+documentation:
+  - title: © 2018 Open Connectivity Foundation, Inc. All rights reserved.
+    content: |
+        Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+schemas:
+  - MediaText: !include oic.r.media.text.json
+
+traits:
+  - interface:
+      queryParameters:
+        if:
+            enum: ["oic.if.rw","oic.if.baseline"]
+
+/MediaTextResURI:
+  description: |
+    This resource specifies the media types that an OCF Server supports.
+    The resource is an array of media elements.  Each element contains:
+        A URL at which the specified media type can be accessed.
+        A string array containing the definition of the media using SDP.
+        Each entry in the sdp array is an SDP line.
+        Each line shall follow the SDP description syntax as defined in the SDP specification.
+    The SDP specification can be found at http://tools.ietf.org/html/rfc4566.
+
+  displayName: Media Text
+  is: [ interface ]
+
+  get:
+    description: |
+      Retrieves the current media text resource.
+    responses:
+      200:
+        body:
+          application/json:
+            schema: MediaText
+            example: |
+              {
+              "rt": ["oic.r.media.text"],
+              "id": "unique_example_id",
+              "title": "Book 1",
+              "description": "Long user-friendly synopsis of Book 1",
+              "url": "/example/url/1",
+              "sdp": [
+                "m=text 49156 RTP/AVP 100 101",
+                "a=rtpmap:100 1140/1000",
+                "a=rtpmap:101 red/1000",
+                "a=fmtp:101 100/100/100"
+                ],
+              "mediaArtwork": [
+                {
+                  "href": "/local-book1_artwork",
+                  "mimetype": "image/png",
+                  "width": 256,
+                  "height": 256,
+                  "media": "book1.png",
+                  "rel": "icon",
+                  "ins": "uuid:UUID",
+                  "rt": ["oic.r.icon"],
+                  "if": ["oic.if.r"]
+                  }
+                ]
+              }
