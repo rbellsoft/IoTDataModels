@@ -1,29 +1,29 @@
 {
-  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.book.json#",
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.text.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
-  "title": "Media Book",
+  "title": "Media Text",
   "definitions": {
-    "oic.r.media.book": {
+    "oic.r.media.text": {
       "type": "object",
       "properties": {
         "author": {
           "type": "array",
-          "description": "List of authors that wrote the book",
+          "description": "List of authors that wrote the text",
           "items": {
             "type": "string"
           }
         },
         "publishers": {
           "type": "array",
-          "description": "List of publishers that released the book",
+          "description": "List of publishers that released the text",
           "items": {
             "type": "string"
           }
         },
         "series": {
           "type": "array",
-          "description": "List of series for the book",
+          "description": "List of series for the text",
           "items": {
             "type": "string"
           }
@@ -42,11 +42,11 @@
         },
         "page": {
           "type": "integer",
-          "description": "The page in the book"
+          "description": "The page in the text"
         },
         "totalpages": {
           "type": "integer",
-          "description": "The total number of pages in the book"
+          "description": "The total number of pages in the text"
         },
         "genre": {
           "type": "string",
@@ -68,6 +68,6 @@
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"},
-    {"$ref": "#/definitions/oic.r.media.book"}
+    {"$ref": "#/definitions/oic.r.media.text"}
   ]
 }
