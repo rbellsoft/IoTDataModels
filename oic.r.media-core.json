@@ -39,10 +39,9 @@
           "type": "string",
           "description": "Meta-Data File Type for media content"
         },
-        "date": {
+        "datetime": {
           "type": "string",
-          "format": "date-time",
-          "description": "The date and/or time that the media was published/created"
+          "description": "The date and/or time that the media was published/created using ISO-8601 format (e.g: 2007-04-05T14:30Z, 2007-04-05T14:30+09:00)."
         },
         "copyright": {
           "type": "string",
