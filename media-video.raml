@@ -45,11 +45,8 @@ traits:
               "id": "unique_example_id",
               "title": "Video 1",
               "description": "Long user-friendly synopsis of Video 1",
-              "url": "/example/url/1",
-              "sdp": [
-                "m=video 51372 RTP/AVP 99",
-                "a=rtpmap:99 h263-1998/90000"
-                ],
+              "mediaFile": "/example/url/1",
+              "mediaType": "video",
               "mediaArtwork": [
                 {
                   "href": "/local-video1_artwork",
@@ -62,5 +59,9 @@ traits:
                   "rt": ["oic.r.icon"],
                   "if": ["oic.if.r"]
                   }
-                ]
+                ],
+                "sdp": [
+                  "m=video 51372 RTP/AVP 99",
+                  "a=rtpmap:99 h263-1998/90000"
+                  ]
               }

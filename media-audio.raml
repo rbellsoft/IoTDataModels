@@ -45,11 +45,8 @@ traits:
               "id": "unique_example_id",
               "title": "Song 1",
               "description": "Long user-friendly synopsis of Song 1",
-              "url": "/example/url/1",
-              "sdp": [
-                "m=audio 2 RTP/AVP 97",
-                "a=rtpmap:97 MP4A-LATM/90000"
-                ],
+              "mediaFile": "/example/url/1",
+              "mediaType": "audio",
               "mediaArtwork": [
                 {
                   "href": "/local-song1_artwork",
@@ -62,5 +59,9 @@ traits:
                   "rt": ["oic.r.icon"],
                   "if": ["oic.if.r"]
                   }
-                ]
+                ],
+                "sdp": [
+                  "m=audio 2 RTP/AVP 97",
+                  "a=rtpmap:97 MP4A-LATM/90000"
+                  ]
               }

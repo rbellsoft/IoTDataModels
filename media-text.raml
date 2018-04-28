@@ -45,13 +45,8 @@ traits:
               "id": "unique_example_id",
               "title": "Book 1",
               "description": "Long user-friendly synopsis of Book 1",
-              "url": "/example/url/1",
-              "sdp": [
-                "m=text 49156 RTP/AVP 100 101",
-                "a=rtpmap:100 1140/1000",
-                "a=rtpmap:101 red/1000",
-                "a=fmtp:101 100/100/100"
-                ],
+              "mediaFile": "/example/url/1",
+              "mediaType": "text",
               "mediaArtwork": [
                 {
                   "href": "/local-book1_artwork",
@@ -64,5 +59,11 @@ traits:
                   "rt": ["oic.r.icon"],
                   "if": ["oic.if.r"]
                   }
-                ]
+                ],
+                "sdp": [
+                  "m=text 49156 RTP/AVP 100 101",
+                  "a=rtpmap:100 1140/1000",
+                  "a=rtpmap:101 red/1000",
+                  "a=fmtp:101 100/100/100"
+                  ]
               }

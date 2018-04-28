@@ -9,14 +9,8 @@
       "properties": {
         "artists": {
           "type": "array",
+          "minItems": 0,
           "description": "List of artists that recored the song",
-          "items": {
-            "type": "string"
-          }
-        },
-        "composers": {
-          "type": "array",
-          "description": "List of composers that wrote the song",
           "items": {
             "type": "string"
           }
@@ -31,28 +25,24 @@
           "items": {
             "$ref": "oic.r.icon-schema.json#/definitions/oic.r.icon"
           },
-          "description": "The array of icons that are used as the Thumbnail of the album art or artist."
+          "description": "The array of icons that are used as the album artwork."
         },
-        "track": {
-          "type": "integer",
-          "description": "The track number from the album"
+        "geoLocation": {
+          "type": "string",
+          "description": "Geolocation is the identification of the real-world geographic location of the image."
         },
-        "genre": {
+        "genres": {
+          "enum": ["Alternative Rock","Blues","Broadway Musicals","Children's Music","Christian Music","Classical Music","Classic Rock","Country","Folk","Gospel","Jazz","Latin Music","Metal","New Age","Opera & Classical Vocal","Pop","R&B","Rap & Hip-Hop","Reggae","Rock","Soundtracks"],
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
-        "duration": {
-          "type": "integer",
-          "description": "The track number from the album"
-        },
-        "year": {
+        "rating": {
           "type": "string",
-          "format": "date-time",
-          "description": "Reference time for the The date and/or time that the media was published/created in ISO8601 format."
+          "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
-        "copyright": {
+        "identificationNumber": {
           "type": "string",
-          "description": "Copyright notice by the copyright holder"
+          "description": "Unique identification number for image media content (ISSN: International_Standard_Serial_Number)"
         }
       }
     }

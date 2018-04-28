@@ -7,8 +7,18 @@
     "oic.r.media.text": {
       "type": "object",
       "properties": {
+        "sdp": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Array of strings, one per SDP line",
+          "items": {
+            "type": "string",
+            "description": "SDP media or attribute line"
+          }
+        },
         "author": {
           "type": "array",
+          "minItems": 0,
           "description": "List of authors that wrote the text",
           "items": {
             "type": "string"
@@ -16,6 +26,7 @@
         },
         "publishers": {
           "type": "array",
+          "minItems": 0,
           "description": "List of publishers that released the text",
           "items": {
             "type": "string"
@@ -23,22 +34,19 @@
         },
         "series": {
           "type": "array",
+          "minItems": 0,
           "description": "List of series for the text",
           "items": {
             "type": "string"
           }
         },
-        "album": {
-          "type": "string",
-          "description": "Which album the song and picture belongs to (if applicable)"
+        "chapter": {
+          "type": "integer",
+          "description": "The chapter in the text"
         },
-        "albumArtwork":  {
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "oic.r.icon-schema.json#/definitions/oic.r.icon"
-          },
-          "description": "The array of icons that are used as the Thumbnail of the album art or artist."
+        "totalchapters": {
+          "type": "integer",
+          "description": "The total number of chapters in the text"
         },
         "page": {
           "type": "integer",
@@ -48,18 +56,21 @@
           "type": "integer",
           "description": "The total number of pages in the text"
         },
-        "genre": {
+        "genres": {
           "type": "string",
-          "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+          "description": "Genres for a book"
         },
-        "year": {
+        "rating": {
           "type": "string",
-          "format": "date-time",
-          "description": "Reference time for the The date and/or time that the media was published/created in ISO8601 format."
+          "description": "Rating for a book"
         },
-        "copyright": {
+        "identificationNumber": {
           "type": "string",
-          "description": "Copyright notice by the copyright holder"
+          "description": "Unique identification number for text media content (ISBN: International_Standard_Book_Number)"
+        },
+        "currentLanguage": {
+          "type": "string",
+          "description": "Current language of the audio media content"
         }
       }
     }
