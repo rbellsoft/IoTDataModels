@@ -16,7 +16,7 @@
             "description": "SDP media or attribute line"
           }
         },
-        "author": {
+        "authors": {
           "type": "array",
           "minItems": 0,
           "description": "List of authors that wrote the text",

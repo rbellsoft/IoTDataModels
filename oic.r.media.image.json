@@ -32,7 +32,7 @@
           "description": "Geolocation is the identification of the real-world geographic location of the image."
         },
         "genres": {
-          "enum": ["Alternative Rock","Blues","Broadway Musicals","Children's Music","Christian Music","Classical Music","Classic Rock","Country","Folk","Gospel","Jazz","Latin Music","Metal","New Age","Opera & Classical Vocal","Pop","R&B","Rap & Hip-Hop","Reggae","Rock","Soundtracks"],
+          "enum": ["none","Alternative Rock","Blues","Broadway Musicals","Children's Music","Christian Music","Classical Music","Classic Rock","Country","Folk","Gospel","Jazz","Latin Music","Metal","New Age","Opera & Classical Vocal","Pop","R&B","Rap & Hip-Hop","Reggae","Rock","Soundtracks"],
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },

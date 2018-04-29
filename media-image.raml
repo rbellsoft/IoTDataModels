@@ -45,8 +45,11 @@ traits:
               "id": "unique_example_id",
               "title": "Image 1",
               "description": "Long user-friendly synopsis of Image 1",
-              "mediaFile": "/example/url/1",
               "mediaType": "image",
+              "mediaFile": "/example/url/Image1.tif",
+              "mediaFileType": "tif",
+              "datetime": "2018-04-26",
+              "copyright": "Copyright notice by the copyright holder for Image 1",
               "mediaArtwork": [
                 {
                   "href": "/local-image1_artwork",
@@ -59,5 +62,27 @@ traits:
                   "rt": ["oic.r.icon"],
                   "if": ["oic.if.r"]
                   }
-                ]
+                ],
+              "artists": [
+                      "Artist 1",
+                      "Artist 2"
+                      ],
+              "album": "Ablum Title 1",
+              "albumArtwork": [
+                {
+                  "href": "/local-album_artwork",
+                  "mimetype": "image/png",
+                  "width": 256,
+                  "height": 256,
+                  "media": "album.png",
+                  "rel": "icon",
+                  "ins": "uuid:UUID",
+                  "rt": ["oic.r.icon"],
+                  "if": ["oic.if.r"]
+                  }
+                ],
+              "geoLocation": "Location",
+              "genres": "none",
+              "rating": "none",
+              "identificationNumber": "ISSN:1234-5678"
               }

@@ -77,7 +77,7 @@
           }
         },
         "genres": {
-          "enum": ["Action", "Comedy", "Documentary", "Drama", "Musicals", "Romance"],
+          "enum": ["none", "Action", "Comedy", "Documentary", "Drama", "Musicals", "Romance"],
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
