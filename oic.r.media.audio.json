@@ -61,11 +61,12 @@
           }
         },
         "genres": {
-          "enum": ["none","Alternative Rock","Blues","Broadway Musicals","Children's Music","Christian Music","Classical Music","Classic Rock","Country","Folk","Gospel","Jazz","Latin Music","Metal","New Age","Opera & Classical Vocal","Pop","R&B","Rap & Hip-Hop","Reggae","rock","Soundtracks"],
+          "enum": ["none","alternative & indie rock","blues","broadway & vocalists","children's music","christian","classical","classic rock","comedy & miscellaneoous","country","dance & electronic","folk","gospel","hard rock & metal","holday music","jazz","latin music","new age","opera & vocal","pop","r&b","rap & hip-hop","reggae","rock","soundtracks","world music"],
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
         "rating": {
+          "enum": ["none","Parental Advisory - Explicit Content"],
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },

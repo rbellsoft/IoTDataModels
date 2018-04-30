@@ -33,6 +33,7 @@
         },
         "metadataFile": {
           "type": "string",
+          "format": "uri",
           "description": "Meta-Data File for media content"
         },
         "metadataFileType": {

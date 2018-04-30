@@ -56,7 +56,13 @@
           "type": "integer",
           "description": "The total number of pages in the text"
         },
+        "format": {
+          "enum": ["none","paperback","hardcover","kindle edition","large print","audible audio edition","printed access code","digital access code","loose leaf","audio cd","board book"],
+          "type": "string",
+          "description": "Format for a book"
+        },
         "genres": {
+          "enum": ["none","arts & photography","biographies & memoirs","business & money","calendars","children's books","christian books & bibles","comics & graphic novel","computer &  technology","cookboks, food & wine","crafts, hobbies & home","education & teaching","engineering & transportation","gay & lesbian","health, fitness & dieting","history","humor & entertainment","law","literature & fiction","medical books","mystery, thriller & suspense","parenting & relationship","politics & social sciences","reference","religion & spirituality","romance","science & math","science fiction & fantasy","self-help","sports & outdoors","teen & young adult","test preparation","travel"],
           "type": "string",
           "description": "Genres for a book"
         },

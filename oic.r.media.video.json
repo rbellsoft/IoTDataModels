@@ -76,14 +76,20 @@
             "type": "string"
           }
         },
+        "format": {
+          "enum": ["none","blu-ray","dvd","4K ultra hd","digital video"],
+          "type": "string",
+          "description": "Format for a video"
+        },
         "genres": {
-          "enum": ["none", "Action", "Comedy", "Documentary", "Drama", "Musicals", "Romance"],
+          "enum": ["none","action & adventure","animation","anime","bollywood","classics","comedy","documentary","drama","educational","exercise & fitness","faith & spirituality","fantasy","foreign","horror","kids & family","military & war","music videos & concerts","musicals","mystery & thrillers","performing arts","reality tv","romance","science fiction","special interests","sports","tv game shows","tv news programming","tv talk shows","western"],
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
         "rating": {
+          "enum": ["Not rated","G","PG","PG-13","R","NC-17"],
           "type": "string",
-          "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+          "description": "These are motion picture content rating system for United States."
         },
         "identificationNumber": {
           "type": "string",
