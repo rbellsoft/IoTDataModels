@@ -40,17 +40,9 @@
             "type": "string"
           }
         },
-        "chapter": {
-          "type": "integer",
-          "description": "The chapter in the text"
-        },
         "totalchapters": {
           "type": "integer",
           "description": "The total number of chapters in the text"
-        },
-        "page": {
-          "type": "integer",
-          "description": "The page in the text"
         },
         "totalpages": {
           "type": "integer",
