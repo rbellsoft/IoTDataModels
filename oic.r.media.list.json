@@ -2,7 +2,7 @@
   "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.list.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
-  "title": "Media List",
+  "title": "Media List - Get",
   "definitions": {
     "oic.r.media.action": {
       "type": "object",

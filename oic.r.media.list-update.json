@@ -1,8 +1,8 @@
 {
-  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.list.json#",
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.list-update.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
-  "title": "Media List",
+  "title": "Media List Update - Post",
   "definitions": {
     "oic.r.media.action": {
       "type": "object",
@@ -65,7 +65,7 @@
       },
       "required": ["action"]
     },
-    "oic.r.media.list": {
+    "oic.r.media.list-update": {
       "type": "object",
       "properties": {
         "title": {
@@ -148,6 +148,6 @@
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "oic.core-schema.json#/definitions/oic.core"},
-    {"$ref": "#/definitions/oic.r.media.list"}
+    {"$ref": "#/definitions/oic.r.media.list-update"}
   ]
 }

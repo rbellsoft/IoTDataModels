@@ -21,7 +21,7 @@ traits:
 
 /mediaListResURI:
   description: |
-    This resource specifies the media control capabilities of a device.
+    This resource specifies the media list capabilities of a device.
   displayName: Media List
 
   get:
@@ -215,7 +215,7 @@ traits:
   post:
     is: [ interface ]
     description: |
-      Sets the current media control values
+      Sets the current media list values
     body:
       application/json:
         schema: MediaListUpdate
