@@ -58,9 +58,23 @@
           "type": "string",
           "description": "Genres for a book"
         },
-        "rating": {
-          "type": "string",
-          "description": "Rating for a book"
+        "ratinginfo": {
+          "type": "array",
+          "description": "The rating information which includes the rating organization and rating.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ratingorganization": {
+                "type": "string",
+                "description": "These are text/book content rating organization."
+              },
+              "rating": {
+                "enum": ["none","adult-content"],
+                "type": "string",
+                "description": "Rating for a text/book"
+              }
+            }
+          }
         },
         "identificationNumber": {
           "type": "string",

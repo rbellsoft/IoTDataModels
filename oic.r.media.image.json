@@ -31,15 +31,43 @@
           "type": "string",
           "description": "Geolocation is the identification of the real-world geographic location of the image."
         },
+        "elevation": {
+          "type": "number",
+          "readOnly": true,
+          "description": "The current height of the position (metres) from sea level"
+        },
+        "latitude": {
+          "type": "number",
+          "readOnly": true,
+          "description": "Device's Current Latitude coordinate (degrees)"
+        },
+        "longitude": {
+          "type": "number",
+          "readOnly": true,
+          "description": "Device's Current Longitude coordinate (degrees)"
+        },
         "genres": {
           "enum": ["none","arts","classic","family"],
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
-        "rating": {
-          "enum": ["none","x-rated"],
-          "type": "string",
-          "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+        "ratinginfo": {
+          "type": "array",
+          "description": "The rating information which includes the rating organization and rating.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ratingorganization": {
+                "type": "string",
+                "description": "These are image content rating organization."
+              },
+              "rating": {
+                "enum": ["none","x-rated"],
+                "type": "string",
+                "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+              }
+            }
+          }
         },
         "identificationNumber": {
           "type": "string",
