@@ -1,5 +1,5 @@
 #%RAML 0.8
-title: OICMediaList
+title: OICMediaPlayList
 version: v1.1.0-20180323
 documentation:
   - title: © 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -10,8 +10,8 @@ documentation:
 
         THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 schemas:
-  - MediaList: !include oic.r.media.list.json
-  - MediaListUpdate: !include oic.r.media.list-update.json
+  - MediaPlayList: !include oic.r.media.playlist.json
+  - MediaPlayListUpdate: !include oic.r.media.playlist-update.json
 
 traits:
   - interface:
@@ -19,10 +19,10 @@ traits:
         if:
           enum: ["oic.if.rw","oic.if.baseline"]
 
-/mediaListResURI:
+/mediaPlayListResURI:
   description: |
-    This resource specifies the media list capabilities of a device.
-  displayName: Media List
+    This resource specifies the play list capabilities of a device.
+  displayName: Play List
 
   get:
     is: [ interface]
@@ -33,6 +33,18 @@ traits:
             title: A human readable name for the media.
             url: A URL at which the specified media type can be accessed.
         The media list can support multiple modes.
+        modeList: The list of modes that can be support as few or as many modes by the server are as follows:
+            - none: no mode indicated
+            - autoadvance: The currentitem auto advances to the next item in the media list
+            - repeat: The currentitem is left to same
+            - repeatall: If the item has reached the end of the list start again
+            - reverse: The currentitem auto advances to the next item in the media list in reverse order
+            - shuffle: Change currentitem to a random value that has not been already selected
+            - random: Change currentitem to a random value in the list
+        currentMode: This is the current mode and what the server should do when an the media in the list has completed.
+          The default will be autoadvance.
+        mediaDelay: The media delay is how long the server will wait after changing the current media before the next the media.
+          Used to give clients time to respond to list changes default 0
         currentItem: This is the current item selected.
         itemList: Is an array showing the list of indices and the arranged order of the media list.
         mediaListArtwork: Is an array of artwork that is associated to the media list.
@@ -42,12 +54,12 @@ traits:
       200:
         body:
           application/json:
-            schema: MediaList
+            schema: MediaPlayList
             example: |
               {
-                "rt": ["oic.r.media.list"],
+                "rt": ["oic.r.media.playlist"],
                 "id": "unique_example_id",
-                "title": "My Playlist",
+                "title": "My PlayList",
                 "mediaList": [
                   {
                     "title": "Song 1",
@@ -138,6 +150,8 @@ traits:
                       ]
                   }
                 ],
+                "currentMode": "autoadvance",
+                "mediaDelay": 0,
                 "currentItem": 1,
                 "itemList": [0, 1, 2, 3],
                 "mediaListArtwork" : [
@@ -167,32 +181,32 @@ traits:
                 "actions" :  [
                   {
                     "action": "next",
-                    "href": "mediaListResURI?currentitem=nextitem",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
                     "rel":   "self"
                   },
                   {
                     "action": "insert",
-                    "href": "mediaListResURI?currentitem=nextitem",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
                     "rel":   "self"
                   },
                   {
                     "action": "delete",
-                    "href": "mediaListResURI?currentitem=nextitem",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
                     "rel":   "self"
                   },
                   {
                     "action": "append",
-                    "href": "mediaListResURI?currentitem=nextitem",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
                     "rel":   "self"
                   },
                   {
                     "action": "previous",
-                    "href": "mediaListResURI?currentitem=lastitem",
+                    "href": "mediaPlayListResURI?currentitem=lastitem",
                     "rel":   "self"
                   },
                   {
                     "action": "select",
-                    "href": "mediaListResURI?currentitem=3",
+                    "href": "mediaPlayListResURI?currentitem=3",
                     "rel":   "self"
                   }
                ]
@@ -201,10 +215,10 @@ traits:
   post:
     is: [ interface ]
     description: |
-      Sets the current media list values
+      Sets the current play list values
     body:
       application/json:
-        schema: MediaListUpdate
+        schema: MediaPlayListUpdate
         example: |
           {
           "id":            "unique_example_id",
@@ -214,12 +228,12 @@ traits:
       200:
         body:
           application/json:
-            schema: MediaListUpdate
+            schema: MediaPlayListUpdate
             example: |
               {
-              "rt":            ["oic.r.media.list"],
+              "rt":            ["oic.r.media.playlist"],
               "id":            "unique_example_id",
-              "title": "My Playlist",
+              "title": "My PlayList",
               "mediaList": [
                 {
                   "title": "Song 1",
@@ -310,6 +324,8 @@ traits:
                     ]
                 }
               ],
+              "currentMode": "autoadvance",
+              "modeDelay": 0,
               "currentItem":   3,
               "itemList": [0, 1, 2, 3],
               "mediaListArtwork" : [
@@ -339,32 +355,32 @@ traits:
               "actions" :  [
                 {
                   "action": "next",
-                  "href": "mediaListResURI?currentitem=nextitem",
+                  "href": "mediaPlayListResURI?currentitem=nextitem",
                   "rel":   "self"
                 },
                 {
                   "action": "insert",
-                  "href": "mediaListResURI?currentitem=nextitem",
+                  "href": "mediaPlayListResURI?currentitem=nextitem",
                   "rel":   "self"
                 },
                 {
                   "action": "delete",
-                  "href": "mediaListResURI?currentitem=nextitem",
+                  "href": "mediaPlayListResURI?currentitem=nextitem",
                   "rel":   "self"
                 },
                 {
                   "action": "append",
-                  "href": "mediaListResURI?currentitem=nextitem",
+                  "href": "mediaPlayListResURI?currentitem=nextitem",
                   "rel":   "self"
                 },
                 {
                   "action": "previous",
-                  "href": "mediaListResURI?currentitem=lastitem",
+                  "href": "mediaPlayListResURI?currentitem=lastitem",
                   "rel":   "self"
                 },
                 {
                   "action": "select",
-                  "href": "mediaListResURI?currentitem=3",
+                  "href": "mediaPlayListResURI?currentitem=3",
                   "rel":   "self"
                 }
               ]
