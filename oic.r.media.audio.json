@@ -76,7 +76,6 @@
                 "description": "These are audio content rating organization."
               },
               "rating": {
-                "enum": ["none","Parental Advisory - Explicit Content"],
                 "type": "string",
                 "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
               }

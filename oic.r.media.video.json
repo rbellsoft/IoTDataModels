@@ -105,7 +105,7 @@
           "type": "string",
           "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
-        "ratings": {
+        "ratinginfo": {
           "type": "array",
           "description": "The rating information which includes the rating organization and rating.",
           "items": {
