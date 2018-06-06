@@ -1,5 +1,5 @@
 #%RAML 0.8
-title: OICWeight
+title: OICGlucoseSampleLocation
 version: v1.1.0-20160519
 documentation:
   - title: Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -10,7 +10,7 @@ documentation:
 
         THIS SOFTWARE IS PROVIDED BY THE OPEN INTERCONNECT CONSORTIUM, INC. "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE OPEN INTERCONNECT CONSORTIUM, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 schemas:
-  - Weight: !include oic.r.weight.json
+  - GlucoseSampleLocation: !include oic.r.glucose.samplelocation.json
 
 traits:
   - interface:
@@ -18,29 +18,26 @@ traits:
         if:
           enum: ["oic.if.s","oic.if.baseline"]
 
-/WeightResURI:
+/GlucoseSampleLocationResURI:
   description: |
-    This resource describes the properties associated with weight of an object.
-    The unit is a single value that is one of kg, g, lb or oz.
-    If the unit Property is missing the default is kilograms [kg].
-    The unit Property is a read-only value that is provided by the server.
-    When range (from oic.r.baseresource) is omitted the default is 0 to +MAXFLOAT.
+    This resource describes the properties associated with context Sample Location.
+    AST means Alternative Site Test specifying that the location of test performed was from an alternative site on the body.
+    The samplelocation Property is a read-only value that is provided by the server.
 
-  displayName: Weight
+  displayName: Context Sample Location for Glucose Meter
   is: [ interface ]
 
   get:
     description: |
-      Retrieves weight of an object.
+      Retrieves Context Sample Location for Glucose Meter.
     responses:
       200:
         body:
           application/json:
-            schema: Weight
+            schema: GlucoseSampleLocation
             example: |
               {
-                "rt":     ["oic.r.weight"],
-                "id":     "unique_example_id",
-                "weight": 80.0,
-                "units":   "kg"
+                "rt":               ["oic.r.glucose.samplelocation"],
+                "id":               "unique_example_id",
+                "samplelocation":   "finger"
               }
