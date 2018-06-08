@@ -1,5 +1,5 @@
 {
-  "id": "http://openinterconnect.org/schemas/oic.r.sensor.geolocation#",
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.sensor.geolocatio.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Copyright (c) 2016, 2017 Open Interconnect Consortium, Inc. All rights reserved.",
   "title": "Geolocation",
@@ -54,5 +54,5 @@
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "#/definitions/oic.r.sensor.geolocation"}
   ],
-  "required": ["latitude", "longitude", "alt"]
+  "required": ["latitude", "longitude", "altitude"]
 }

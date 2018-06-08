@@ -27,24 +27,12 @@
           },
           "description": "The array of icons that are used as the album artwork."
         },
-        "geoLocation": {
+        "location": {
           "type": "string",
           "description": "Geolocation is the identification of the real-world geographic location of the image."
         },
-        "elevation": {
-          "type": "number",
-          "readOnly": true,
-          "description": "The current height of the position (metres) from sea level"
-        },
-        "latitude": {
-          "type": "number",
-          "readOnly": true,
-          "description": "Device's Current Latitude coordinate (degrees)"
-        },
-        "longitude": {
-          "type": "number",
-          "readOnly": true,
-          "description": "Device's Current Longitude coordinate (degrees)"
+        "geolocation": {
+          "$ref": "oic.r.sensor.geolocation.json#/definitions/oic.r.sensor.geolocation"
         },
         "genres": {
           "enum": ["none","arts","classic","family"],

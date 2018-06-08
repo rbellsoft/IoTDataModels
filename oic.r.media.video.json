@@ -81,24 +81,12 @@
           "type": "string",
           "description": "Format for a video"
         },
-        "geoLocation": {
+        "location": {
           "type": "string",
           "description": "Geolocation is the identification of the real-world geographic location of the image."
         },
-        "elevation": {
-          "type": "number",
-          "readOnly": true,
-          "description": "The current height of the position (metres) from sea level"
-        },
-        "latitude": {
-          "type": "number",
-          "readOnly": true,
-          "description": "Device's Current Latitude coordinate (degrees)"
-        },
-        "longitude": {
-          "type": "number",
-          "readOnly": true,
-          "description": "Device's Current Longitude coordinate (degrees)"
+        "geolocation": {
+          "$ref": "oic.r.sensor.geolocation.json#/definitions/oic.r.sensor.geolocation"
         },
         "genres": {
           "enum": ["none","action & adventure","animation","anime","bollywood","classics","comedy","documentary","drama","educational","exercise & fitness","faith & spirituality","fantasy","foreign","horror","kids & family","military & war","music videos & concerts","musicals","mystery & thrillers","performing arts","reality tv","romance","science fiction","special interests","sports","tv game shows","tv news programming","tv talk shows","western"],
