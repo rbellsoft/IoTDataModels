@@ -6,41 +6,44 @@
   "definitions": {
     "oic.r.media.playlist-update": {
       "type": "object",
-      "properties": {
-        "modeList": {
-          "type": "array",
-          "minItems": 1,
-          "readOnly": true,
-          "items": {
-            "type": "string",
-            "enum": ["none", "autoadvance", "repeat", "repeatall", "reverse", "shuffle", "random"]
-          },
-          "description": "modeList is list of modes that the server supports."
-        },
-        "currentMode": {
-          "type": "string",
-          "default": "autoadvance",
-          "description": "This is the current mode and what the server should do when an the media in the list has completed. The default will be autoadvance."
-        },
-        "mediaDelay": {
-          "type": "number",
-          "description": "The media delay is how long the server will wait after changing the current media before the next the media. Used to give clients time to respond to list changes default 0.",
-          "default": 0
-        }
-      },
-      "anyOf": [
-          {"required": ["title"]},
-          {"required": ["currentItem"]},
-          {"required": ["currentMode"]},
-          {"required": ["itemList"]},
-          {"required": ["actions"]}
-      ]
+      "allOf": [
+        {"$ref": "oic.r.media.list-update.json#/definitions/oic.r.media.list-update"},
+        {"properties": {
+           "modeList": {
+             "type": "array",
+             "minItems": 1,
+             "readOnly": true,
+             "items": {
+               "type": "string",
+               "enum": ["none", "autoadvance", "repeat", "repeatall", "reverse", "shuffle", "random"]
+               },
+             "description": "modeList is list of modes that the server supports."
+           },
+           "currentMode": {
+             "type": "string",
+             "default": "autoadvance",
+             "description": "This is the current mode and what the server should do when an the media in the list has completed. The default will be autoadvance."
+           },
+           "mediaDelay": {
+             "type": "number",
+             "description": "The media delay is how long the server will wait in seconds after changing the current media before the next the media. Used to give clients time to respond to list changes default 0.",
+             "default": 0
+           }
+         }
+       }
+     ]
     }
   },
   "type": "object",
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
-    {"$ref": "oic.r.media.list-update.json#/definitions/oic.r.media.list-update"},
     {"$ref": "#/definitions/oic.r.media.playlist-update"}
+  ],
+  "anyOf": [
+      {"required": ["title"]},
+      {"required": ["currentItem"]},
+      {"required": ["currentMode"]},
+      {"required": ["itemList"]},
+      {"required": ["actions"]}
   ]
 }
