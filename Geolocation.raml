@@ -22,10 +22,10 @@ traits:
   description: |
     This resource describes the properties associated with the current geolocation coordinate.
     Geolocation is a geolocation coordinate data.
-    Latitude is a device's current Latitude coordinate (degrees).
-    Longitude is a device's current Longitude coordinate (degrees).
-    Altitude is a device's current Altitude position (metres).
-    Accuracy is the accuracy level of the latitude and longitude coordinates (metres).
+    latitude is a device's current Latitude coordinate (degrees).
+    longitude is a device's current Longitude coordinate (degrees).
+    altitude is a device's current Altitude position (metres).
+    accuracy is the accuracy level of the latitude and longitude coordinates (metres).
     altitudeAccuracy is the accuracy level of the altitude coordinates (metres).
     heading is a direction of travel of device (degree).
     speed is a device's current velocity (metres per second).
@@ -42,13 +42,43 @@ traits:
             schema: Geolocation
             example: |
               {
-                "rt":         ["oic.r.sensor.geolocation"],
-                "id":         "unique_example_id",
-                "latitude":  55.070859,
+                "rt": ["oic.r.sensor.geolocation"],
+                "id": "unique_example_id",
+                "latitude": 55.070859,
                 "longitude": -3.60512,
                 "altitude": 12.07,
                 "accuracy": 65.0,
                 "altitudeAccuracy": 0.0,
                 "heading": 90.0,
                 "speed": 0.0
+              }
+
+  post:
+    description: |
+      Set the geolocation coordinates.
+    body:
+      application/json:
+        schema: Geolocation
+        example: |
+          {
+            "id": "unique_example_id",
+            "latitude": 36.4643308,
+            "longitude": -116.86906640000001,
+            "altitude": -62.1
+          }
+    responses:
+      200:
+        description: |
+          Indicates that the geolocation was changed.
+          The new geolocation is provided in the response.
+        body:
+          application/json:
+            schema: Geolocation
+            example: |
+              {
+                "rt": ["oic.r.sensor.geolocation"],
+                "id": "unique_example_id",
+                "latitude": 36.4643308,
+                "longitude": -116.86906640000001,
+                "altitude": -62.1
               }
