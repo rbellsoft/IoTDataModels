@@ -38,5 +38,33 @@ traits:
               {
                 "rt":  ["oic.r.altimeter"],
                 "id":  "unique_example_id",
-                "altitude":  1500.0
+                "altitude":  1500.0,
+                "altitudereference": "sea-level"
+              }
+
+  post:
+    description: |
+      Set the height of the altiitude position (metres) from altitudereference property.
+    body:
+      application/json:
+        schema: Altimeter
+        example: |
+          {
+            "altitude": -62.1,
+            "altitudereference": "ground-level"
+          }
+    responses:
+      200:
+        description: |
+          Indicates that the altitude and  altitudereference was changed.
+          The new altitiude and altitudereference is provided in the response.
+        body:
+          application/json:
+            schema: Altimeter
+            example: |
+              {
+                "rt": ["oic.r.geolocation"],
+                "id": "unique_example_id",
+                "altitude": -62.1,
+                "altitudereference": "ground-level"
               }

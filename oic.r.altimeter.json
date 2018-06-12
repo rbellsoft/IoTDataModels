@@ -9,7 +9,12 @@
       "properties": {
         "altitude": {
           "type": "number",
-          "description": "The current height of the position (metres) from sea-level"
+          "description": "The current height of the position (metres) from as defined by the altitudereference property."
+        },
+        "altitudereference": {
+          "type": "string",
+          "default": "sea-level",
+          "description": "altitudereference is the reference datum point that altitude is being mesured from. The default will be sea-level."
         }
       }
     }
