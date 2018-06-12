@@ -1,10 +1,10 @@
 {
-  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.sensor.geolocation.json#",
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.geolocation.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Copyright (c) 2016-2018 Open Interconnect Consortium, Inc. All rights reserved.",
   "title": "Geolocation",
   "definitions": {
-    "oic.r.sensor.geolocation": {
+    "oic.r.geolocation": {
       "type": "object",
       "allOf": [
         {"$ref": "oic.r.altimeter.json#/definitions/oic.r.altimeter"},
@@ -46,7 +46,7 @@
   "type": "object",
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
-    {"$ref": "#/definitions/oic.r.sensor.geolocation"}
+    {"$ref": "#/definitions/oic.r.geolocation"}
   ],
   "required": ["latitude", "longitude"]
 }
