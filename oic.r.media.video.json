@@ -83,7 +83,7 @@
         },
         "location": {
           "type": "string",
-          "description": "Location is the user-friendly string of the geographic location of the image."
+          "description": "Location is the user-friendly string of the geographic location of the video."
         },
         "geolocation": {
           "$ref": "oic.r.geolocation.json#/definitions/oic.r.geolocation"
