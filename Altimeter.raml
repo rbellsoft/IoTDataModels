@@ -17,12 +17,17 @@ traits:
   - interface:
       queryParameters:
         if:
-          enum: ["oic.if.s","oic.if.baseline"]
+          enum: ["oic.if.rw","oic.if.s","oic.if.baseline"]
 
 /AltimeterResURI:
   description: |
-    This resource describes the properties associated with altimeter.
-    Altimeter is a height of the position (metres).
+    This resource describes the sensed or the definable properties associated with altimeter.
+    The resource can be readonly (oic.if.s interface) in which instance it represents a sensor.
+    The resource can be readwrite (oic.if.rw interface) in which instance it represents not sensor and updatable.
+    altitude is height of the position (metres) from as defined by the altitudereference property.
+    altitudereference is the reference datum point that altitude is being mesured from. The default will be sea-level.
+
+
   displayName: Altimeter
   is: [ interface ]
 
@@ -45,6 +50,7 @@ traits:
   post:
     description: |
       Set the height of the altiitude position (metres) from altitudereference property.
+      In addition, set the reference datum point that altitude is being mesured from. The default will be sea-level.
     body:
       application/json:
         schema: Altimeter

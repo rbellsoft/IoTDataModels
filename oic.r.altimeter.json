@@ -9,7 +9,7 @@
       "properties": {
         "altitude": {
           "type": "number",
-          "description": "The current height of the position (metres) from as defined by the altitudereference property."
+          "description": "altitude is height of the position (metres) from as defined by the altitudereference property."
         },
         "altitudereference": {
           "type": "string",
