@@ -10,7 +10,7 @@
         "alt": {
           "type": "number",
           "readOnly": true,
-          "description": "The current height of the position (metres) referenced from sea-level."
+          "description": "The current distance (metres) above or below ‘local’ sea-level"
         }
       }
     }

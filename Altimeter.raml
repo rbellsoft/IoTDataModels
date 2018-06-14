@@ -22,13 +22,13 @@ traits:
 /AltimeterResURI:
   description: |
     This resource describes the properties associated with altimeter.
-    alt is the height of the position (metres) referenced from sea-level.
+    alt is the distance (metres) above or below ‘local’ sea-level.
   displayName: Altimeter
   is: [ interface ]
 
   get:
     description: |
-      Retrieves the current the height of the position (metres) referenced from sea-level.
+      Retrieves the current the distance (metres) above or below ‘local’ sea-level.
     responses:
       200:
         body:
