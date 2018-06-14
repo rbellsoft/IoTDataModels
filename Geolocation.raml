@@ -10,23 +10,21 @@ documentation:
 
         THIS SOFTWARE IS PROVIDED BY THE OPEN INTERCONNECT CONSORTIUM, INC. "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE OPEN INTERCONNECT CONSORTIUM, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 schemas:
-  - Geolocation: !include oic.r.geolocation.json
+  - Geolocation: !include oic.r.sensor.geolocation.json
 
 traits:
   - interface:
       queryParameters:
         if:
-          enum: ["oic.if.rw","oic.if.s","oic.if.baseline"]
+          enum: ["oic.if.s","oic.if.baseline"]
 
 /GeolocationResURI:
   description: |
-    This resource describes the sensed or the definable properties associated with the current geolocation coordinate.
-    The resource can be readonly (oic.if.s interface) in which instance it represents a sensor.
-    The resource can be readwrite (oic.if.rw interface) in which instance it represents not sensor and updatable.
+    This resource describes the properties associated with the current geolocation coordinate.
     Geolocation is a geolocation coordinate data.
     latitude is a device's current Latitude coordinate (degrees).
     longitude is a device's current Longitude coordinate (degrees).
-    altitude is a device's current Altitude position (metres).
+    alt is a device's current Altitude position (metres) referenced from sea-level.
     accuracy is the accuracy level of the latitude and longitude coordinates (metres).
     altitudeAccuracy is the accuracy level of the altitude coordinates (metres).
     heading is a direction of travel of device (degree).
@@ -44,46 +42,13 @@ traits:
             schema: Geolocation
             example: |
               {
-                "rt": ["oic.r.geolocation"],
-                "id": "unique_example_id",
-                "latitude": 55.070859,
+                "rt":         ["oic.r.sensor.geolocation"],
+                "id":         "unique_example_id",
+                "latitude":  55.070859,
                 "longitude": -3.60512,
-                "altitude": 12.07,
-                "altitudereference": "sea-level",
+                "alt": 12.07,
                 "accuracy": 65.0,
                 "altitudeAccuracy": 0.0,
                 "heading": 90.0,
                 "speed": 0.0
-              }
-
-  post:
-    description: |
-      Set the geolocation coordinates.
-    body:
-      application/json:
-        schema: Geolocation
-        example: |
-          {
-            "id": "unique_example_id",
-            "latitude": 36.4643308,
-            "longitude": -116.86906640000001,
-            "altitude": -62.1,
-            "altitudereference": "ground-level"
-          }
-    responses:
-      200:
-        description: |
-          Indicates that the geolocation was changed.
-          The new geolocation is provided in the response.
-        body:
-          application/json:
-            schema: Geolocation
-            example: |
-              {
-                "rt": ["oic.r.geolocation"],
-                "id": "unique_example_id",
-                "latitude": 36.4643308,
-                "longitude": -116.86906640000001,
-                "altitude": -62.1,
-                "altitudereference": "ground-level"
               }

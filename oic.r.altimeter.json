@@ -7,14 +7,10 @@
     "oic.r.altimeter": {
       "type": "object",
       "properties": {
-        "altitude": {
+        "alt": {
           "type": "number",
-          "description": "altitude is height of the position (metres) from as defined by the altitudereference property."
-        },
-        "altitudereference": {
-          "type": "string",
-          "default": "sea-level",
-          "description": "altitudereference is the reference datum point that altitude is being mesured from. The default will be sea-level."
+          "readOnly": true,
+          "description": "The current height of the position (metres) referenced from sea-level."
         }
       }
     }
@@ -24,5 +20,5 @@
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "#/definitions/oic.r.altimeter"}
   ],
-  "required": ["altitude"]
+  "required": ["alt"]
 }
