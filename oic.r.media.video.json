@@ -86,7 +86,7 @@
           "description": "Location is the user-friendly string of the geographic location of the video."
         },
         "geolocation": {
-          "$ref": "oic.r.geolocation.json#/definitions/oic.r.geolocation"
+          "$ref": "oic.r.sensor.geolocation.json#/definitions/oic.r.sensor.geolocation"
         },
         "genres": {
           "enum": ["none","action & adventure","animation","anime","bollywood","classics","comedy","documentary","drama","educational","exercise & fitness","faith & spirituality","fantasy","foreign","horror","kids & family","military & war","music videos & concerts","musicals","mystery & thrillers","performing arts","reality tv","romance","science fiction","special interests","sports","tv game shows","tv news programming","tv talk shows","western"],

@@ -32,7 +32,7 @@
           "description": "Location is the user-friendly string of the geographic location of the image."
         },
         "geolocation": {
-          "$ref": "oic.r.geolocation.json#/definitions/oic.r.geolocation"
+          "$ref": "oic.r.sensor.geolocation.json#/definitions/oic.r.sensor.geolocation"
         },
         "genres": {
           "enum": ["none","arts","classic","family"],
