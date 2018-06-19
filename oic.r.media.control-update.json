@@ -33,7 +33,7 @@
           "description": "The relation of the target URI referenced by the link to the context URI"
         },
         "action": {
-          "enum": ["play", "stop", "pause", "fastforward", "rewind", "stepforward", "stepbackward", "seek"],
+          "enum": ["stop", "play", "pause", "fastforward", "rewind", "stepforward", "stepbackward", "seek"],
           "readOnly": true,
           "description": "The name of the media action."
         },
@@ -46,7 +46,7 @@
             "type": "number"
           }
         },
-        "allowed_range": {
+        "range": {
           "type": "array",
           "description": "The allowed range for the action",
           "readOnly": true,

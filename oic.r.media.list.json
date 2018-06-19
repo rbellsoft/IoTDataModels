@@ -47,7 +47,7 @@
             "type": "number"
           }
         },
-        "allowed_range": {
+        "range": {
           "type": "array",
           "readOnly": true,
           "description": "The allowed range for the action",

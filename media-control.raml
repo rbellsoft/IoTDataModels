@@ -54,11 +54,21 @@ traits:
         where the expanded url will be:
         mediaControlResURI?mediaSpeed=-0.5
         where the "allowed_values" gives the list of allowed values for the substitution
+      - stepforward (trick modes) change, using uri templates:
+        https://tools.ietf.org/html/rfc6570
+        where the expanded url will be:
+        mediaControlResURI?mediaLocation=2.5
+        where the "range" gives the range of allowed values and "range_step" give step increment for the substitution
+      - stepbackward (trick modes) change, using uri templates:
+        https://tools.ietf.org/html/rfc6570
+        where the expanded url will be:
+        mediaControlResURI?mediaLocation=-0.5
+        where the "range" gives the range of allowed values and "range_step" give step increment for the substitution
       - seek (location change), using uri templates:
         https://tools.ietf.org/html/rfc6570
         where the expanded url will be:
         mediaControlResURI?mediaLocation=53
-        where the "allowed_range" gives the range of allowed values for the substitution
+        where the "range" gives the range of allowed values for the substitution
     responses:
       200:
         body:
