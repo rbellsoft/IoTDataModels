@@ -8,10 +8,10 @@
       "type": "object",
       "properties": {
         "href": {
+          "format": "uri",
           "type": "string",
           "maxLength": 256,
-          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
-          "format": "uri"
+          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique."
         },
         "rel": {
           "anyOf":[
@@ -67,26 +67,25 @@
     "oic.r.media.control": {
       "type": "object",
       "properties": {
-        "playState": {
+        "play_state": {
           "type": "boolean",
           "description": "Allowed media control play state values."
         },
-        "mediaSpeed": {
+        "media_speed": {
           "type": "number",
           "description": "Allowed media control play speed values."
         },
-        "mediaLocation":   {
+        "media_location":   {
           "anyOf": [
             {
-              "type": "string",
               "format": "uri",
+              "type": "string",
               "maxLength": 256,
               "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI."
             },
             {
               "type": "string",
-              "format": "date-time",
-              "description": "Reference time for the absolute time in ISO8601 format."
+              "description": "Reference time for the absolute time in ISO 8601 datetime format (e.g: 'Date Only: 2018-06-23', 'Date and Time: 2018-06-23T20:22:59', 'Date, Time, and Timezone'PST': 2018-06-23T20:22:59-08:00')"
             },
             {
               "type": "number",
@@ -94,7 +93,7 @@
             }
           ]
         },
-        "lastAction": {
+        "last_action": {
           "type": "string",
           "description": "Last Action received for media control."
         },
@@ -108,10 +107,10 @@
         }
       },
       "anyOf": [
-          {"required": ["playState"]},
-          {"required": ["mediaSpeed"]},
-          {"required": ["mediaLocation"]},
-          {"required": ["lastAction"]}
+          {"required": ["play_state"]},
+          {"required": ["media_speed"]},
+          {"required": ["media_location"]},
+          {"required": ["last_action"]}
       ]
     }
   },
