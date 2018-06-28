@@ -16,40 +16,37 @@
           "readOnly": true,
           "description": "Specifies the Long user-friendly synopsis of the media content"
         },
-        "mediaType": {
-          "enum": ["audio", "image", "text", "video"],
+        "mime_type": {
           "type": "string",
           "description": "Specifies the Media Type for the media content"
         },
-        "mediaFile": {
-          "type": "string",
+        "media_file": {
           "format": "uri",
+          "type": "string",
           "maxLength": 256,
           "description": "uri of the Media File for media content. Tt can be specified as a Relative Reference or fully-qualified URI."
         },
-        "mediaFileType": {
-          "type": "string",
-          "description": "Specifies the Media File Type for the media content"
-        },
-        "metadataFile": {
-          "type": "string",
+        "metadata_file": {
           "format": "uri",
+          "type": "string",
+          "maxLength": 256,
           "description": "Meta-Data File for media content"
         },
-        "metadataFileType": {
+        "metadata_file_type": {
           "type": "string",
           "description": "Meta-Data File Type for media content"
         },
         "datetime": {
+          "format": "date-time",
           "type": "string",
-          "description": "The date and/or time that the media was published/created using ISO-8601 format (e.g: 2007-04-05T14:30Z, 2007-04-05T14:30+09:00)."
+          "description": "datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')"
         },
         "copyright": {
           "type": "string",
           "readOnly": true,
           "description": "Copyright notice by the copyright holder"
         },
-        "mediaArtwork":  {
+        "media_artwork":  {
           "type": "array",
           "minItems": 0,
           "items": {
@@ -65,5 +62,5 @@
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "#/definitions/oic.r.media.core"}
   ],
-  "required": ["title","mediaType","mediaFile"]
+  "required": ["title","mime_type","media_file"]
 }

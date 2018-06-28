@@ -26,6 +26,7 @@ traits:
         A string array containing the definition of the media using SDP.
         Each entry in the sdp array is an SDP line.
         Each line shall follow the SDP description syntax as defined in the SDP specification.
+        datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')
     The SDP specification can be found at http://tools.ietf.org/html/rfc4566.
 
   displayName: Media Core
@@ -43,16 +44,15 @@ traits:
               {
               "rt": ["oic.r.media.core"],
               "id": "unique_example_id",
-              "title": "Song 1",
-              "description": "Long user-friendly synopsis of Song 1",
-              "mediaType": "audio",
-              "mediaFile": "/example/url/Song1.mp3",
-              "mediaFileType": "mp3",
-              "metadataFile": "/example/url/Song1.mp3",
-              "metadataFileType": "mp3",
-              "datetime": "2018-04-26",
-              "copyright": "Copyright notice by the copyright holder for Song 1",
-              "mediaArtwork": [
+              "title": "PDF File 1",
+              "description": "Long user-friendly synopsis of PDF File 1",
+              "mime_type": "application/pdf",
+              "media_file": "file://example/url/PDF_File1.pdf",
+              "metadata_file": "/example/url/Song1.mp3",
+              "metadata_file_type": "mp3",
+              "datetime": "2018-06-23T20:22:59-08:00",
+              "copyright": "Copyright notice by the copyright holder for PDF File 1",
+              "media_artwork": [
                 {
                   "href": "/local-song1_artwork",
                   "mimetype": "image/png",
