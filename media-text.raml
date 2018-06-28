@@ -26,6 +26,7 @@ traits:
         A string array containing the definition of the media using SDP.
         Each entry in the sdp array is an SDP line.
         Each line shall follow the SDP description syntax as defined in the SDP specification.
+        datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')
     The SDP specification can be found at http://tools.ietf.org/html/rfc4566.
 
   displayName: Media Text
@@ -45,12 +46,11 @@ traits:
               "id": "unique_example_id",
               "title": "Book 1",
               "description": "Long user-friendly synopsis of Book 1",
-              "mediaType": "text",
-              "mediaFile": "/example/url/Book1.pdf",
-              "mediaFileType": "pdf",
-              "datetime": "2018-04-26",
+              "mime_type": "text",
+              "media_file": "file://example/url/Book1.pdf",
+              "datetime": "2018-06-23T20:22:59-08:00",
               "copyright": "Copyright notice by the copyright holder for Book 1",
-              "mediaArtwork": [
+              "media_artwork": [
                 {
                   "href": "/local-book1_artwork",
                   "mimetype": "image/png",
@@ -81,11 +81,11 @@ traits:
                   "Series 1",
                   "Series 2"
                   ],
-                "totalchapters": 28,
-                "totalpages": 499,
-                "genres": "sports & outdoors",
+                "total_chapters": 28,
+                "total_pages": 499,
+                "genres": ["sports & outdoors", "teen & young adult"],
                 "format": "audible audio edition",
-                "ratinginfo": [{"ratingorganization": "none"}, {"rating": "adult-content"}],
-                "identificationNumber": "ISBN: 978-3-16-148410-0",
-                "currentLanguage": "english"
+                "rating_info": [{"rating_organization": "none"}, {"rating": "adult-content"}],
+                "identification_number": "ISBN: 978-3-16-148410-0",
+                "current_language": "english"
               }

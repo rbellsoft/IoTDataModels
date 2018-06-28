@@ -9,7 +9,7 @@
       "allOf": [
         {"$ref": "oic.r.media.list.json#/definitions/oic.r.media.list"},
         {"properties": {
-           "modeList": {
+           "mode_list": {
              "type": "array",
              "minItems": 1,
              "readOnly": true,
@@ -17,14 +17,14 @@
                "type": "string",
                "enum": ["none", "autoadvance", "repeat", "repeatall", "reverse", "shuffle", "random"]
                },
-             "description": "modeList is list of modes that the server supports."
+             "description": "mode_list is list of modes that the server supports."
            },
-           "currentMode": {
+           "current_mode": {
              "type": "string",
              "default": "autoadvance",
              "description": "This is the current mode and what the server should do when an the media in the list has completed. The default will be autoadvance."
            },
-           "mediaDelay": {
+           "media_delay": {
              "type": "number",
              "description": "The media delay is how long the server will wait in seconds after changing the current media before the next the media. Used to give clients time to respond to list changes default 0.",
              "default": 0
@@ -39,5 +39,5 @@
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
     {"$ref": "#/definitions/oic.r.media.playlist"}
   ],
-  "required": ["currentMode"]
+  "required": ["current_mode"]
 }

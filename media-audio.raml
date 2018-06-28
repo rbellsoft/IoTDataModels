@@ -45,12 +45,11 @@ traits:
               "id": "unique_example_id",
               "title": "Song 1",
               "description": "Long user-friendly synopsis of Song 1",
-              "mediaType": "audio",
-              "mediaFile": "/example/url/Song1.mp3",
-              "mediaFileType": "mp3",
-              "datetime": "2018-04-26",
+              "mime_type": "audio/mpeg3",
+              "media_file": "file://example/url/Song1.mp3",
+              "datetime": "2018-06-23T20:22:59-08:00",
               "copyright": "Copyright notice by the copyright holder for Song 1",
-              "mediaArtwork": [
+              "media_artwork": [
                 {
                   "href": "/local-song1_artwork",
                   "mimetype": "image/png",
@@ -72,8 +71,8 @@ traits:
                     "Artist 1",
                     "Artist 2"
                     ],
-              "album": "Ablum Title 1",
-              "albumArtwork": [
+              "album": "Album Title 1",
+              "album_artwork": [
                 {
                   "href": "/local-album_artwork",
                   "mimetype": "image/png",
@@ -86,7 +85,7 @@ traits:
                   "if": ["oic.if.r"]
                   }
                 ],
-              "trackNumber": 2,
+              "track_number": 2,
               "producers": [
                       "Producer 1",
                       "Producer 2"
@@ -95,8 +94,8 @@ traits:
                       "Composer 1",
                       "Composer 2"
                       ],
-              "genres": "rock",
-              "ratinginfo": [{"ratingorganization": "none"}, {"rating": "Parental Advisory - Explicit Content"}],
-              "identificationNumber": "ISSN:1234-5678",
-              "currentLanguage": "english"
+              "genres": ["rock","pop"],
+              "rating_info": [{"rating_organization": "none"}, {"rating": "Parental Advisory - Explicit Content"}],
+              "identification_number": "ISSN:1234-5678",
+              "current_language": "english"
               }

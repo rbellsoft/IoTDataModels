@@ -10,22 +10,14 @@
         "artists": {
           "type": "array",
           "minItems": 0,
-          "description": "List of artists that recored the song",
+          "description": "List of artists",
           "items": {
             "type": "string"
           }
         },
         "album": {
           "type": "string",
-          "description": "Which album the song and picture belongs to (if applicable)"
-        },
-        "albumArtwork":  {
-          "type": "array",
-          "minItems": 0,
-          "items": {
-            "$ref": "oic.r.icon-schema.json#/definitions/oic.r.icon"
-          },
-          "description": "The array of icons that are used as the album artwork."
+          "description": "Which album the picture belongs to (if applicable)"
         },
         "location": {
           "type": "string",
@@ -35,17 +27,21 @@
           "$ref": "oic.r.sensor.geolocation.json#/definitions/oic.r.sensor.geolocation"
         },
         "genres": {
-          "enum": ["none","arts","classic","family"],
-          "type": "string",
-          "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "enum": ["none","arts","classic","family"],
+              "type": "string"
+            },
+            "description": "List of genre in a category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
         },
-        "ratinginfo": {
+        "rating_info": {
           "type": "array",
           "description": "The rating information which includes the rating organization and rating.",
           "items": {
             "type": "object",
             "properties": {
-              "ratingorganization": {
+              "rating_organization": {
                 "type": "string",
                 "description": "These are image content rating organization."
               },
@@ -56,7 +52,7 @@
             }
           }
         },
-        "identificationNumber": {
+        "identification_number": {
           "type": "string",
           "description": "Unique identification number for image media content (ISSN: International_Standard_Serial_Number)"
         }

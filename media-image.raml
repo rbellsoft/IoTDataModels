@@ -26,6 +26,7 @@ traits:
         A string array containing the definition of the media using SDP.
         Each entry in the sdp array is an SDP line.
         Each line shall follow the SDP description syntax as defined in the SDP specification.
+        datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')
     The SDP specification can be found at http://tools.ietf.org/html/rfc4566.
 
   displayName: Media Image
@@ -45,30 +46,16 @@ traits:
               "id": "unique_example_id",
               "title": "Image 1",
               "description": "Long user-friendly synopsis of Image 1",
-              "mediaType": "image",
-              "mediaFile": "/example/url/Image1.tif",
-              "mediaFileType": "tif",
-              "datetime": "2018-04-26",
+              "mime_type": "image/png",
+              "media_file": "file://example/url/Image1.png",
+              "datetime": "2018-06-23T20:22:59-08:00",
               "copyright": "Copyright notice by the copyright holder for Image 1",
-              "mediaArtwork": [
-                {
-                  "href": "/local-image1_artwork",
-                  "mimetype": "image/png",
-                  "width": 256,
-                  "height": 256,
-                  "media": "image1.png",
-                  "rel": "icon",
-                  "ins": "uuid:UUID",
-                  "rt": ["oic.r.icon"],
-                  "if": ["oic.if.r"]
-                  }
-                ],
               "artists": [
                       "Artist 1",
                       "Artist 2"
                       ],
               "album": "Ablum Title 1",
-              "albumArtwork": [
+              "album_artwork": [
                 {
                   "href": "/local-album_artwork",
                   "mimetype": "image/png",
@@ -83,7 +70,7 @@ traits:
                 ],
               "location": "Death Valley National Park, Furnace Creek, CA 92328, USA",
               "geolocation": {"latitude": 36.4643308,"longitude": -116.86906640000001, "alt": -62.1},
-              "genres": "family",
-              "ratinginfo": [{"ratingorganization": "none"}, {"rating": "x-rated"}],
-              "identificationNumber": "ISSN:1234-5678"
+              "genres": ["family", "classic"],
+              "rating_info": [{"rating_organization": "none"}, {"rating": "x-rated"}],
+              "identification_number": "ISSN:1234-5678"
               }

@@ -40,11 +40,11 @@
             "type": "string"
           }
         },
-        "totalchapters": {
+        "total_chapters": {
           "type": "integer",
           "description": "The total number of chapters in the text"
         },
-        "totalpages": {
+        "total_pages": {
           "type": "integer",
           "description": "The total number of pages in the text"
         },
@@ -54,17 +54,21 @@
           "description": "Format for a book"
         },
         "genres": {
-          "enum": ["none","arts & photography","biographies & memoirs","business & money","calendars","children's books","christian books & bibles","comics & graphic novel","computer &  technology","cookboks, food & wine","crafts, hobbies & home","education & teaching","engineering & transportation","gay & lesbian","health, fitness & dieting","history","humor & entertainment","law","literature & fiction","medical books","mystery, thriller & suspense","parenting & relationship","politics & social sciences","reference","religion & spirituality","romance","science & math","science fiction & fantasy","self-help","sports & outdoors","teen & young adult","test preparation","travel"],
-          "type": "string",
-          "description": "Genres for a book"
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "enum": ["none","arts & photography","biographies & memoirs","business & money","calendars","children's books","christian books & bibles","comics & graphic novel","computer &  technology","cookboks, food & wine","crafts, hobbies & home","education & teaching","engineering & transportation","gay & lesbian","health, fitness & dieting","history","humor & entertainment","law","literature & fiction","medical books","mystery, thriller & suspense","parenting & relationship","politics & social sciences","reference","religion & spirituality","romance","science & math","science fiction & fantasy","self-help","sports & outdoors","teen & young adult","test preparation","travel"],
+              "type": "string"
+            },
+            "description": "Genres for a book"
         },
-        "ratinginfo": {
+        "rating_info": {
           "type": "array",
           "description": "The rating information which includes the rating organization and rating.",
           "items": {
             "type": "object",
             "properties": {
-              "ratingorganization": {
+              "rating_organization": {
                 "type": "string",
                 "description": "These are text/book content rating organization."
               },
@@ -75,11 +79,11 @@
             }
           }
         },
-        "identificationNumber": {
+        "identification_number": {
           "type": "string",
           "description": "Unique identification number for text media content (ISBN: International_Standard_Book_Number)"
         },
-        "currentLanguage": {
+        "current_language": {
           "type": "string",
           "description": "Current language of the audio media content"
         }

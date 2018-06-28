@@ -26,6 +26,7 @@ traits:
         A string array containing the definition of the media using SDP.
         Each entry in the sdp array is an SDP line.
         Each line shall follow the SDP description syntax as defined in the SDP specification.
+        datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')
     The SDP specification can be found at http://tools.ietf.org/html/rfc4566.
 
   displayName: Media Video
@@ -45,9 +46,10 @@ traits:
               "id": "unique_example_id",
               "title": "Video 1",
               "description": "Long user-friendly synopsis of Video 1",
-              "mediaFile": "/example/url/1",
-              "mediaType": "video",
-              "mediaArtwork": [
+              "mime_type": "video/mp4",
+              "media_file": "file://example/url/Video1.mp4",
+              "datetime": "2018-06-23T20:22:59-08:00",
+              "media_artwork": [
                 {
                   "href": "/local-video1_artwork",
                   "mimetype": "image/png",
@@ -96,8 +98,8 @@ traits:
                 "format": "digital video",
                 "location": "Death Valley National Park, Furnace Creek, CA 92328, USA",
                 "geolocation": {"latitude": 36.4643308,"longitude": -116.86906640000001, "alt": -62.1},
-                "genres": "western",
-                "ratinginfo": [{"ratingorganization": "MPAA"}, {"rating": "PG-13"}],
-                "identificationNumber": "EDID:1234-5678",
-                "currentLanguage": "english"
+                "genres": ["action & adventure", "western"],
+                "rating_info": [{"rating_organization": "MPAA"}, {"rating": "PG-13"}],
+                "identification_number": "EDID:1234-5678",
+                "current_language": "english"
               }

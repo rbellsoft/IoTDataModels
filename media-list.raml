@@ -29,13 +29,13 @@ traits:
     description: |
       This resource specifies a list of media or other media lists that an OCF Server supports.
         title: A human readable title for the media list.
-        mediaList: An array of media elements.  Each element contains:
+        media_list: An array of media elements.  Each element contains:
             title: A human readable name for the media.
             url: A URL at which the specified media type can be accessed.
         The media list can support multiple modes.
-        currentItem: This is the current item selected.
-        itemList: Is an array showing the list of indices and the arranged order of the media list.
-        mediaListArtwork: Is an array of artwork that is associated to the media list.
+        current_item: This is the current item selected.
+        item_list: Is an array showing the list of indices and the arranged order of the media list.
+        media_list_artwork: Is an array of artwork that is associated to the media list.
         actions: Is an array actions that are suppported with media list.
 
     responses:
@@ -48,7 +48,7 @@ traits:
                 "rt": ["oic.r.media.list"],
                 "id": "unique_example_id",
                 "title": "My Playlist",
-                "mediaList": [
+                "media_list": [
                   {
                     "title": "Song 1",
                     "description": "Long user-friendly synopsis of Song 1",
@@ -57,7 +57,7 @@ traits:
                       "m=audio 2 RTP/AVP 97",
                       "a=rtpmap:97 MP4A-LATM/90000"
                       ],
-                      "mediaArtwork": [
+                      "media_artwork": [
                         {
                           "href": "/local-song1_artwork",
                           "mimetype": "image/png",
@@ -79,7 +79,7 @@ traits:
                       "m=audio 2 RTP/AVP 97",
                       "a=rtpmap:97 MP4A-LATM/90000"
                       ],
-                      "mediaArtwork": [
+                      "media_artwork": [
                         {
                           "href": "/local-song2_artwork",
                           "mimetype": "image/png",
@@ -101,7 +101,7 @@ traits:
                       "m=audio 2 RTP/AVP 97",
                       "a=rtpmap:97 MP4A-LATM/90000"
                       ],
-                      "mediaArtwork": [
+                      "media_artwork": [
                         {
                           "href": "/local-song3_artwork",
                           "mimetype": "image/png",
@@ -123,7 +123,7 @@ traits:
                       "m=audio 2 RTP/AVP 97",
                       "a=rtpmap:97 MP4A-LATM/90000"
                       ],
-                      "mediaArtwork": [
+                      "media_artwork": [
                         {
                           "href": "/local-song4_artwork",
                           "mimetype": "image/png",
@@ -138,9 +138,9 @@ traits:
                       ]
                   }
                 ],
-                "currentItem": 1,
-                "itemList": [0, 1, 2, 3],
-                "mediaListArtwork" : [
+                "current_item": 1,
+                "item_list": [0, 1, 2, 3],
+                "media_list_artwork" : [
                   {
                     "href": "/web-mediaListArtwork",
                     "mimetype": "image/png",
@@ -208,7 +208,7 @@ traits:
         example: |
           {
           "id":            "unique_example_id",
-          "currentItem":   3
+          "current_item":   3
           }
     responses:
       200:
@@ -217,10 +217,10 @@ traits:
             schema: MediaListUpdate
             example: |
               {
-              "rt":            ["oic.r.media.list"],
-              "id":            "unique_example_id",
+              "rt": ["oic.r.media.list"],
+              "id": "unique_example_id",
               "title": "My Playlist",
-              "mediaList": [
+              "media_list": [
                 {
                   "title": "Song 1",
                   "description": "Long user-friendly synopsis of Song 1",
@@ -229,7 +229,7 @@ traits:
                     "m=audio 2 RTP/AVP 97",
                     "a=rtpmap:97 MP4A-LATM/90000"
                     ],
-                    "mediaArtwork": [
+                    "media_artwork": [
                       {
                         "href": "/local-song1_artwork",
                         "mimetype": "image/png",
@@ -251,7 +251,7 @@ traits:
                     "m=audio 2 RTP/AVP 97",
                     "a=rtpmap:97 MP4A-LATM/90000"
                     ],
-                    "mediaArtwork": [
+                    "media_artwork": [
                       {
                         "href": "/local-song2_artwork",
                         "mimetype": "image/png",
@@ -273,7 +273,7 @@ traits:
                     "m=audio 2 RTP/AVP 97",
                     "a=rtpmap:97 MP4A-LATM/90000"
                     ],
-                    "mediaArtwork": [
+                    "media_artwork": [
                       {
                         "href": "/local-song3_artwork",
                         "mimetype": "image/png",
@@ -295,7 +295,7 @@ traits:
                     "m=audio 2 RTP/AVP 97",
                     "a=rtpmap:97 MP4A-LATM/90000"
                     ],
-                    "mediaArtwork": [
+                    "media_artwork": [
                       {
                         "href": "/local-song4_artwork",
                         "mimetype": "image/png",
@@ -310,9 +310,9 @@ traits:
                     ]
                 }
               ],
-              "currentItem":   3,
-              "itemList": [0, 1, 2, 3],
-              "mediaListArtwork" : [
+              "current_item":   3,
+              "item_list": [0, 1, 2, 3],
+              "media_list_artwork" : [
                 {
                   "href": "/web-mediaListArtwork",
                   "mimetype": "image/png",

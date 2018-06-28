@@ -8,10 +8,10 @@
       "type": "object",
       "properties": {
         "href": {
+          "format": "uri",
           "type": "string",
           "maxLength": 256,
-          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
-          "format": "uri"
+          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique."
         },
         "rel": {
           "anyOf":[
@@ -72,25 +72,25 @@
           "type": "string",
           "description": "A human readable title for the media list."
         },
-        "mediaList":  {
+        "media_list":  {
           "type": "array",
           "minItems": 1,
           "items": {
             "anyOf": [
-              {"$ref": "oic.r.media.video.json#/definitions/oic.r.media.video"},
+              {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"},
+              {"$ref": "oic.r.media.audio.json#/definitions/oic.r.media.audio"},
               {"$ref": "oic.r.media.image.json#/definitions/oic.r.media.image"},
               {"$ref": "oic.r.media.text.json#/definitions/oic.r.media.text"},
-              {"$ref": "oic.r.media.audio.json#/definitions/oic.r.media.audio"},
-              {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"}
+              {"$ref": "oic.r.media.video.json#/definitions/oic.r.media.video"}
             ]
           },
           "description": "The array of media resources in the media list."
         },
-        "currentItem": {
+        "current_item": {
           "type": "number",
           "description": "This is the current item selected."
         },
-        "itemList": {
+        "item_list": {
           "type": "array",
           "minItems": 1,
           "description": "An array showing the indices and order of the medialist.",
@@ -98,7 +98,7 @@
             "type": "number"
           }
         },
-        "mediaListArtwork":  {
+        "media_list_artwork":  {
           "type": "array",
           "minItems": 0,
           "items": {
@@ -117,8 +117,8 @@
       },
       "anyOf": [
           {"required": ["title"]},
-          {"required": ["currentItem"]},
-          {"required": ["itemList"]},
+          {"required": ["current_item"]},
+          {"required": ["item_list"]},
           {"required": ["actions"]}
       ]
     }
