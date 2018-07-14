@@ -23,9 +23,6 @@ traits:
     This resource specifies the media types that an OCF Server supports.
     The resource is an array of media elements.  Each element contains:
         A URL at which the specified media type can be accessed.
-        A string array containing the definition of the media using SDP.
-        Each entry in the sdp array is an SDP line.
-        Each line shall follow the SDP description syntax as defined in the SDP specification.
         datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')
     The SDP specification can be found at http://tools.ietf.org/html/rfc4566.
 
@@ -61,7 +58,7 @@ traits:
                   "mimetype": "image/png",
                   "width": 256,
                   "height": 256,
-                  "media": "album.png",
+                  "media": "file://example/url/album.png",
                   "rel": "icon",
                   "ins": "uuid:UUID",
                   "rt": ["oic.r.icon"],
@@ -70,7 +67,16 @@ traits:
                 ],
               "location": "Death Valley National Park, Furnace Creek, CA 92328, USA",
               "geolocation": {"latitude": 36.4643308,"longitude": -116.86906640000001, "alt": -62.1},
-              "genres": ["family", "classic"],
-              "rating_info": [{"rating_organization": "none"}, {"rating": "x-rated"}],
+              "genres" : [
+                  {
+                  "genre_category": "Landscape",
+                  "genre_sub_category": "Panorama"
+                  },
+                  {
+                  "genre_category": "Satellite Imagery",
+                  "genre_sub_category":   "Google Earth"
+                  }
+                ],
+              "rating_info": [{"rating_organization": "none"}, {"rating": "General"}],
               "identification_number": "ISSN:1234-5678"
               }

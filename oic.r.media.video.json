@@ -13,12 +13,21 @@
           "description": "Array of strings, one per SDP line",
           "items": {
             "type": "string",
-            "description": "SDP media or attribute line"
+            "description": "SDP (Session Description Protocol) is a format for describing streaming media communications parameters using the media and attribute lines defined in the SPD RFC4566."
           }
         },
-        "duration": {
-          "type": "integer",
-          "description": "The total lenght of the movie"
+        "duration":   {
+          "description": "The total length of the video.",
+          "anyOf": [
+            {
+              "type": "string",
+              "description": "Supports duration time in ISO 8601 time only format (e.g: 'Time Only: 01:22:59')"
+            },
+            {
+              "type": "number",
+              "description": "Supports duration time for whole and float values."
+            }
+          ]
         },
         "producers": {
           "type": "array",
@@ -95,7 +104,7 @@
               "enum": ["none","action & adventure","animation","anime","bollywood","classics","comedy","documentary","drama","educational","exercise & fitness","faith & spirituality","fantasy","foreign","horror","kids & family","military & war","music videos & concerts","musicals","mystery & thrillers","performing arts","reality tv","romance","science fiction","special interests","sports","tv game shows","tv news programming","tv talk shows","western"],
               "type": "string"
             },
-            "description": "List of genre in a category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+            "description": "Genres for video (i.e movie, TV, Prime Video, and etc.) media content"
         },
         "rating_info": {
           "type": "array",

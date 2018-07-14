@@ -28,12 +28,11 @@
         },
         "genres": {
             "type": "array",
-            "minItems": 0,
+            "minItems": 1,
             "items": {
-              "enum": ["none","arts","classic","family"],
-              "type": "string"
+              "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
             },
-            "description": "List of genre in a category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)"
+            "description": "Genres for image (i.e photograpy, photos, pictures, and etc.) media content"
         },
         "rating_info": {
           "type": "array",

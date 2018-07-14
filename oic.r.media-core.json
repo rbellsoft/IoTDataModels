@@ -18,7 +18,7 @@
         },
         "mime_type": {
           "type": "string",
-          "description": "Specifies the Media Type for the media content"
+          "description": "Specifies the Mime Type for the media content"
         },
         "media_file": {
           "format": "uri",
@@ -26,20 +26,10 @@
           "maxLength": 256,
           "description": "uri of the Media File for media content. Tt can be specified as a Relative Reference or fully-qualified URI."
         },
-        "metadata_file": {
-          "format": "uri",
-          "type": "string",
-          "maxLength": 256,
-          "description": "Meta-Data File for media content"
-        },
-        "metadata_file_type": {
-          "type": "string",
-          "description": "Meta-Data File Type for media content"
-        },
         "datetime": {
           "format": "date-time",
           "type": "string",
-          "description": "datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')"
+          "description": "datetime is date, time, and timezone the media content was created using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')"
         },
         "copyright": {
           "type": "string",
