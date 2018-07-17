@@ -85,11 +85,6 @@
             "type": "string"
           }
         },
-        "format": {
-          "enum": ["none","blu-ray","dvd","4K ultra hd","digital video"],
-          "type": "string",
-          "description": "Format for a video"
-        },
         "location": {
           "type": "string",
           "description": "Location is the user-friendly string of the geographic location of the video."

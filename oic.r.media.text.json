@@ -48,11 +48,6 @@
           "type": "integer",
           "description": "The total number of pages in the text"
         },
-        "format": {
-          "enum": ["none","paperback","hardcover","kindle edition","large print","audible audio edition","printed access code","digital access code","loose leaf","audio cd","board book"],
-          "type": "string",
-          "description": "Format for text (i.e books, literature, writing, and etc.) media content."
-        },
         "genres": {
             "type": "array",
             "minItems": 0,

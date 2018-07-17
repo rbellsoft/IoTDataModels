@@ -9,11 +9,11 @@
         "properties": {
           "genre_category": {
             "type": "string",
-            "description":"genre_category is the main genre category for the media content."
+            "description": "genre_category is the main genre category for the media content."
           },
           "genre_sub_category": {
             "type": "string",
-            "description":"genre_sub_category is the sub category under the main genre category for the media content."
+            "description": "genre_sub_category is the sub category under the main genre category for the media content."
           }
         }
       }
