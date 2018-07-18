@@ -77,7 +77,7 @@
           "minItems": 1,
           "items": {
             "anyOf": [
-              {"$ref": "oic.r.media-core.json#/definitions/oic.r.media.core"},
+              {"$ref": "oic.r.media.core.json#/definitions/oic.r.media.core"},
               {"$ref": "oic.r.media.audio.json#/definitions/oic.r.media.audio"},
               {"$ref": "oic.r.media.image.json#/definitions/oic.r.media.image"},
               {"$ref": "oic.r.media.text.json#/definitions/oic.r.media.text"},
