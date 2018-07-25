@@ -9,22 +9,22 @@
       "properties": {
         "title": {
           "type": "string",
-          "description": "Specifies the Short user-friendly name of the media"
+          "description": "Specifies the Short user-friendly name of the media."
         },
         "description": {
           "type": "string",
           "readOnly": true,
-          "description": "Specifies the Long user-friendly synopsis of the media content"
+          "description": "Specifies the Long user-friendly synopsis of the media content."
         },
         "mime_type": {
           "type": "string",
-          "description": "Specifies the Mime Type for the media content"
+          "description": "Specifies the Mime Type for the media content."
         },
         "media_file": {
           "format": "uri",
           "type": "string",
           "maxLength": 256,
-          "description": "uri of the Media File for media content. Tt can be specified as a Relative Reference or fully-qualified URI."
+          "description": "uri of the Media File for media content. It can be specified as a Relative Reference or fully-qualified URI."
         },
         "datetime": {
           "format": "date-time",
@@ -34,7 +34,7 @@
         "copyright": {
           "type": "string",
           "readOnly": true,
-          "description": "Copyright notice by the copyright holder"
+          "description": "Copyright notice by the copyright holder."
         },
         "media_artwork":  {
           "type": "array",
