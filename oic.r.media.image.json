@@ -17,7 +17,7 @@
         },
         "album": {
           "type": "string",
-          "description": "Which album the picture belongs to (if applicable)"
+          "description": "Which album the picture belongs to (if applicable)."
         },
         "location": {
           "type": "string",
@@ -32,7 +32,7 @@
             "items": {
               "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
             },
-            "description": "Genres for image (i.e photograpy, photos, pictures, and etc.) media content"
+            "description": "Genres for image (i.e photograpy, photos, pictures, and etc.) media content."
         },
         "rating_info": {
           "type": "array",
@@ -53,7 +53,7 @@
         },
         "identification_number": {
           "type": "string",
-          "description": "Unique identification number for image media content (ISSN: International_Standard_Serial_Number)"
+          "description": "Unique identification number for image media content (ISSN: International_Standard_Serial_Number)."
         }
       }
     }

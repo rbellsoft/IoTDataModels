@@ -50,12 +50,11 @@
         },
         "genres": {
             "type": "array",
-            "minItems": 0,
+            "minItems": 1,
             "items": {
-              "enum": ["none","arts & photography","biographies & memoirs","business & money","calendars","children's books","christian books & bibles","comics & graphic novel","computer &  technology","cookboks, food & wine","crafts, hobbies & home","education & teaching","engineering & transportation","gay & lesbian","health, fitness & dieting","history","humor & entertainment","law","literature & fiction","medical books","mystery, thriller & suspense","parenting & relationship","politics & social sciences","reference","religion & spirituality","romance","science & math","science fiction & fantasy","self-help","sports & outdoors","teen & young adult","test preparation","travel"],
-              "type": "string"
+              "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
             },
-            "description": "Genres for text (i.e books, literature, writing, and etc.) media content."
+            "description": "Genres for text (i.e book, literature, writing, and etc.) media content."
         },
         "rating_info": {
           "type": "array",

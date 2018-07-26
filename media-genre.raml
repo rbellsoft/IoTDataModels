@@ -21,11 +21,11 @@ traits:
 /MediaGenreResURI:
   description: |
     This resource describes an object that used in describing the genre for a media content.
-    A media genre contains two fields, the genre_category is the high-level genre (i.e. Action, Comedy, Drama, and etc.)
-    defined by the media content, and the genre_sub_category is the sub category (i.e. Martial Arts, Spy, Superhero, and etc.)
+    A media content genre contains two fields, the category is the high-level genre (i.e. Action, Comedy, Drama, and etc.)
+    defined by the media content, and the subcategory is the sub category (i.e. Martial Arts, Spy, Superhero, and etc.)
     under the high-level genre category for the media content.
 
-  displayName: Media Genre
+  displayName: Media Content Genre
   is: [ interface ]
 
   get:
@@ -40,6 +40,6 @@ traits:
               {
               "rt": ["oic.r.media.genre"],
               "id": "unique_example_id",
-              "genre_category": "Action",
-              "genre_sub_category": "Superhero"
+              "category": "Movie",
+              "subcategory": "Super-hero"
               }

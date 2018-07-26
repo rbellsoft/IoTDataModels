@@ -94,12 +94,11 @@
         },
         "genres": {
             "type": "array",
-            "minItems": 0,
+            "minItems": 1,
             "items": {
-              "enum": ["none","action & adventure","animation","anime","bollywood","classics","comedy","documentary","drama","educational","exercise & fitness","faith & spirituality","fantasy","foreign","horror","kids & family","military & war","music videos & concerts","musicals","mystery & thrillers","performing arts","reality tv","romance","science fiction","special interests","sports","tv game shows","tv news programming","tv talk shows","western"],
-              "type": "string"
+              "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
             },
-            "description": "Genres for video (i.e movie, TV, Prime Video, and etc.) media content"
+            "description": "Genres for video (i.e movie, TV, Prime Video, and etc.) media content."
         },
         "rating_info": {
           "type": "array",

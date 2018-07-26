@@ -71,12 +71,11 @@
         },
         "genres": {
             "type": "array",
-            "minItems": 0,
+            "minItems": 1,
             "items": {
-              "enum": ["none","alternative & indie rock","blues","broadway & vocalists","children's music","christian","classical","classic rock","comedy & miscellaneoous","country","dance & electronic","folk","gospel","hard rock & metal","holday music","jazz","latin music","new age","opera & vocal","pop","r&b","rap & hip-hop","reggae","rock","soundtracks","world music"],
-              "type": "string"
+              "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
             },
-            "description": "Genres for audio (i.e music) media content"
+            "description": "Genres for audio (i.e music) media content."
         },
         "rating_info": {
           "type": "array",
