@@ -11,7 +11,7 @@
                 "type": "string",
                 "readOnly": true,
                 "description": "Media Content Genre Category",
-                "enum": ["Movie", "News", "Show", "Sports", "Youth", "Music", "Arts", "Social", "Education", "Hobbies", "Special", "Other", "None"]
+                "enum": ["Arts", "Books", "Education", "Hobbies", "Movie", "Music", "News", "Photography", "Show", "Social", "Special", "Sports", "Youth", "Other", "None"]
             },
             "subcategory": {
                 "type": "string",
