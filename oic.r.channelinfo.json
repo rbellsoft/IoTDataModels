@@ -18,21 +18,12 @@
           "description": "Program description"
         },
         "contenttype": {
-          "type": "object",
-          "properties": {
-            "category": {
-              "type": "string",
-              "readOnly": true,
-              "description": "Content Category",
-              "enum": ["Movie", "News", "Show", "Sports", "Youth", "Music", "Arts", "Social", "Education", "Hobbies", "Special", "Other"]
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
             },
-            "subcategory": {
-              "type": "string",
-              "readOnly": "true",
-              "description": "Content Sub-Category",
-              "enum": ["Movie", "Drama", "Detective", "Thriller", "Adventure", "Western", "War", "Science fiction", "Fantasy", "Horror", "Comedy", "Soap", "Melodrama", "Folkloric", "Romance", "Serious", "Classical", "Religious", "Historical", "Adult", "Super-hero", "News", "Current affairs", "Weather report", "News magazine", "Documentary", "Discussion", "Interview", "Debate", "Show", "Game show", "Quiz", "Contest", "Variety show", "Talk show", "Sports", "Special events", "Sports magazines", "Football", "Soccer", "Tennis", "Squash", "Team sports", "Athletics", "Motor sport", "Water sport", "Winter sports", "Equestrian", "Martial sports", "Youth", "Pre-school children", "Children 6 to 14", "Children 10 to 16", "Informational", "Educational", "School", "Cartoon", "Puppets", "Music", "Ballet", "Dance", "Rock", "Pop", "Serious music", "Classical music", "Folk", "Traditional music", "Jazz", "Musical", "Opera", "Arts", "Culture", "Performing arts", "Fine arts", "Religion", "Popular culture", "Traditional arts", "Literature", "Film", "Cinema", "Experimental film", "Broadcasting", "Press", "News media", "Arts magazines", "Culture magazines", "Fashion", "Social issues", "Political issues", "Economics", "Magazines", "Reports", "Economics advisory", "Social advisory", "Remarkable people", "Education", "Science", "Factual topics", "Nature", "Animals", "Environment", "Technology", "Natural sciences", "Medicine", "Physiology", "Psychology", "Foreign countries", "Expeditions", "Social sciences", "Spiritual sciences", "Further education", "Languages", "Hobbies", "Tourism", "Travel", "Handicraft", "Motoring", "Fitness and health", "Cooking", "Advertisement", "Shopping", "Gardening", "Original language", "Black and white", "Unpublished", "Live broadcast", "Plano-stereoscopic", "Local or Regional", "Other"]
-            }
-          }
+            "description": "Channel Content Type using Media Content Genre category/subcategory."
         },
         "contentrating": {
           "type": "number",
