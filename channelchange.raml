@@ -10,13 +10,14 @@ documentation:
 
         THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 schemas:
-  - channelchange:     !include oic.r.channelchange.json
+  - channelchange: !include oic.r.channelchange.json
 
 traits:
   - interface:
       queryParameters:
         if:
           enum: ["oic.if.rw","oic.if.baseline"]
+
   - currentchannels:
       queryParameters:
         channelid:
@@ -39,48 +40,48 @@ traits:
             schema: channelchange
             example: |
               {
-                "rt":          ["oic.r.channelchange"],
-                "id":          "unique_example_id",
-                "channelid":   "crid://localhost/1",
-                "channelname": "OCF TV",
-                "channelstatus": "OK",
-                "channelepg":  [
-                  {
-                    "programname": "AVTG call",
-                    "programdescription": "Weekly teleconference of the Audio Video Task Group",
-                    "contenttype": {
-                        "category": "Movie",
-                        "subcategory": "Science fiction"
-                    },
-                    "contentrating": 18,
-                    "programstarttime": "2018-03-13T06:00-08:00",
-                    "programendtime": "2018-03-13T07:00-08:00"
-                  },
-                  {
-                    "programname": "Architecture call",
-                    "programdescription": "Weekly teleconference of the Architecture Task Group",
-                    "contenttype": {
-                        "category": "Movie",
-                        "subcategory": "Science fiction"
-                    },
-                    "contentrating": 18,
-                    "programstarttime": "2018-03-13T07:00-08:00",
-                    "programendtime": "2018-03-13T09:00-08:00"
-                  }
-                ],
-                "lastAction":  "channelup",
-                "actions" :    [
-                  {
-                    "action": "channelup",
-                    "href":   "channelchangeResURI",
-                    "rel":    "self"
-                  },
-                  {
-                    "action": "channeldown",
-                    "href":   "channelchangeResURI",
-                    "rel":    "self"
-                  }
-                ]
+              "rt":            ["oic.r.channelchange"],
+              "id":            "unique_example_id",
+              "channelid":     "crid://localhost/1",
+              "channelname":   "OCF TV",
+              "channelstatus": "OK",
+              "channelepg": [
+              {
+              "programname": "AVTG call",
+              "programdescription": "Weekly teleconference of the Audio Video Task Group",
+              "contenttype": {
+                "category":    "Movie",
+                "subcategory": "Science fiction"
+                },
+              "contentrating": 18,
+              "programstarttime": "2018-03-13T06:00:00-08:00",
+              "programendtime":   "2018-03-13T07:00:00-08:00"
+              },
+              {
+              "programname": "Architecture call",
+              "programdescription": "Weekly teleconference of the Architecture Task Group",
+              "contenttype": {
+                "category":    "Movie",
+                "subcategory": "Science fiction"
+                },
+              "contentrating": 18,
+              "programstarttime": "2018-03-13T07:00:00-08:00",
+              "programendtime":   "2018-03-13T07:00:00-08:00"
+              }
+              ],
+              "lastaction": "channelup",
+              "actions": [
+              {
+              "action": "channelup",
+              "href":   "channelchangeResURI",
+              "rel":    "self"
+              },
+              {
+              "action": "channeldown",
+              "href":   "channelchangeResURI",
+              "rel":    "self"
+              }
+              ]
               }
 
   post:
@@ -91,8 +92,21 @@ traits:
         schema: channelchange
         example: |
           {
-            "id":        "unique_example_id",
-            "channelid": "crid://localhost/5"
+          "id":         "unique_example_id",
+          "channelid":  "crid://localhost/5",
+          "lastaction": "channelup",
+          "actions": [
+          {
+          "action": "channelup",
+          "href":   "channelchangeResURI",
+          "rel":    "self"
+          },
+          {
+          "action": "channeldown",
+          "href":   "channelchangeResURI",
+          "rel":    "self"
+          }
+          ]
           }
     responses:
       200:
@@ -101,36 +115,36 @@ traits:
             schema: channelchange
             example: |
               {
-                "id":          "unique_example_id",
-                "channelid":   "crid://localhost/5",
-                "channelname": "FCO TV",
+                "id":           "unique_example_id",
+                "channelid":    "crid://localhost/5",
+                "channelname":  "FCO TV",
                 "channelstatus": "OK",
                 "channelepg":  [
                   {
-                    "programname": "turetecchiAr call",
+                    "programname": "Architecture call",
                     "programdescription": "Group Task Architecture the of teleconference Weekly",
                     "contenttype": {
-                        "category": "Movie",
+                        "category":    "Movie",
                         "subcategory": "Science fiction"
                     },
                     "contentrating": 18,
-                    "programstarttime": "2018-03-13T06:00-08:00",
-                    "programendtime": "2018-03-13T07:00-08:00"
+                    "programstarttime": "2018-03-13T06:00:00-08:00",
+                    "programendtime":   "2018-03-13T07:00:00-08:00"
                   },
                   {
                     "programname": "GTVA call",
                     "programdescription": "Group Task Video Audio the of teleconference Weekly",
                     "contenttype": {
-                        "category": "Movie",
+                        "category":    "Movie",
                         "subcategory": "Science fiction"
                     },
                     "contentrating": 18,
-                    "programstarttime": "2018-03-13T07:00-08:00",
-                    "programendtime": "2018-03-13T09:00-08:00"
+                    "programstarttime": "2018-03-13T07:00:00-08:00",
+                    "programendtime":   "2018-03-13T09:00:00-08:00"
                   }
                 ],
-                "lastAction":  "channelup",
-                "actions" :    [
+                "lastaction": "channelup",
+                "actions": [
                   {
                     "action": "channelup",
                     "href":   "channelchangeResURI",
@@ -154,36 +168,36 @@ traits:
             schema: channelchange
             example: |
               {
-                "id":          "unique_example_id",
-                "channelid":   "crid://localhost/1",
-                "channelname": "OCF TV",
+                "id":            "unique_example_id",
+                "channelid":     "crid://localhost/1",
+                "channelname":   "OCF TV",
                 "channelstatus": "OK",
                 "channelepg":  [
                   {
                     "programname": "AVTG call",
                     "programdescription": "Weekly teleconference of the Audio Video Task Group",
                     "contenttype": {
-                        "category": "Movie",
+                        "category":    "Movie",
                         "subcategory": "Science fiction"
                     },
                     "contentrating": 18,
-                    "programstarttime": "2018-03-13T06:00-08:00",
-                    "programendtime": "2018-03-13T07:00-08:00"
+                    "programstarttime": "2018-03-13T06:00:00-08:00",
+                    "programendtime":   "2018-03-13T07:00:00-08:00"
                   },
                   {
                     "programname": "Architecture call",
                     "programdescription": "Weekly teleconference of the Architecture Task Group",
                     "contenttype": {
-                        "category": "Movie",
+                        "category":    "Movie",
                         "subcategory": "Science fiction"
                     },
                     "contentrating": 18,
-                    "programstarttime": "2018-03-13T07:00-08:00",
-                    "programendtime": "2018-03-13T09:00-08:00"
+                    "programstarttime": "2018-03-13T07:00:00-08:00",
+                    "programendtime":   "2018-03-13T09:00:00-08:00"
                   }
                 ],
-                "lastAction":  "channelup",
-                "actions" :    [
+                "lastaction": "channelup",
+                "actions": [
                   {
                     "action": "channelup",
                     "href":   "channelchangeResURI",
