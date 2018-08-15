@@ -33,7 +33,7 @@
           "description": "The relation of the target URI referenced by the link to the context URI"
         },
         "action": {
-          "type": "enum",
+          "type": "string",
           "readOnly": true,
           "description": "The name of the channel change action.",
           "enum": ["channelup", "channeldown"]
@@ -54,10 +54,10 @@
           "description": "Name of the channel."
         },
         "channelstatus": {
-            "type": "enum",
-            "readOnly": true,
-            "description": "Content availability of the channel.",
-            "enum": ["OK", "Parental", "PPV", "Unsubscribed"]
+          "type": "string",
+          "readOnly": true,
+          "description": "Content availability of the channel.",
+          "enum": ["OK", "Parental", "PPV", "Unsubscribed"]
         },
         "channelepg": {
           "type": "array",
@@ -79,14 +79,14 @@
           },
           "description": "The array of channel change actions that are supported for channel change."
         }
-      },
-      "required": ["channelid", "lastaction", "actions"]
+      }
     }
   },
   "type": "object",
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
-    {"$ref": "#/definitions/oic.r.channelchange"},
-    {"$ref": "oic.r.channelinfo.json#/definitions/oic.r.channelinfo"}
-  ]
+    {"$ref": "oic.r.channelinfo.json#/definitions/oic.r.channelinfo"},
+    {"$ref": "#/definitions/oic.r.channelchange"}
+  ],
+  "required": ["channelid", "lastaction", "actions"]
 }
