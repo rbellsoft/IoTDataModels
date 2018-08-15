@@ -1,0 +1,65 @@
+{
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.channelinfo.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "Channel Information",
+  "definitions": {
+    "oic.r.channelinfo": {
+      "type": "object",
+      "properties": {
+        "programname":    {
+          "type": "string",
+          "readOnly": true,
+          "description": "Program name"
+        },
+        "programdescription":    {
+          "type": "string",
+          "readOnly": true,
+          "description": "Program description"
+        },
+        "contenttype": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "enum",
+                    "readOnly": true,
+                    "description": "Content Category",
+                    "enum": ["Movie", "News", "Show", "Sports", "Youth", "Music", "Arts", "Social", "Education", "Hobbies", "Special", "Other"]
+                },
+                "subcategory": {
+                    "type": "enum",
+                    "readOnly": "true",
+                    "description": "Content Sub-Category",
+                    "enum": ["Movie", "Drama", "Detective", "Thriller", "Adventure", "Western", "War", "Science fiction", "Fantasy", "Horror", "Comedy", "Soap", "Melodrama", "Folkloric", "Romance", "Serious", "Classical", "Religious", "Historical", "Adult", "Super-hero", "News", "Current affairs", "Weather report", "News magazine", "Documentary", "Discussion", "Interview", "Debate", "Show", "Game show", "Quiz", "Contest", "Variety show", "Talk show", "Sports", "Special events", "Sports magazines", "Football", "Soccer", "Tennis", "Squash", "Team sports", "Athletics", "Motor sport", "Water sport", "Winter sports", "Equestrian", "Martial sports", "Youth", "Pre-school children", "Children 6 to 14", "Children 10 to 16", "Informational", "Educational", "School", "Cartoon", "Puppets", "Music", "Ballet", "Dance", "Rock", "Pop", "Serious music", "Classical music", "Folk", "Traditional music", "Jazz", "Musical", "Opera", "Arts", "Culture", "Performing arts", "Fine arts", "Religion", "Popular culture", "Traditional arts", "Literature", "Film", "Cinema", "Experimental film", "Broadcasting", "Press", "News media", "Arts magazines", "Culture magazines", "Fashion", "Social issues", "Political issues", "Economics", "Magazines", "Reports", "Economics advisory", "Social advisory", "Remarkable people", "Education", "Science", "Factual topics", "Nature", "Animals", "Environment", "Technology", "Natural sciences", "Medicine", "Physiology", "Psychology", "Foreign countries", "Expeditions", "Social sciences", "Spiritual sciences", "Further education", "Languages", "Hobbies", "Tourism", "Travel", "Handicraft", "Motoring", "Fitness and health", "Cooking", "Advertisement", "Shopping", "Gardening", "Original language", "Black and white", "Unpublished", "Live broadcast", "Plano-stereoscopic", "Local or Regional", "Other"]
+                }
+            }
+        },
+        "contentrating": {
+          "type": "number",
+          "readOnly": true,
+          "description": "Content rating of the program"
+        },
+        "programstarttime": {
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true,
+          "description": "Program start time (RFC3339 formated, e.g.: 2016-02-15T09:19Z)"
+        },
+        "programendtime": {
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true,
+          "description": "Program end time (RFC3339 formated, e.g.: 2016-02-15T09:19Z)"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "oic.core.json#/definitions/oic.core"},
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "#/definitions/oic.r.channelinfo"}
+  ],
+  "required": ["programname", "programstarttime", "programendtime"]
+}
+

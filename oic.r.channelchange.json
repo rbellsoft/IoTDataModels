@@ -1,0 +1,92 @@
+{
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.channelchange.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+  "title": "Channel Change",
+  "definitions": {
+    "oic.r.channelchange.action": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "maxLength": 256,
+          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
+          "format": "uri"
+        },
+        "rel": {
+          "anyOf":[
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "minItems": 1,
+              "default": ["self"]
+            },
+            {
+              "type": "string",
+              "maxLength": 64,
+              "default": "self"
+            }
+          ],
+          "description": "The relation of the target URI referenced by the link to the context URI"
+        },
+        "action": {
+          "type": "enum",
+          "readOnly": true,
+          "description": "The name of the channel change action.",
+          "enum": ["channelup", "channeldown"]
+        }
+      },
+      "required": ["action"]
+    },
+    "oic.r.channelchange": {
+      "type": "object",
+      "properties": {
+        "channelid": {
+          "type": "string",
+          "description": "Id of the channel, formatted as a CRID (RFC4078)."
+        },
+        "channelname": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Name of the channel."
+        },
+        "channelstatus": {
+            "type": "enum",
+            "readOnly": true,
+            "description": "Content availability of the channel.",
+            "enum": ["OK", "Parental", "PPV", "Unsubscribed"]
+        },
+        "channelepg": {
+          "type": "array",
+          "readOnly": true,
+          "description": "EPG for the channel.",
+          "items": {
+            "$ref": "oic.r.channelinfo.json#/definitions/oic.r.channelinfo"
+          }
+        },
+        "lastaction": {
+          "type": "string",
+          "description": "Last Action received for channel change."
+        },
+        "actions":  {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/oic.r.channelchange.action"
+          },
+          "description": "The array of channel change actions that are supported for channel change."
+        }
+      },
+      "required": ["channelid", "lastaction", "actions"]
+    }
+  },
+  "type": "object",
+  "allOf": [
+    {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
+    {"$ref": "#/definitions/oic.r.channelchange"},
+    {"$ref": "oic.r.channelinfo.json#/definitions/oic.r.channelinfo"}
+  ]
+}
