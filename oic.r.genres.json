@@ -1,10 +1,10 @@
 {
-  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.media.genre.json#",
+  "id": "http://openinterconnect.org/iotdatamodels/schemas/oic.r.genres.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description" : "Copyright (c) 2018 Open Connectivity Foundation, Inc. All rights reserved.",
-  "title": "Media Content Genre",
+  "title": "Genres for Media and Channel Information",
   "definitions": {
-    "oic.r.media.genre": {
+    "oic.r.genres": {
       "type": "object",
       "properties": {
         "category": {
@@ -25,7 +25,7 @@
   "type": "object",
   "allOf": [
     {"$ref": "oic.baseResource.json#/definitions/oic.r.baseresource"},
-    {"$ref": "#/definitions/oic.r.media.genre"}
+    {"$ref": "#/definitions/oic.r.genres"}
   ],
   "required": ["category"]
 }

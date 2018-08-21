@@ -30,7 +30,7 @@
             "type": "array",
             "minItems": 1,
             "items": {
-              "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
+              "$ref": "oic.r.genres.json#/definitions/oic.r.genres"
             },
             "description": "Genres for image (i.e photograpy, photos, pictures, and etc.) media content."
         },

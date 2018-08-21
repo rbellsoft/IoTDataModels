@@ -52,7 +52,7 @@
             "type": "array",
             "minItems": 1,
             "items": {
-              "$ref": "oic.r.media.genre.json#/definitions/oic.r.media.genre"
+              "$ref": "oic.r.genres.json#/definitions/oic.r.genres"
             },
             "description": "Genres for text (i.e book, literature, writing, and etc.) media content."
         },

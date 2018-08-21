@@ -1,0 +1,254 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Genres for Media and Channel Information",
+        "version": "v1.0.0-20180821",
+        "license": {
+            "name": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+            "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\nIN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\nHOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+        }
+    },
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/GenreResURI": {
+            "get": {
+                "description": "Gets the genre information.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/interface"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retrieves the genre information.",
+                        "x-example": [
+                            {
+                                "href": "/myGenreResURI",
+                                "rep": [
+                                    {
+                                        "rt":          ["oic.r.genres"],
+                                        "id":          "unique_example_id",
+                                        "category":    "Movie",
+                                        "subcategory": "Super-hero"
+                                    }
+                                ]
+                            }
+                        ],
+                        "schema": {
+                            "$ref": "#/definitions/Genres"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "parameters": {
+        "interface": {
+            "in": "query",
+            "name": "if",
+            "type": "string",
+            "enum": [
+                "oic.if.s",
+                "oic.if.baseline"
+            ]
+        }
+    },
+    "definitions": {
+        "Genres": {
+            "title": "Genres for Media and Channel Information",
+            "type": "object",
+            "minItems": 1,
+            "items": {
+                "additionalProperties": true,
+                "properties": {
+                    "category": {
+                        "type": "string",
+                        "readOnly": true,
+                        "description": "Media Content Genre Category",
+                        "enum": ["Arts", "Books", "Education", "Hobbies", "Movie", "Music", "News", "Photography", "Show", "Social", "Special", "Sports", "Youth", "Other", "None"]
+                    },
+                    "subcategory": {
+                        "type": "string",
+                        "readOnly": true,
+                        "description": "Media Content Genre Sub-Category",
+                        "enum": ["Movie", "Action", "Adventure", "Adult", "Animation", "Biography", "Classic", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Fitness and health", "Foreign", "History", "Horror", "Musical", "Mystery", "Religion", "Romance", "Sci-Fi", "Short", "Super-hero", "Soap", "Thriller", "War", "Western", "Arts", "Broadcasting", "Cinema", "Culture", "Experimental film", "Fashion", "Film", "Fine art", "Literature", "News media", "Performing", "Popular culture", "Press", "Traditional", "Books", "Business", "Fiction", "Food", "Investing", "Memoirs", "Money", "Suspense", "Wine", "Education", "Animals", "Environment", "Expeditions", "Factual topics", "Further education", "Languages", "Magazines", "Medicine", "Nature", "Natural sciences", "Physiology", "Psychology", "Science", "Social sciences", "Spiritual sciences", "Technology", "Hobbies", "Advertisement", "Cooking", "Gardening", "Handicraft", "Motoring", "Shopping", "Tourism", "Travel", "Music", "Alternatives", "Ballet", "Blues", "Broadway", "Children", "Christian", "Classical", "Classic rock", "Country", "Dance", "Folk", "Gospel", "Hard Rock", "Hip-Hop", "Holiday", "Jazz", "Latin", "Metal", "New Age", "Opera", "Pop", "R&B", "Rap", "Rock", "Soundtrack", "Vocal", "World", "News", "Current affairs", "Debate", "Discussion", "Interview", "Weather report", "Photography", "Aerial", "Architectural", "Conceptual", "Candid", "Landscape", "Night-long exposure", "Photojournalism", "Portraiture", "Street", "Wildlife", "Show", "Contest", "Game", "Quiz", "Reality TV", "Talk", "Variety", "Sports", "Athletics", "Equestrian", "Football", "Martial", "Motor", "Soccer", "Special events", "Squash", "Team", "Tennis", "Water", "Winter", "Social issues", "Economics", "Economics advisory", "Political issues", "Remarkable people", "Reports", "Social advisory", "Original language", "Black and white", "Live broadcast", "Local or Regional", "Plano-stereoscopic", "Unpublished", "Youth", "Cartoon", "Children Pre-school", "Children 6 to 14", "Children 10 to 16", "Educational", "Informational", "Puppets", "School", "Other", "None"]
+                    }
+                },
+                "required": ["category"]
+            }
+        },
+        "baseline": {
+            "properties": {
+                "rt": {
+                    "items": {
+                        "enum": [
+                            "oic.r.genres"
+                        ]
+                    },
+                    "maxItems": 1,
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                },
+                "links": {
+                    "description": "A set of simple or individual OIC Links.",
+                    "items": {
+                        "properties": {
+                            "anchor": {
+                                "description": "This is used to override the context URI e.g. override the URI of the containing collection.",
+                                "format": "uri",
+                                "maxLength": 256,
+                                "type": "string"
+                            },
+                            "di": {
+                                "description": "The Device ID formatted according to IETF RFC 4122.",
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "type": "string"
+                            },
+                            "eps": {
+                                "description": "the Endpoint information of the target Resource",
+                                "items": {
+                                    "properties": {
+                                        "ep": {
+                                            "description": "Transport Protocol Suite + Endpoint Locator",
+                                            "format": "uri",
+                                            "type": "string"
+                                        },
+                                        "pri": {
+                                            "description": "The priority among multiple Endpoints",
+                                            "minimum": 1,
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            },
+                            "href": {
+                                "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI.",
+                                "format": "uri",
+                                "maxLength": 256,
+                                "type": "string"
+                            },
+                            "if": {
+                                "description": "The interface set supported by this resource",
+                                "items": {
+                                    "enum": [
+                                        "oic.if.baseline",
+                                        "oic.if.s"
+                                    ],
+                                    "type": "string"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "ins": {
+                                "description": "The instance identifier for this web link in an array of web links - used in collections",
+                                "type": "integer"
+                            },
+                            "p": {
+                                "description": "Specifies the framework policies on the Resource referenced by the target URI",
+                                "properties": {
+                                    "bm": {
+                                        "description": "Specifies the framework policies on the Resource referenced by the target URI for e.g. observable and discoverable",
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "bm"
+                                ],
+                                "type": "object"
+                            },
+                            "rel": {
+                                "description": "The relation of the target URI referenced by the link to the context URI",
+                                "oneOf": [
+                                    {
+                                        "default": [
+                                            "hosts"
+                                        ],
+                                        "items": {
+                                            "maxLength": 64,
+                                            "type": "string"
+                                        },
+                                        "minItems": 1,
+                                        "type": "array"
+                                    },
+                                    {
+                                        "default": "hosts",
+                                        "maxLength": 64,
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            "rt": {
+                                "description": "Resource Type of the Resource",
+                                "items": {
+                                    "maxLength": 64,
+                                    "type": "string"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "title": {
+                                "description": "A title for the link relation. Can be used by the UI to provide a context.",
+                                "maxLength": 64,
+                                "type": "string"
+                            },
+                            "type": {
+                                "default": "application/cbor",
+                                "description": "A hint at the representation of the resource referenced by the target URI. This represents the media types that are used for both accepting and emitting.",
+                                "items": {
+                                    "maxLength": 64,
+                                    "type": "string"
+                                },
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "href",
+                            "rt",
+                            "if"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "n": {
+                    "description": "Friendly name of the resource",
+                    "maxLength": 64,
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Instance ID of this specific resource",
+                    "maxLength": 64,
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "if": {
+                    "description": "The interface set supported by this resource",
+                    "items": {
+                        "enum": [
+                            "oic.if.baseline",
+                            "oic.if.s"
+                        ],
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "readOnly": true,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
