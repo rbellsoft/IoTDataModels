@@ -73,7 +73,7 @@
             "type": "array",
             "minItems": 1,
             "items": {
-              "$ref": "oic.r.genres.json#/definitions/oic.r.genres"
+              "$ref": "oic.r.genre.json#/definitions/oic.r.genre"
             },
             "description": "Genres for audio (i.e music) media content."
         },

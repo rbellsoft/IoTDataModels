@@ -1,5 +1,5 @@
 #%RAML 0.8
-title: Genres for Media and Channel Information
+title: Genre for Media and Channel Information
 version: v1.1.0-20180418
 documentation:
   - title: © 2018 Open Connectivity Foundation, Inc. All rights reserved.
@@ -10,7 +10,7 @@ documentation:
 
         THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED. IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 schemas:
-  - Genres: !include oic.r.genres.json
+  - Genre: !include oic.r.genre.json
 
 traits:
   - interface:
@@ -20,12 +20,12 @@ traits:
 
 /GenreResURI:
   description: |
-    This resource describes an object that used in describing the genres for a media content and channel information.
-    A genres contains two fields, the category is the high-level genre (i.e. Action, Comedy, Drama, and etc.)
+    This resource describes an object that used in describing the genre for a media content and channel information.
+    A genre contains two fields, the category is the high-level genre (i.e. Action, Comedy, Drama, and etc.)
     defined by media content and channel information, and the subcategory is the sub category (i.e. Martial Arts, Spy, Superhero, and etc.)
     under the high-level genre category for the media content and channel information.
 
-  displayName: Content Genre
+  displayName: Genre for Media and Channel Information
   is: [ interface ]
 
   get:
@@ -35,10 +35,10 @@ traits:
       200:
         body:
           application/json:
-            schema: Genres
+            schema: Genre
             example: |
               {
-              "rt": ["oic.r.genres"],
+              "rt": ["oic.r.genre"],
               "id": "unique_example_id",
               "category": "Movie",
               "subcategory": "Super-hero"

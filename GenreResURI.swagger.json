@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "title": "Genres for Media and Channel Information",
+        "title": "Genre for Media and Channel Information",
         "version": "v1.0.0-20180821",
         "license": {
             "name": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved.",
@@ -34,7 +34,7 @@
                                 "href": "/myGenreResURI",
                                 "rep": [
                                     {
-                                        "rt":          ["oic.r.genres"],
+                                        "rt":          ["oic.r.genre"],
                                         "id":          "unique_example_id",
                                         "category":    "Movie",
                                         "subcategory": "Super-hero"
@@ -43,7 +43,7 @@
                             }
                         ],
                         "schema": {
-                            "$ref": "#/definitions/Genres"
+                            "$ref": "#/definitions/Genre"
                         }
                     }
                 }
@@ -62,8 +62,8 @@
         }
     },
     "definitions": {
-        "Genres": {
-            "title": "Genres for Media and Channel Information",
+        "Genre": {
+            "title": "Genre for Media and Channel Information",
             "type": "object",
             "minItems": 1,
             "items": {
@@ -90,7 +90,7 @@
                 "rt": {
                     "items": {
                         "enum": [
-                            "oic.r.genres"
+                            "oic.r.genre"
                         ]
                     },
                     "maxItems": 1,
