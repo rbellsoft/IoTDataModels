@@ -48,6 +48,15 @@
       "type": "object",
       "description": "Genre for Media and Channel Information",
       "properties": {
+        "id" : {
+          "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/BaseResourceSchemaResURI.swagger.json#/definitions/id"
+        },
+        "if" : {
+          "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/BaseResourceSchemaResURI.swagger.json#/definitions/if"
+        },
+        "rt" : {
+          "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/BaseResourceSchemaResURI.swagger.json#/definitions/rt"
+        },
         "category": {
           "type": "string",
           "readOnly": true,
@@ -60,9 +69,6 @@
           "description": "Genre Sub-Category for Media and Channel Information.",
           "enum": ["Movie", "Action", "Adventure", "Adult", "Animation", "Biography", "Classic", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "Fitness and health", "Foreign", "History", "Horror", "Musical", "Mystery", "Religion", "Romance", "Sci-Fi", "Short", "Super-hero", "Soap", "Thriller", "War", "Western", "Arts", "Broadcasting", "Cinema", "Culture", "Experimental film", "Fashion", "Film", "Fine art", "Literature", "News media", "Performing", "Popular culture", "Press", "Traditional", "Books", "Business", "Fiction", "Food", "Investing", "Memoirs", "Money", "Suspense", "Wine", "Education", "Animals", "Environment", "Expeditions", "Factual topics", "Further education", "Languages", "Magazines", "Medicine", "Nature", "Natural sciences", "Physiology", "Psychology", "Science", "Social sciences", "Spiritual sciences", "Technology", "Hobbies", "Advertisement", "Cooking", "Gardening", "Handicraft", "Motoring", "Shopping", "Tourism", "Travel", "Music", "Alternatives", "Ballet", "Blues", "Broadway", "Children", "Christian", "Classical", "Classic rock", "Country", "Dance", "Folk", "Gospel", "Hard Rock", "Hip-Hop", "Holiday", "Jazz", "Latin", "Metal", "New Age", "Opera", "Pop", "R&B", "Rap", "Rock", "Soundtrack", "Vocal", "World", "News", "Current affairs", "Debate", "Discussion", "Interview", "Weather report", "Photography", "Aerial", "Architectural", "Conceptual", "Candid", "Landscape", "Night-long exposure", "Photojournalism", "Portraiture", "Street", "Wildlife", "Show", "Contest", "Game", "Quiz", "Reality TV", "Talk", "Variety", "Sports", "Athletics", "Equestrian", "Football", "Martial", "Motor", "Soccer", "Special events", "Squash", "Team", "Tennis", "Water", "Winter", "Social issues", "Economics", "Economics advisory", "Political issues", "Remarkable people", "Reports", "Social advisory", "Original language", "Black and white", "Live broadcast", "Local or Regional", "Plano-stereoscopic", "Unpublished", "Youth", "Cartoon", "Children Pre-school", "Children 6 to 14", "Children 10 to 16", "Educational", "Informational", "Puppets", "School", "Other", "None"]
         }
-      },
-      "additionalProperties": {
-        "$ref": "https://github.com/openconnectivityfoundation/BaseResourceSchemaResURI.swagger.json#/definitions/oic.r.baseresource"
       },
       "required": ["category"]
     }
