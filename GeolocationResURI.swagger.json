@@ -14,8 +14,7 @@
   "paths": {
     "/GeolocationResURI" : {
       "get": {
-        "description": "This resource describes the properties associated with the current geolocation coordinate.\nGeolocation is a geolocation coordinate data.\nLatitude is a device's current Latitude coordinate (degrees).\nLongitude is a device's current Longitude coordinate (degrees).\nAlt is a device's current distance (metres) above or below 'local' sea-level.\n
-        Accuracy is the accuracy level of the latitude and longitude coordinates (metres).\naltitudeAccuracy is the accuracy level of the altitude coordinates (metres).\nheading is a direction of travel of device (degree).\nspeed is a device's current velocity (metres per second).\nRetrieves the current geolocation coordinates.\n",
+        "description": "This resource describes the properties associated with the current geolocation coordinate.\nGeolocation is a geolocation coordinate data.\nLatitude is a device's current Latitude coordinate (degrees).\nLongitude is a device's current Longitude coordinate (degrees).\nAlt is a device's current distance (metres) above or below 'local' sea-level.\nAccuracy is the accuracy level of the latitude and longitude coordinates (metres).\naltitudeAccuracy is the accuracy level of the altitude coordinates (metres).\nheading is a direction of travel of device (degree).\nspeed is a device's current velocity (metres per second).\nRetrieves the current geolocation coordinates.\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
