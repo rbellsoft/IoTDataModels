@@ -1,6 +1,6 @@
 #%RAML 0.8
 title: Genre for Media and Channel Information
-version: v1.1.0-20180915
+version: v1.1.0-20181030
 documentation:
   - title: © 2018 Open Connectivity Foundation, Inc. All rights reserved.
     content: |
@@ -38,6 +38,7 @@ traits:
             schema: Genre
             example: |
               {
+              "href": "/myGenreResURI",
               "rt": ["oic.r.genre"],
               "id": "unique_example_id",
               "category": "Movie",

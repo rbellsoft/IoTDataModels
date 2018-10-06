@@ -1,0 +1,381 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Media Video",
+    "version": "v1.1.0-20181030",
+    "license": {
+      "name": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+    }
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/MediaVideoResURI" : {
+      "get": {
+        "description": "This resource specifies the media types that an OCF Server supports.\nThe resource is an array of media elements.  Each element contains:\n    A URL at which the specified media type can be accessed.\n    A string array containing the definition of the media using SDP.\n    Each entry in the sdp array is an SDP line.\n    Each line shall follow the SDP description syntax as defined in the SDP specification.\n    datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')\nThe SDP specification can be found at http://tools.ietf.org/html/rfc4566.\nRetrieves the current media video resource.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                "rt": ["oic.r.media.video"],
+                "id": "unique_example_id",
+                "title": "Video 1",
+                "description": "Long user-friendly synopsis of Video 1",
+                "mime_type": "video/mp4",
+                "media_file": "file://example/url/Video1.mp4",
+                "datetime": "2018-06-23T20:22:59-08:00",
+                "media_artwork": [
+                  {
+                    "href": "/local-video1_artwork",
+                    "mimetype": "image/png",
+                    "width": 256,
+                    "height": 256,
+                    "media": "file://example/url/video1.png",
+                    "rel": "icon",
+                    "ins": "uuid:UUID",
+                    "rt": ["oic.r.icon"],
+                    "if": ["oic.if.r"]
+                    }
+                  ],
+                  "sdp": [
+                    "m=video 51372 RTP/AVP 99",
+                    "a=rtpmap:99 h263-1998/90000"
+                    ],
+                  "duration": "01:22:59",
+                  "producers": [
+                    "Producer 1",
+                    "Producer 2"
+                    ],
+                  "composers": [
+                    "Composer 1",
+                    "Composer 2"
+                      ],
+                  "cast": [
+                    "Actor 1",
+                    "Actress 2"
+                    ],
+                  "directors": [
+                    "Dircector 1",
+                    "Director 2"
+                    ],
+                  "studio": [
+                    "Studio 1",
+                    "Studio 2"
+                    ],
+                  "writers": [
+                    "Writer 1",
+                    "Writer 2"
+                    ],
+                  "series": [
+                    "Series 1",
+                    "Series 2"
+                      ],
+                  "location": "Death Valley National Park, Furnace Creek, CA 92328, USA",
+                  "geolocation": {"latitude": 36.4643308,"longitude": -116.86906640000001, "alt": -62.1},
+                  "genres": [{"category": "Movie"}, {"subcategory": "Action"}, {"category": "Movie"}, {"subcategory": "Western"}],
+                  "rating_info": [{"rating_organization": "MPAA"}, {"rating": "PG-13"}],
+                  "identification_number": "EDID:1234-5678",
+                  "current_language": "english"
+                }
+                ,
+              "schema": { "$ref": "#/definitions/MediaVideo" }
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.rw", "oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "MediaVideo" : {
+      "properties": {
+        "composers" :
+                {
+          "description": "List of composers that wrote the music",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "geolocation" :
+                {
+          "$ref": "oic.r.sensor.geolocation.json"
+        },
+
+        "genres" :
+                {
+          "description": "Genres for video (i.e movie, TV, Prime Video, and etc.) media content.",
+          "items": {
+            "$ref": "oic.r.genre.json"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+
+        "identification_number" :
+                {
+          "description": "Unique identification number for video media content (EDID: Extended_Display_Identification_Data)",
+          "type": "string"
+        },
+
+        "sdp" :
+                {
+          "description": "Array of strings, one per SDP line",
+          "items": {
+            "description": "SDP (Session Description Protocol) is a format for describing streaming media communications parameters using the media and attribute lines defined in the SPD RFC4566.",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+
+        "cast" :
+                {
+          "description": "List of cast that acted in the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "series" :
+                {
+          "description": "List of TV Series and episode",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "producers" :
+                {
+          "description": "List of producers that produced the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "rating_info" :
+                {
+          "description": "The rating information which includes the rating organization and rating.",
+          "items": {
+            "properties": {
+              "rating": {
+                "description": "These are video content rating system for the rating organization.",
+                "type": "string"
+              },
+              "rating_organization": {
+                "description": "These are video content rating organization.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+
+        "directors" :
+                {
+          "description": "List of directors that directed the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "writers" :
+                {
+          "description": "List of writers that wrote the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "studio" :
+                {
+          "description": "List of studios that produced the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "location" :
+                {
+          "description": "Location is the user-friendly string of the geographic location of the video.",
+          "type": "string"
+        },
+
+        "duration" :
+                {
+          "anyOf": [
+            {
+              "description": "Supports duration time in ISO 8601 time only format (e.g: 'Time Only: 01:22:59')",
+              "type": "string"
+            },
+            {
+              "description": "Supports duration time for whole and float values.",
+              "type": "number"
+            }
+          ],
+          "description": "The total length of the video."
+        },
+
+        "current_language" :
+                {
+          "description": "Current language of the audio media content",
+          "type": "string"
+        }
+
+        }
+        ,"type" : "object"
+    }
+    ,"oic.r.media.video" :
+        {
+      "properties": {
+        "cast": {
+          "description": "List of cast that acted in the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "composers": {
+          "description": "List of composers that wrote the music",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "current_language": {
+          "description": "Current language of the audio media content",
+          "type": "string"
+        },
+        "directors": {
+          "description": "List of directors that directed the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "duration": {
+          "anyOf": [
+            {
+              "description": "Supports duration time in ISO 8601 time only format (e.g: 'Time Only: 01:22:59')",
+              "type": "string"
+            },
+            {
+              "description": "Supports duration time for whole and float values.",
+              "type": "number"
+            }
+          ],
+          "description": "The total length of the video."
+        },
+        "genres": {
+          "description": "Genres for video (i.e movie, TV, Prime Video, and etc.) media content.",
+          "items": {
+            "$ref": "oic.r.genre.json"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "geolocation": {
+          "$ref": "oic.r.sensor.geolocation.json"
+        },
+        "identification_number": {
+          "description": "Unique identification number for video media content (EDID: Extended_Display_Identification_Data)",
+          "type": "string"
+        },
+        "location": {
+          "description": "Location is the user-friendly string of the geographic location of the video.",
+          "type": "string"
+        },
+        "producers": {
+          "description": "List of producers that produced the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "rating_info": {
+          "description": "The rating information which includes the rating organization and rating.",
+          "items": {
+            "properties": {
+              "rating": {
+                "description": "These are video content rating system for the rating organization.",
+                "type": "string"
+              },
+              "rating_organization": {
+                "description": "These are video content rating organization.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "sdp": {
+          "description": "Array of strings, one per SDP line",
+          "items": {
+            "description": "SDP (Session Description Protocol) is a format for describing streaming media communications parameters using the media and attribute lines defined in the SPD RFC4566.",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "series": {
+          "description": "List of TV Series and episode",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "studio": {
+          "description": "List of studios that produced the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "writers": {
+          "description": "List of writers that wrote the movie",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+
+  }
+}

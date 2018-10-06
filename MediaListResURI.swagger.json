@@ -1,0 +1,748 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Media List",
+    "version": "v1.1.0-20181030",
+    "license": {
+      "name": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+    }
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/MediaListResURI" : {
+      "get": {
+        "description": "This resource specifies the media list capabilities of a device.\nThis resource specifies a list of media or other media lists that an OCF Server supports.\n  title: A human readable title for the media list.\n  media_list: An array of media elements.  Each element contains:\n      title: A human readable name for the media.\n      url: A URL at which the specified media type can be accessed.\n  The media list can support multiple modes.\n  current_item: This is the current item selected.\n  item_list: Is an array showing the list of indices and the arranged order of the media list.\n  media_list_artwork: Is an array of artwork that is associated to the media list.\n  actions: Is an array actions that are suppported with media list.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                  "rt": ["oic.r.media.list"],
+                  "id": "unique_example_id",
+                  "title": "My Playlist",
+                  "media_list": [
+                    {
+                      "title": "Song 1",
+                      "description": "Long user-friendly synopsis of Song 1",
+                      "url": "/example/url/1",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/local-song1_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "file://example/url/song1.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    },
+                    {
+                      "title": "Song 2",
+                      "description": "Long user-friendly synopsis of Song 2",
+                      "url": "/example/url/2",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/web-song2_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "http://example/url/song2.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    },
+                    {
+                      "title": "Song 3",
+                      "description": "Long user-friendly synopsis of Song 3",
+                      "url": "/example/url/3",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/local-song3_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "file://example/url/song3.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    },
+                    {
+                      "title": "Song 4",
+                      "description": "Long user-friendly synopsis of Song 4",
+                      "url": "/example/url/4",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/web-song4_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "http://example/url/song4.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    }
+                  ],
+                  "current_item": 1,
+                  "item_list": [0, 1, 2, 3],
+                  "media_list_artwork" : [
+                    {
+                      "href": "/web-media_list_artwork",
+                      "mimetype": "image/png",
+                      "width": 256,
+                      "height": 256,
+                      "media": "http://findbetter.ru/public/uploads/1481662800/2043.png",
+                      "rel": "icon",
+                      "ins": "uuid:UUID",
+                      "rt": ["oic.r.icon"],
+                      "if": ["oic.if.r"]
+                    },
+                    {
+                      "href": "/local-media_list_artwork",
+                      "mimetype": "image/png",
+                      "width": 64,
+                      "height": 64,
+                      "media": "file://example/url/sample.png",
+                      "rel": "icon",
+                      "ins": "uuid:UUID",
+                      "rt": ["oic.r.icon"],
+                      "if": ["oic.if.r"]
+                    }
+                  ],
+                  "actions" :  [
+                    {
+                      "action": "next",
+                      "href": "mediaListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "insert",
+                      "href": "mediaListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "delete",
+                      "href": "mediaListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "append",
+                      "href": "mediaListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "previous",
+                      "href": "mediaListResURI?currentitem=lastitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "select",
+                      "href": "mediaListResURI?currentitem=3",
+                      "rel":   "self"
+                    }
+                 ]
+                }
+                ,
+              "schema": { "$ref": "#/definitions/MediaList" }
+            }
+        }
+      },
+      "post": {
+        "description": "Sets the current media list values\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"},
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/MediaListUpdate" },
+            "x-example":
+              {
+              "id":            "unique_example_id",
+              "current_item":   3
+              }
+          }
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                "rt": ["oic.r.media.list"],
+                "id": "unique_example_id",
+                "title": "My Playlist",
+                "media_list": [
+                  {
+                    "title": "Song 1",
+                    "description": "Long user-friendly synopsis of Song 1",
+                    "url": "/example/url/1",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/local-song1_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "file://example/url/song1.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  },
+                  {
+                    "title": "Song 2",
+                    "description": "Long user-friendly synopsis of Song 2",
+                    "url": "/example/url/2",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/web-song2_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "http://example/url/song2.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  },
+                  {
+                    "title": "Song 3",
+                    "description": "Long user-friendly synopsis of Song 3",
+                    "url": "/example/url/3",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/local-song3_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "file://example/url/song3.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  },
+                  {
+                    "title": "Song 4",
+                    "description": "Long user-friendly synopsis of Song 4",
+                    "url": "/example/url/4",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/web-song4_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "http://example/url/song4.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  }
+                ],
+                "current_item":   3,
+                "item_list": [0, 1, 2, 3],
+                "media_list_artwork" : [
+                  {
+                    "href": "/web-media_list_artwork",
+                    "mimetype": "image/png",
+                    "width": 256,
+                    "height": 256,
+                    "media": "http://findbetter.ru/public/uploads/1481662800/2043.png",
+                    "rel": "icon",
+                    "ins": "uuid:UUID",
+                    "rt": ["oic.r.icon"],
+                    "if": ["oic.if.r"]
+                  },
+                  {
+                    "href": "/local-media_list_artwork",
+                    "mimetype": "image/png",
+                    "width": 64,
+                    "height": 64,
+                    "media": "file://example/url/sample.png",
+                    "rel": "icon",
+                    "ins": "uuid:UUID",
+                    "rt": ["oic.r.icon"],
+                    "if": ["oic.if.r"]
+                  }
+                ],
+                "actions" :  [
+                  {
+                    "action": "next",
+                    "href": "mediaListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "insert",
+                    "href": "mediaListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "delete",
+                    "href": "mediaListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "append",
+                    "href": "mediaListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "previous",
+                    "href": "mediaListResURI?currentitem=lastitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "select",
+                    "href": "mediaListResURI?currentitem=3",
+                    "rel":   "self"
+                  }
+                ]
+                }
+                ,
+              "schema": { "$ref": "#/definitions/MediaListUpdate" }
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.rw", "oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "MediaList" : {
+      "properties": {
+        "item_list" :
+                {
+          "description": "An array showing the indices and order of the medialist.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+
+        "media_list" :
+                {
+          "description": "The array of media resources in the media list.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "oic.r.media.core.json"
+              },
+              {
+                "$ref": "oic.r.media.audio.json"
+              },
+              {
+                "$ref": "oic.r.media.image.json"
+              },
+              {
+                "$ref": "oic.r.media.text.json"
+              },
+              {
+                "$ref": "oic.r.media.video.json"
+              }
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+
+        "title" :
+                {
+          "description": "A human readable title for the media list.",
+          "type": "string"
+        },
+
+        "media_list_artwork" :
+                {
+          "description": "The array of icons that are used to support the media list.",
+          "items": {
+            "$ref": "oic.r.icon-schema.json"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "actions" :
+                {
+          "description": "The array of media actions that are supported with media list.",
+          "items": {
+            "$ref": "#/definitions/oic.r.media.action"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "current_item" :
+                {
+          "description": "This is the current item selected. This is the indice in the item_list.",
+          "type": "number"
+        }
+
+        }
+        ,"type" : "object"
+    }
+    ,
+    "MediaListUpdate" : {
+      "properties": {
+        "item_list" :
+                {
+          "description": "An array showing the indices and order of the medialist.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+
+        "media_list" :
+                {
+          "description": "The array of media resources in the media list.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "oic.r.media.core.json"
+              },
+              {
+                "$ref": "oic.r.media.audio.json"
+              },
+              {
+                "$ref": "oic.r.media.image.json"
+              },
+              {
+                "$ref": "oic.r.media.text.json"
+              },
+              {
+                "$ref": "oic.r.media.video.json"
+              }
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+
+        "title" :
+                {
+          "description": "A human readable title for the media list.",
+          "type": "string"
+        },
+
+        "media_list_artwork" :
+                {
+          "description": "The array of icons that are used to support the media list.",
+          "items": {
+            "$ref": "oic.r.icon-schema.json"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "actions" :
+                {
+          "description": "The array of media actions that are supported with media list.",
+          "items": {
+            "$ref": "#/definitions/oic.r.media.action"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+
+        "current_item" :
+                {
+          "description": "This is the current item selected.",
+          "type": "number"
+        }
+
+        }
+        ,"type" : "object"
+    }
+    ,"oic.r.media.list-update" :
+        {
+      "anyOf": [
+        {
+          "required": [
+            "title"
+          ]
+        },
+        {
+          "required": [
+            "current_item"
+          ]
+        },
+        {
+          "required": [
+            "item_list"
+          ]
+        },
+        {
+          "required": [
+            "actions"
+          ]
+        }
+      ],
+      "properties": {
+        "actions": {
+          "description": "The array of media actions that are supported with media list.",
+          "items": {
+            "$ref": "#/definitions/oic.r.media.action"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "current_item": {
+          "description": "This is the current item selected.",
+          "type": "number"
+        },
+        "item_list": {
+          "description": "An array showing the indices and order of the medialist.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "media_list": {
+          "description": "The array of media resources in the media list.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "oic.r.media.core.json"
+              },
+              {
+                "$ref": "oic.r.media.audio.json"
+              },
+              {
+                "$ref": "oic.r.media.image.json"
+              },
+              {
+                "$ref": "oic.r.media.text.json"
+              },
+              {
+                "$ref": "oic.r.media.video.json"
+              }
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "media_list_artwork": {
+          "description": "The array of icons that are used to support the media list.",
+          "items": {
+            "$ref": "oic.r.icon-schema.json"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "title": {
+          "description": "A human readable title for the media list.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+
+    ,"oic.r.media.action" :
+        {
+      "properties": {
+        "action": {
+          "description": "The name of the media action.",
+          "enum": [
+            "next",
+            "insert",
+            "delete",
+            "append",
+            "previous",
+            "select"
+          ],
+          "readOnly": true,
+          "type": "string"
+        },
+        "allowed_values": {
+          "description": "The allowed values for the action",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+        "href": {
+          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
+          "format": "uri",
+          "maxLength": 256,
+          "type": "string"
+        },
+        "range": {
+          "description": "The allowed range for the action",
+          "items": {
+            "type": "number"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "readOnly": true,
+          "type": "array"
+        },
+        "range_step": {
+          "description": "Step value across the defined range",
+          "readOnly": true,
+          "type": "number"
+        },
+        "rel": {
+          "anyOf": [
+            {
+              "default": "self",
+              "items": {
+                "maxLength": 64,
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            {
+              "default": "self",
+              "maxLength": 64,
+              "type": "string"
+            }
+          ],
+          "description": "The relation of the target URI referenced by the link to the context URI"
+        }
+      },
+      "required": [
+        "action"
+      ],
+      "type": "object"
+    }
+
+    ,"oic.r.media.list" :
+        {
+      "properties": {
+        "actions": {
+          "description": "The array of media actions that are supported with media list.",
+          "items": {
+            "$ref": "#/definitions/oic.r.media.action"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "current_item": {
+          "description": "This is the current item selected. This is the indice in the item_list.",
+          "type": "number"
+        },
+        "item_list": {
+          "description": "An array showing the indices and order of the medialist.",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+        "media_list": {
+          "description": "The array of media resources in the media list.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "oic.r.media.core.json"
+              },
+              {
+                "$ref": "oic.r.media.audio.json"
+              },
+              {
+                "$ref": "oic.r.media.image.json"
+              },
+              {
+                "$ref": "oic.r.media.text.json"
+              },
+              {
+                "$ref": "oic.r.media.video.json"
+              }
+            ]
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "media_list_artwork": {
+          "description": "The array of icons that are used to support the media list.",
+          "items": {
+            "$ref": "oic.r.icon-schema.json"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "title": {
+          "description": "A human readable title for the media list.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "media_list",
+        "current_item",
+        "actions"
+      ],
+      "type": "object"
+    }
+
+  }
+}

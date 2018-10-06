@@ -1,0 +1,197 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Media Image",
+    "version": "v1.1.0-20181030",
+    "license": {
+      "name": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+    }
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/MediaImageResURI" : {
+      "get": {
+        "description": "This resource specifies the media types that an OCF Server supports.\nThe resource is an array of media elements.  Each element contains:\n    A URL at which the specified media type can be accessed.\n    datetime is using RFC3339 date-time format.\n\r (e.g: '2018-06-23T20:22:59Z' - Date+Time+Timezone'UTC' or '2018-06-23T20:22:59-08:00' - Date+Time+Timezone'PST')\nThe SDP specification can be found at http://tools.ietf.org/html/rfc4566.\nRetrieves the current media image resource.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                "rt": ["oic.r.media.image"],
+                "id": "unique_example_id",
+                "title": "Image 1",
+                "description": "Long user-friendly synopsis of Image 1",
+                "mime_type": "image/png",
+                "media_file": "file://example/url/Image1.png",
+                "datetime": "2018-06-23T20:22:59-08:00",
+                "copyright": "Copyright notice by the copyright holder for Image 1",
+                "artists": [
+                        "Artist 1",
+                        "Artist 2"
+                        ],
+                "album": "Album Title 1",
+                "album_artwork": [
+                  {
+                    "href": "/local-album_artwork",
+                    "mimetype": "image/png",
+                    "width": 256,
+                    "height": 256,
+                    "media": "file://example/url/album.png",
+                    "rel": "icon",
+                    "ins": "uuid:UUID",
+                    "rt": ["oic.r.icon"],
+                    "if": ["oic.if.r"]
+                    }
+                  ],
+                "location": "Death Valley National Park, Furnace Creek, CA 92328, USA",
+                "genres": [{"category": "Arts"}, {"subcategory": "Culture"}, {"category": "Arts"}, {"subcategory": "Religion"}],
+                "geolocation": {"latitude": 36.4643308,"longitude": -116.86906640000001, "alt": -62.1},
+                "rating_info": [{"rating_organization": "none"}, {"rating": "General"}],
+                "identification_number": "ISSN:1234-5678"
+                }
+                ,
+              "schema": { "$ref": "#/definitions/MediaImage" }
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.rw", "oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "MediaImage" : {
+      "properties": {
+        "album" :
+                {
+          "description": "Which album the picture belongs to (if applicable).",
+          "type": "string"
+        },
+
+        "geolocation" :
+                {
+          "$ref": "oic.r.sensor.geolocation.json"
+        },
+
+        "genres" :
+                {
+          "description": "Genres for image (i.e photograpy, photos, pictures, and etc.) media content.",
+          "items": {
+            "$ref": "oic.r.genre.json"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+
+        "identification_number" :
+                {
+          "description": "Unique identification number for image media content (ISSN: International_Standard_Serial_Number).",
+          "type": "string"
+        },
+
+        "rating_info" :
+                {
+          "description": "The rating information which includes the rating organization and rating.",
+          "items": {
+            "properties": {
+              "rating": {
+                "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)",
+                "type": "string"
+              },
+              "rating_organization": {
+                "description": "These are image content rating organization.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+
+        "location" :
+                {
+          "description": "Location is the user-friendly string of the geographic location of the image.",
+          "type": "string"
+        },
+
+        "artists" :
+                {
+          "description": "List of artists",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        }
+
+        }
+        ,"type" : "object"
+    }
+    ,"oic.r.media.image" :
+        {
+      "properties": {
+        "album": {
+          "description": "Which album the picture belongs to (if applicable).",
+          "type": "string"
+        },
+        "artists": {
+          "description": "List of artists",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array"
+        },
+        "genres": {
+          "description": "Genres for image (i.e photograpy, photos, pictures, and etc.) media content.",
+          "items": {
+            "$ref": "oic.r.genre.json"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "geolocation": {
+          "$ref": "oic.r.sensor.geolocation.json"
+        },
+        "identification_number": {
+          "description": "Unique identification number for image media content (ISSN: International_Standard_Serial_Number).",
+          "type": "string"
+        },
+        "location": {
+          "description": "Location is the user-friendly string of the geographic location of the image.",
+          "type": "string"
+        },
+        "rating_info": {
+          "description": "The rating information which includes the rating organization and rating.",
+          "items": {
+            "properties": {
+              "rating": {
+                "description": "A category of artistic composition, as in music or literature, characterized by similarities in form, style, or subject matter. (For instance, the type of song, e.g. speech, rock, pop)",
+                "type": "string"
+              },
+              "rating_organization": {
+                "description": "These are image content rating organization.",
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+
+  }
+}

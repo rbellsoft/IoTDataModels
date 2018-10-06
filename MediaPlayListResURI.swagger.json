@@ -1,0 +1,570 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Play List",
+    "version": "v1.1.0-20181030",
+    "license": {
+      "name": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved.",
+      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+    }
+  },
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/MediaPlayListResURI" : {
+      "get": {
+        "description": "This resource specifies the play list capabilities of a device.\nThis resource specifies a list of media or other media lists that an OCF Server supports.\n  title: A human readable title for the media list.\n  media_list: An array of media elements.  Each element contains:\n      title: A human readable name for the media.\n      url: A URL at which the specified media type can be accessed.\n  The media list can support multiple modes.\n  mode_list: The list of modes that can be support as few or as many modes by the server are as follows:\n      - none: no mode indicated\n      - autoadvance: The currentitem auto advances to the next item in the media list\n      - repeat: The currentitem is left to same\n      - repeatall: If the item has reached the end of the list start again\n      - reverse: The currentitem auto advances to the next item in the media list in reverse order\n      - shuffle: Change currentitem to a random value that has not been already selected\n      - random: Change currentitem to a random value in the list\n  current_mode: This is the current mode and what the server should do when an the media in the list has completed.\n    The default will be autoadvance.\n  media_delay: The media delay is how long the server will wait after changing the current media before the next the media.\n    Used to give clients time to respond to list changes default 0\n  current_item: This is the current item selected.\n  item_list: Is an array showing the list of indices and the arranged order of the media list.\n  media_list_artwork: Is an array of artwork that is associated to the media list.\n  actions: Is an array actions that are suppported with media list.\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"}
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                  "rt": ["oic.r.media.playlist"],
+                  "id": "unique_example_id",
+                  "title": "My PlayList",
+                  "media_list": [
+                    {
+                      "title": "Song 1",
+                      "description": "Long user-friendly synopsis of Song 1",
+                      "url": "/example/url/1",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/local-song1_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "file://example/url/song1.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    },
+                    {
+                      "title": "Song 2",
+                      "description": "Long user-friendly synopsis of Song 2",
+                      "url": "/example/url/2",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/web-song2_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "http://example/url/song2.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    },
+                    {
+                      "title": "Song 3",
+                      "description": "Long user-friendly synopsis of Song 3",
+                      "url": "/example/url/3",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/local-song3_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "file://example/url/song3.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    },
+                    {
+                      "title": "Song 4",
+                      "description": "Long user-friendly synopsis of Song 4",
+                      "url": "/example/url/4",
+                      "sdp": [
+                        "m=audio 2 RTP/AVP 97",
+                        "a=rtpmap:97 MP4A-LATM/90000"
+                        ],
+                        "media_artwork": [
+                          {
+                            "href": "/web-song4_artwork",
+                            "mimetype": "image/png",
+                            "width": 256,
+                            "height": 256,
+                            "media": "http://example/url/song4.png",
+                            "rel": "icon",
+                            "ins": "uuid:UUID",
+                            "rt": ["oic.r.icon"],
+                            "if": ["oic.if.r"]
+                          }
+                        ]
+                    }
+                  ],
+                  "current_mode": "autoadvance",
+                  "media_delay": 0,
+                  "current_item": 1,
+                  "item_list": [0, 1, 2, 3],
+                  "media_list_artwork" : [
+                    {
+                      "href": "/web-media_list_artwork",
+                      "mimetype": "image/png",
+                      "width": 256,
+                      "height": 256,
+                      "media": "http://findbetter.ru/public/uploads/1481662800/2043.png",
+                      "rel": "icon",
+                      "ins": "uuid:UUID",
+                      "rt": ["oic.r.icon"],
+                      "if": ["oic.if.r"]
+                    },
+                    {
+                      "href": "/local-media_list_artwork",
+                      "mimetype": "image/png",
+                      "width": 64,
+                      "height": 64,
+                      "media": "file://example/url/sample.png",
+                      "rel": "icon",
+                      "ins": "uuid:UUID",
+                      "rt": ["oic.r.icon"],
+                      "if": ["oic.if.r"]
+                    }
+                  ],
+                  "actions" :  [
+                    {
+                      "action": "next",
+                      "href": "mediaPlayListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "insert",
+                      "href": "mediaPlayListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "delete",
+                      "href": "mediaPlayListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "append",
+                      "href": "mediaPlayListResURI?currentitem=nextitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "previous",
+                      "href": "mediaPlayListResURI?currentitem=lastitem",
+                      "rel":   "self"
+                    },
+                    {
+                      "action": "select",
+                      "href": "mediaPlayListResURI?currentitem=3",
+                      "rel":   "self"
+                    }
+                 ]
+                }
+                ,
+              "schema": { "$ref": "#/definitions/MediaPlayList" }
+            }
+        }
+      },
+      "post": {
+        "description": "Sets the current play list values\n",
+        "parameters": [
+          {"$ref": "#/parameters/interface"},
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/MediaPlayListUpdate" },
+            "x-example":
+              {
+              "id":            "unique_example_id",
+              "current_item":   3
+              }
+          }
+        ],
+        "responses": {
+            "200": {
+              "description" : "",
+              "x-example":
+                {
+                "rt":            ["oic.r.media.playlist"],
+                "id":            "unique_example_id",
+                "title": "My PlayList",
+                "media_list": [
+                  {
+                    "title": "Song 1",
+                    "description": "Long user-friendly synopsis of Song 1",
+                    "url": "/example/url/1",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/local-song1_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "file://example/url/song1.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  },
+                  {
+                    "title": "Song 2",
+                    "description": "Long user-friendly synopsis of Song 2",
+                    "url": "/example/url/2",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/web-song2_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "http://example/url/song2.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  },
+                  {
+                    "title": "Song 3",
+                    "description": "Long user-friendly synopsis of Song 3",
+                    "url": "/example/url/3",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/local-song3_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "file://example/url/song3.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  },
+                  {
+                    "title": "Song 4",
+                    "description": "Long user-friendly synopsis of Song 4",
+                    "url": "/example/url/4",
+                    "sdp": [
+                      "m=audio 2 RTP/AVP 97",
+                      "a=rtpmap:97 MP4A-LATM/90000"
+                      ],
+                      "media_artwork": [
+                        {
+                          "href": "/web-song4_artwork",
+                          "mimetype": "image/png",
+                          "width": 256,
+                          "height": 256,
+                          "media": "http://example/url/song4.png",
+                          "rel": "icon",
+                          "ins": "uuid:UUID",
+                          "rt": ["oic.r.icon"],
+                          "if": ["oic.if.r"]
+                        }
+                      ]
+                  }
+                ],
+                "current_mode": "autoadvance",
+                "modeDelay": 0,
+                "current_item":   3,
+                "item_list": [0, 1, 2, 3],
+                "media_list_artwork" : [
+                  {
+                    "href": "/web-media_list_artwork",
+                    "mimetype": "image/png",
+                    "width": 256,
+                    "height": 256,
+                    "media": "http://findbetter.ru/public/uploads/1481662800/2043.png",
+                    "rel": "icon",
+                    "ins": "uuid:UUID",
+                    "rt": ["oic.r.icon"],
+                    "if": ["oic.if.r"]
+                  },
+                  {
+                    "href": "/local-media_list_artwork",
+                    "mimetype": "image/png",
+                    "width": 64,
+                    "height": 64,
+                    "media": "file://example/url/sample.png",
+                    "rel": "icon",
+                    "ins": "uuid:UUID",
+                    "rt": ["oic.r.icon"],
+                    "if": ["oic.if.r"]
+                  }
+                ],
+                "actions" :  [
+                  {
+                    "action": "next",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "insert",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "delete",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "append",
+                    "href": "mediaPlayListResURI?currentitem=nextitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "previous",
+                    "href": "mediaPlayListResURI?currentitem=lastitem",
+                    "rel":   "self"
+                  },
+                  {
+                    "action": "select",
+                    "href": "mediaPlayListResURI?currentitem=3",
+                    "rel":   "self"
+                  }
+                ]
+                }
+                ,
+              "schema": { "$ref": "#/definitions/MediaPlayListUpdate" }
+            }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface" : {
+      "in" : "query",
+      "name" : "if",
+      "type" : "string",
+      "enum" : ["oic.if.rw", "oic.if.baseline"]
+    }
+  },
+  "definitions": {
+    "MediaPlayList" : {
+      "properties": {
+        "current_mode" :
+                {
+          "default": "autoadvance",
+          "description": "This is the current mode and what the server should do when an the media in the list has completed. The default will be autoadvance.",
+          "type": "string"
+        },
+
+        "mode_list" :
+                {
+          "description": "mode_list is list of modes that the server supports.",
+          "items": {
+            "enum": [
+              "none",
+              "autoadvance",
+              "repeat",
+              "repeatall",
+              "reverse",
+              "shuffle",
+              "random"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+
+        "media_delay" :
+                {
+          "default": 0,
+          "description": "The media delay is how long the server will wait in seconds after changing the current media before the next the media. Used to give clients time to respond to list changes default 0.",
+          "type": "number"
+        }
+
+        }
+        ,"type" : "object"
+      ,"required": ["current_mode"]
+    }
+    ,
+    "MediaPlayListUpdate" : {
+      "properties": {
+        "current_mode" :
+                {
+          "default": "autoadvance",
+          "description": "This is the current mode and what the server should do when an the media in the list has completed. The default will be autoadvance.",
+          "type": "string"
+        },
+
+        "mode_list" :
+                {
+          "description": "mode_list is list of modes that the server supports.",
+          "items": {
+            "enum": [
+              "none",
+              "autoadvance",
+              "repeat",
+              "repeatall",
+              "reverse",
+              "shuffle",
+              "random"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "readOnly": true,
+          "type": "array"
+        },
+
+        "media_delay" :
+                {
+          "default": 0,
+          "description": "The media delay is how long the server will wait in seconds after changing the current media before the next the media. Used to give clients time to respond to list changes default 0.",
+          "type": "number"
+        }
+
+        }
+        ,"anyOf" : 
+                [
+          {
+            "required": [
+              "title"
+            ]
+          },
+          {
+            "required": [
+              "current_item"
+            ]
+          },
+          {
+            "required": [
+              "current_mode"
+            ]
+          },
+          {
+            "required": [
+              "item_list"
+            ]
+          },
+          {
+            "required": [
+              "actions"
+            ]
+          }
+        ]
+
+        ,"type" : "object"
+    }
+    ,"oic.r.media.playlist-update" :
+        {
+      "allOf": [
+        {
+          "$ref": "oic.r.media.list-update.json"
+        },
+        {
+          "properties": {
+            "current_mode": {
+              "default": "autoadvance",
+              "description": "This is the current mode and what the server should do when an the media in the list has completed. The default will be autoadvance.",
+              "type": "string"
+            },
+            "media_delay": {
+              "default": 0,
+              "description": "The media delay is how long the server will wait in seconds after changing the current media before the next the media. Used to give clients time to respond to list changes default 0.",
+              "type": "number"
+            },
+            "mode_list": {
+              "description": "mode_list is list of modes that the server supports.",
+              "items": {
+                "enum": [
+                  "none",
+                  "autoadvance",
+                  "repeat",
+                  "repeatall",
+                  "reverse",
+                  "shuffle",
+                  "random"
+                ],
+                "type": "string"
+              },
+              "minItems": 1,
+              "readOnly": true,
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    }
+
+    ,"oic.r.media.playlist" :
+        {
+      "allOf": [
+        {
+          "$ref": "oic.r.media.list.json"
+        },
+        {
+          "properties": {
+            "current_mode": {
+              "default": "autoadvance",
+              "description": "This is the current mode and what the server should do when an the media in the list has completed. The default will be autoadvance.",
+              "type": "string"
+            },
+            "media_delay": {
+              "default": 0,
+              "description": "The media delay is how long the server will wait in seconds after changing the current media before the next the media. Used to give clients time to respond to list changes default 0.",
+              "type": "number"
+            },
+            "mode_list": {
+              "description": "mode_list is list of modes that the server supports.",
+              "items": {
+                "enum": [
+                  "none",
+                  "autoadvance",
+                  "repeat",
+                  "repeatall",
+                  "reverse",
+                  "shuffle",
+                  "random"
+                ],
+                "type": "string"
+              },
+              "minItems": 1,
+              "readOnly": true,
+              "type": "array"
+            }
+          }
+        }
+      ],
+      "type": "object"
+    }
+
+  }
+}
