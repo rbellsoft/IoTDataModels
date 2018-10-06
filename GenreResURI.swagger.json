@@ -48,14 +48,14 @@
       "type": "object",
       "description": "Genre for Media and Channel Information",
       "properties": {
-        "id" : {
-          "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/BaseResourceSchemaResURI.swagger.json#/definitions/id"
-        },
         "if" : {
           "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/BaseResourceSchemaResURI.swagger.json#/definitions/if"
         },
         "rt" : {
           "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/BaseResourceSchemaResURI.swagger.json#/definitions/rt"
+        },
+        "id" : {
+          "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/BaseResourceSchemaResURI.swagger.json#/definitions/id"
         },
         "category": {
           "type": "string",
