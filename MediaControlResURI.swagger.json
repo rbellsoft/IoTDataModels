@@ -14,68 +14,67 @@
   "paths": {
     "/MediaControlResURI" : {
       "get": {
-        "description": "This resource specifies the media control capabilities of a device.\nRetrieves the current media control settings.\nCurrent state is \"play\" therefore play will not be in response as a transitions.\nThe transitions from \"play\" are the following:\n- stop\n- pause\n- fastforward (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_speed=2.5\n  where the \"allowed_values\" gives the list of allowed values for the substitution\n- rewind (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_speed=-0.5\n  where the \"allowed_values\" gives the list of allowed values for the substitution\n- stepforward (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_location=2.5\n  where the \"range\" gives the range of allowed values and \"range_step\" give step increment for the substitution\n- stepbackward (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_location=-0.5\n  where the \"range\" gives the range of allowed values and \"range_step\" give step increment for the substitution\n- seek (location change), using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_location=53\n  where the \"range\" gives the range of allowed values for the substitution\n",
+        "description": "This resource specifies the media control capabilities of a device.\nRetrieves the current media control settings.\nCurrent state is \"play\" therefore play will not be in response as a transitions.\nThe transitions from \"play\" are the following:\n- stop\n- pause\n- fastforward (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_speed=2.5\n  where the \"allowed_values\" gives the list of allowed values for the substitution\n- rewind (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_speed=-0.5\n  where the \"allowed_values\" gives the list of allowed values for the substitution\n- stepforward (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_location=2.5\n  where the \"range_number\" gives the range of allowed values and \"step_number\" give step increment for the substitution\n- stepbackward (trick modes) change, using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_location=-0.5\n  where the \"range_number\" gives the range of allowed values and \"step_number\" give step increment for the substitution\n- seek (location change), using uri templates:\n  https://tools.ietf.org/html/rfc6570\n  where the expanded url will be:\n  mediaControlResURI?media_location=53\n  where the \"range_number\" gives the range of allowed values for the substitution\n",
         "parameters": [
           {"$ref": "#/parameters/interface"}
         ],
         "responses": {
             "200": {
-              "description" : "",
+              "description" : "Retrieve/get Response",
               "x-example":
-                {
+              {
                   "href": "/myMediaControlResURI",
                   "rt":           ["oic.r.media.control"],
                   "id":           "unique_example_id",
                   "play_state":    true,
                   "media_speed":    1.0,
-                  "media_location": 53,
+                  "media_location_number": 53,
                   "last_action":    "play",
-                  "actions" :  [
-                    {
-                      "action": "stop",
-                      "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0",
-                      "rel":   "self"
-                    },
-                    {
-                      "action": "pause",
-                      "href": "mediaControlResURI?play_state=false",
-                      "rel":   "self"
-                    },
-                    {
-                      "action": "fastforward",
-                      "allowed_values" : [ 0.5, 2.5, 5],
-                      "href": "mediaControlResURI?{?media_speed}",
-                      "rel":   "self"
-                    },
-                    {
-                      "action": "rewind",
-                      "allowed_values" : [ -0.5, -2.5, -5],
-                      "href": "mediaControlResURI?{?media_speed}",
-                      "rel":   "self"
-                    },
-                    {
-                      "action": "stepforward",
-                      "range" : [ 0, 20],
-                      "range_step" : 1,
-                      "href": "mediaControlResURI?{?media_location}",
-                      "rel":   "self"
-                    },
-                    {
-                      "action": "stepbackward",
-                      "range" : [ 0, 20],
-                      "range_step" : 1,
-                      "href": "mediaControlResURI?{?media_location}",
-                      "rel":   "self"
-                    },
-                    {
-                      "action": "seek",
-                      "range" : [ 0, 3000],
-                      "href": "mediaControlResURI?{?media_location}",
-                      "rel":   "self"
+                  "media_actions" :  [
+                      {
+                          "action": "stop",
+                          "href": "mediaControlResURI?play_state=false&media_speed=0&media_location_number=0",
+                          "rel":   "self"
+                      },
+                      {
+                          "action": "pause",
+                          "href": "mediaControlResURI?play_state=false",
+                          "rel":   "self"
+                      },
+                      {
+                          "action": "fastforward",
+                          "allowed_speed_values" : [ 0.5, 2.5, 5],
+                          "href": "mediaControlResURI?{?media_speed}",
+                          "rel":   "self"
+                      },
+                      {
+                          "action": "rewind",
+                          "allowed_speed_values" : [ -0.5, -2.5, -5],
+                          "href": "mediaControlResURI?{?media_speed}",
+                          "rel":   "self"
+                      },
+                      {
+                          "action": "stepforward",
+                          "range_number" : [ 0, 20],
+                          "step_number" : 1,
+                          "href": "mediaControlResURI?{?media_location_number}",
+                          "rel":   "self"
+                      },
+                      {
+                          "action": "stepbackward",
+                          "range_number" : [ 0, 20],
+                          "step_number" : 1,
+                          "href": "mediaControlResURI?{?media_location_number}",
+                          "rel":   "self"
+                      },
+                      {
+                          "action": "seek",
+                          "range_number" : [ 0, 3000],
+                          "href": "mediaControlResURI?{?media_location_number}",
+                          "rel":   "self"
                     }
                  ]
-                }
-                ,
+              },
               "schema": { "$ref": "#/definitions/MediaControl" }
             }
         }
@@ -84,14 +83,17 @@
         "description": "Sets the current media control values\n",
         "parameters": [
           {"$ref": "#/parameters/interface"},
+          {"$ref": "#/parameters/QplayState"},
           {"$ref": "#/parameters/QmediaSpeed"},
-          {"$ref": "#/parameters/Qplaystate"},
-          {"$ref": "#/parameters/QmediaLocation"},
+          {"$ref": "#/parameters/QmediaLocation_Number"},
+          {"$ref": "#/parameters/QmediaLocation_DateTime"},
+          {"$ref": "#/parameters/QmediaLocation_URI"},
+          {"$ref": "#/parameters/QlastAction"},
           {
             "name": "body",
             "in": "body",
             "required": true,
-            "schema": { "$ref": "#/definitions/MediaControlUpdate" },
+            "schema": { "$ref": "#/definitions/MediaControl" },
             "x-example":
               {
               "id":           "unique_example_id",
@@ -104,60 +106,59 @@
         ],
         "responses": {
             "200": {
-              "description" : "",
-              "x-example":
+                "description" : "Update/post Response",
+                "x-example":
                 {
-                "id":           "unique_example_id",
-                "play_state":    true,
-                "media_speed":    8.0,
-                "media_location":  40,
-                "last_action":    "fastforward",
-                "actions" : [
-                {
-                "action": "stop",
-                "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0",
-                "rel":   "self"
+                    "id":           "unique_example_id",
+                    "play_state":    true,
+                    "media_speed":    8.0,
+                    "media_location":  40,
+                    "last_action":    "fastforward",
+                    "media_actions" : [
+                        {
+                            "action": "stop",
+                            "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0",
+                            "rel":   "self"
+                        },
+                        {
+                            "action": "play",
+                            "href": "mediaControlResURI?media_speed=0",
+                            "rel":   "self"
+                        },
+                        {
+                            "action": "pause",
+                            "href": "mediaControlResURI?play_state=false",
+                            "rel":   "self"
+                        },
+                        {
+                            "action": "rewind",
+                            "allowed_speed_values" : [ -0.5, -2.5, -5],
+                            "href": "mediaControlResURI?{?media_speed}",
+                            "rel":   "self"
+                        },
+                        {
+                            "action": "stepforward",
+                            "range_number" : [ 0, 20],
+                            "step_number" : 1,
+                            "href": "mediaControlResURI?{?media_location}",
+                            "rel":   "self"
+                        },
+                        {
+                            "action": "stepbackward",
+                            "range_number" : [ 0, 20],
+                            "step_number" : 1,
+                            "href": "mediaControlResURI?{?media_location}",
+                            "rel":   "self"
+                        },
+                        {
+                            "action": "seek",
+                            "range_number" : [ 0, 3000],
+                            "href": "mediaControlResURI?{?media_location}",
+                            "rel":   "self"
+                        }
+                    ]
                 },
-                {
-                  "action": "play",
-                  "href": "mediaControlResURI?media_speed=0",
-                  "rel":   "self"
-                },
-                {
-                  "action": "pause",
-                  "href": "mediaControlResURI?play_state=false",
-                  "rel":   "self"
-                },
-                {
-                  "action": "rewind",
-                  "allowed_values" : [ -0.5, -2.5, -5],
-                  "href": "mediaControlResURI?{?media_speed}",
-                  "rel":   "self"
-                },
-                {
-                  "action": "stepforward",
-                  "range" : [ 0, 20],
-                  "range_step" : 1,
-                  "href": "mediaControlResURI?{?media_location}",
-                  "rel":   "self"
-                },
-                {
-                  "action": "stepbackward",
-                  "range" : [ 0, 20],
-                  "range_step" : 1,
-                  "href": "mediaControlResURI?{?media_location}",
-                  "rel":   "self"
-                },
-                {
-                  "action": "seek",
-                  "range" : [ 0, 3000],
-                  "href": "mediaControlResURI?{?media_location}",
-                  "rel":   "self"
-                }
-                ]
-                }
-                ,
-              "schema": { "$ref": "#/definitions/MediaControlUpdate" }
+                "schema": { "$ref": "#/definitions/MediaControl" }
             }
         }
       }
@@ -170,272 +171,184 @@
       "type" : "string",
       "enum" : ["oic.if.rw", "oic.if.baseline"]
     },
-    "QmediaLocation" : {
-      "in" : "query",
-      "name" : "media_location",
-      "type" : "string",
-      "type" : "type"
+    "QplayState" : {
+        "in" : "query",
+        "name" : "play_state",
+        "type" : "string",
+        "description": "Play State.",
+        "x-example": [
+            {
+                "play_state": true
+            }
+        ]
     },
     "QmediaSpeed" : {
-      "in" : "query",
-      "name" : "media_speed",
-      "type" : "string",
-      "type" : "type"
+        "in" : "query",
+        "name" : "media_speed",
+        "type" : "string",
+        "description": "Media Speed.",
+        "x-example": [
+          {
+              "media_speed": 8.0
+          }
+        ]
+      },
+    "QmediaLocation_Number" : {
+    "in" : "query",
+    "name" : "media_location_number",
+    "type" : "string",
+    "description": "Media Location - Number",
+    "x-example": [
+      {
+          "media_location_number": 40
+      }
+    ]
     },
-    "Qplaystate" : {
-      "in" : "query",
-      "name" : "play_state",
-      "type" : "string",
-      "type" : "type"
+    "QmediaLocation_DateTime" : {
+    "in" : "query",
+    "name" : "media_location_datetime",
+    "type" : "string",
+    "description": "Media Location - DateTime",
+    "x-example": [
+      {
+          "media_location_datetime": "2018-06-23T20:22:59"
+      }
+    ]
+    },
+    "QmediaLocation_URI" : {
+    "in" : "query",
+    "name" : "media_location_uri",
+    "type" : "string",
+    "description": "Media Location - URI",
+    "x-example": [
+      {
+          "media_location_uri": "https://www.youtube.com/watch?v=GRxofEmo3HA?t=286"
+      }
+    ]
+    },
+    "QlastAction" : {
+    "in" : "query",
+    "name" : "last_action",
+    "type" : "string",
+    "description": "Last Action",
+    "x-example": [
+      {
+          "last_action": "fastforward"
+      }
+    ]
     }
   },
   "definitions": {
-    "MediaControl" : {
-      "properties": {
-        "media_location" :
-                {
-          "anyOf": [
-            {
-              "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI.",
-              "format": "uri",
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "description": "Reference time for the absolute time in ISO 8601 datetime format (e.g: 'Date Only: 2018-06-23', 'Date and Time: 2018-06-23T20:22:59', 'Date, Time, and Timezone'PST': 2018-06-23T20:22:59-08:00')",
-              "type": "string"
-            },
-            {
-              "description": "Supports Rate Control for float values and Frame By Frame for integer values for both positive and negative values.",
-              "type": "number"
-            }
-          ]
-        },
-
-        "play_state" :
-                {
-          "description": "Allowed media control play state values.",
-          "type": "boolean"
-        },
-
-        "last_action" :
-                {
-          "description": "Last Action received for media control.",
-          "type": "string"
-        },
-
-        "actions" :
-                {
-          "description": "The array of media actions that are supported for media control.",
-          "items": {
-            "$ref": "#/definitions/oic.r.media.action"
-          },
-          "minItems": 1,
-          "type": "array"
-        },
-
-        "media_speed" :
-                {
-          "description": "Allowed media control play speed values.",
-          "type": "number"
-        }
-
-        }
-        ,"type" : "object"
-    }
-    ,
-    "MediaControlUpdate" : {
-      "properties": {
-        "media_location" :
-                {
-          "anyOf": [
-            {
-              "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI.",
-              "format": "uri",
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "description": "Reference time for the absolute time in ISO 8601 datetime format (e.g: 'Date Only: 2018-06-23', 'Date and Time: 2018-06-23T20:22:59', 'Date, Time, and Timezone'PST': 2018-06-23T20:22:59-08:00')",
-              "type": "string"
-            },
-            {
-              "description": "Supports Rate Control for float values and Frame By Frame for integer values for both positive and negative values.",
-              "type": "number"
-            }
-          ]
-        },
-
-        "play_state" :
-                {
-          "description": "Allowed media control play state values.",
-          "type": "boolean"
-        },
-
-        "last_action" :
-                {
-          "description": "Last Action received for media control.",
-          "type": "string"
-        },
-
-        "actions" :
-                {
-          "description": "The array of media actions that are supported for media control.",
-          "items": {
-            "$ref": "#/definitions/oic.r.media.action"
-          },
-          "minItems": 1,
-          "type": "array"
-        },
-
-        "media_speed" :
-                {
-          "description": "Allowed media control play speed values.",
-          "type": "number"
-        }
-
-        }
-        ,"type" : "object"
-    }
-    ,"oic.r.media.control" :
-        {
-      "anyOf": [
-        {
-          "required": [
-            "play_state"
-          ]
-        },
-        {
-          "required": [
-            "media_speed"
-          ]
-        },
-        {
-          "required": [
-            "media_location"
-          ]
-        },
-        {
-          "required": [
-            "last_action"
-          ]
-        }
-      ],
-      "properties": {
-        "actions": {
-          "description": "The array of media actions that are supported for media control.",
-          "items": {
-            "$ref": "#/definitions/oic.r.media.action"
-          },
-          "minItems": 1,
-          "type": "array"
-        },
-        "last_action": {
-          "description": "Last Action received for media control.",
-          "type": "string"
-        },
-        "media_location": {
-          "anyOf": [
-            {
-              "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI.",
-              "format": "uri",
-              "maxLength": 256,
-              "type": "string"
-            },
-            {
-              "description": "Reference time for the absolute time in ISO 8601 datetime format (e.g: 'Date Only: 2018-06-23', 'Date and Time: 2018-06-23T20:22:59', 'Date, Time, and Timezone'PST': 2018-06-23T20:22:59-08:00')",
-              "type": "string"
-            },
-            {
-              "description": "Supports Rate Control for float values and Frame By Frame for integer values for both positive and negative values.",
-              "type": "number"
-            }
-          ]
-        },
-        "media_speed": {
-          "description": "Allowed media control play speed values.",
-          "type": "number"
-        },
-        "play_state": {
-          "description": "Allowed media control play state values.",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    }
-
-    ,"oic.r.media.action" :
-        {
-      "properties": {
-        "action": {
-          "description": "The name of the media action.",
-          "enum": [
-            "stop",
-            "play",
-            "pause",
-            "fastforward",
-            "rewind",
-            "stepforward",
-            "stepbackward",
-            "seek"
-          ],
-          "readOnly": true
-        },
-        "allowed_values": {
-          "description": "The allowed values for the action",
-          "items": {
-            "type": "number"
-          },
-          "minItems": 1,
-          "readOnly": true,
-          "type": "array"
-        },
-        "href": {
-          "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
-          "format": "uri",
-          "maxLength": 256,
-          "type": "string"
-        },
-        "range": {
-          "description": "The allowed range for the action",
-          "items": {
-            "type": "number"
-          },
-          "maxItems": 2,
-          "minItems": 2,
-          "readOnly": true,
-          "type": "array"
-        },
-        "range_step": {
-          "description": "Step value across the defined range",
-          "readOnly": true,
-          "type": "number"
-        },
-        "rel": {
-          "anyOf": [
-            {
-              "default": "self",
-              "items": {
-                "maxLength": 64,
-                "type": "string"
+    "MediaControl" :
+    {
+          "properties":
+          {
+              "play_state" :
+              {
+                  "description": "Allowed media control play state values.",
+                  "type": "boolean"
               },
-              "minItems": 1,
-              "type": "array"
-            },
-            {
-              "default": "self",
-              "maxLength": 64,
-              "type": "string"
-            }
-          ],
-          "description": "The relation of the target URI referenced by the link to the context URI"
-        }
+              "media_speed" :
+              {
+                  "description": "Allowed media control play speed values.",
+                  "type": "number"
+              },
+              "media_location_number" :
+              {
+                  "description": "Supports Rate Control for float values and Frame By Frame for integer values for both positive and negative values.",
+                  "type": "number"
+              },
+              "media_location_datetime" :
+              {
+                  "description": "Reference time for the absolute time in ISO 8601 datetime format (e.g: 'Date Only: 2018-06-23', 'Date and Time: 2018-06-23T20:22:59', 'Date, Time, and Timezone'PST': 2018-06-23T20:22:59-08:00')",
+                  "type": "string"
+              },
+              "media_location_uri" :
+              {
+                  "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI.",
+                  "format": "uri",
+                  "maxLength": 256,
+                  "type": "string"
+              },
+              "last_action" :
+              {
+                  "description": "Last Action received for media control.",
+                  "type": "string"
+              },
+              "media_actions" :
+              {
+                  "description": "The array of media actions that are supported for media control.",
+                  "items": {
+                      "$ref": "#/definitions/MediaAction"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+              }
+        },
+        "type" : "object"
       },
-      "required": [
-        "action"
-      ],
-      "type": "object"
+    "MediaAction" :
+    {
+        "properties":
+        {
+            "action":
+            {
+                "description": "The name of the media action.",
+                "enum": ["stop", "play", "pause", "fastforward", "rewind", "stepforward", "stepbackward", "seek" ],
+                "readOnly": true
+            },
+            "allowed_speed_values": {
+                "description": "The allowed values for the action",
+                "items": {
+                    "type": "number"
+                },
+                "minItems": 1,
+                "readOnly": true,
+                "type": "array"
+            },
+            "range_number": {
+                "description": "The allowed range for the action",
+                "items": {
+                    "type": "number"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "readOnly": true,
+                "type": "array"
+            },
+            "step_number": {
+                "description": "Step value across the defined range",
+                "readOnly": true,
+                "type": "number"
+            },
+            "href": {
+                "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
+                "format": "uri",
+                "maxLength": 256,
+                "type": "string"
+            },
+            "rel": {
+                "anyOf": [
+                    {
+                        "default": "self",
+                        "items": {
+                            "maxLength": 64,
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    {
+                        "default": "self",
+                        "maxLength": 64,
+                        "type": "string"
+                    }
+                    ],
+                    "description": "The relation of the target URI referenced by the link to the context URI"
+            }
+        },
+        "type": "object",
+        "required": [ "action" ]
     }
-
   }
 }
