@@ -29,7 +29,7 @@
                   "play_state":    true,
                   "media_speed":    1.0,
                   "media_location_number": 53,
-                  "last_action":    "play",
+                  "current_action": "play",
                   "media_actions" :  [
                       {
                           "action": "stop",
@@ -88,7 +88,7 @@
           {"$ref": "#/parameters/QmediaLocation_Number"},
           {"$ref": "#/parameters/QmediaLocation_DateTime"},
           {"$ref": "#/parameters/QmediaLocation_URI"},
-          {"$ref": "#/parameters/QlastAction"},
+          {"$ref": "#/parameters/QcurrentAction"},
           {
             "name": "body",
             "in": "body",
@@ -100,7 +100,7 @@
               "play_state":    true,
               "media_speed":    8.0,
               "media_location": 40,
-              "last_action":    "fastforward"
+              "current_action": "fastforward"
               }
           }
         ],
@@ -113,7 +113,7 @@
                     "play_state":    true,
                     "media_speed":    8.0,
                     "media_location":  40,
-                    "last_action":    "fastforward",
+                    "current_action": "fastforward",
                     "media_actions" : [
                         {
                             "action": "stop",
@@ -226,14 +226,14 @@
       }
     ]
     },
-    "QlastAction" : {
+    "QcurrentAction" : {
     "in" : "query",
-    "name" : "last_action",
+    "name" : "current_action",
     "type" : "string",
-    "description": "Last Action",
+    "description": "Current Action",
     "x-example": [
       {
-          "last_action": "fastforward"
+          "current_action": "fastforward"
       }
     ]
     }
@@ -270,9 +270,9 @@
                   "maxLength": 256,
                   "type": "string"
               },
-              "last_action" :
+              "current_action" :
               {
-                  "description": "Last Action received for media control.",
+                  "description": "Current Action received for media control.",
                   "type": "string"
               },
               "media_actions" :
