@@ -1,0 +1,464 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Channel Change",
+    "version": "v1.0.0-20180821",
+    "license": {
+      "name": "BSD-2-CLAUSE",
+      "url": "https://openconnectivityfoundation.github.io/core/LICENSE.md",
+      "x-copyright": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved."
+    },
+    "termsOfService": "https://openconnectivityfoundation.github.io/core/DISCLAIMER.md"
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/ChannelChangeResURI": {
+      "get": {
+        "description": "Gets the information for the specified or the current channel.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/channelid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieves the specified or current channel information.",
+            "x-example": [
+              {
+                "rt": [
+                  "oic.r.channelchange"
+                ],
+                "id": "unique_example_id",
+                "channelid": "crid://localhost/1",
+                "channelname": "OCF TV",
+                "channelstatus": "OK",
+                "channelepg": [
+                  {
+                    "programmename": "AVTG call",
+                    "programmedescription": "Weekly teleconference of the Audio Video Task Group",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T06:00-08:00",
+                    "programmeendtime": "2018-03-13T07:00-08:00"
+                  },
+                  {
+                    "programmename": "Architecture call",
+                    "programmedescription": "Weekly teleconference of the Architecture Task Group",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T07:00-08:00",
+                    "programmeendtime": "2018-03-13T09:00-08:00"
+                  }
+                ],
+                "lastaction": "channelup",
+                "actions": [
+                  {
+                    "action": "channelup",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                  },
+                  {
+                    "action": "channeldown",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                  }
+                ]
+              },
+              {
+                "rt": [
+                  "oic.r.channelchange"
+                ],
+                "id": "unique_example_id",
+                "channelid": "crid://localhost/5",
+                "channelname": "FCO TV",
+                "channelstatus": "OK",
+                "channelepg": [
+                  {
+                    "programmename": "turetecchiAr call",
+                    "programmedescription": "Group Task Architecture the of teleconference Weekly",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T06:00-08:00",
+                    "programmeendtime": "2018-03-13T07:00-08:00"
+                  },
+                  {
+                    "programmename": "GTVA call",
+                    "programmedescription": "Group Task Video Audio the of teleconference Weekly",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T07:00-08:00",
+                    "programmeendtime": "2018-03-13T09:00-08:00"
+                  }
+                ],
+                "lastaction": "channelup",
+                "actions": [
+                  {
+                    "action": "channelup",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                  },
+                  {
+                    "action": "channeldown",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                  }
+                ]
+              }
+            ],
+            "schema": {
+              "$ref": "#/definitions/channel-change-retrieve"
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Change the channel to the desired channel.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/channelid",
+            "$ref": "#/parameters/action"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieves the information for the new channel.",
+            "x-example": [
+              {
+                "rt": [
+                  "oic.r.channelchange"
+                ],
+                "id": "unique_example_id",
+                "channelid": "crid://localhost/5",
+                "channelname": "FCO TV",
+                "channelstatus": "OK",
+                "channelepg": [
+                  {
+                    "programmename": "turetecchiAr call",
+                    "programmedescription": "Group Task Architecture the of teleconference Weekly",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T06:00-08:00",
+                    "programmeendtime": "2018-03-13T07:00-08:00"
+                  },
+                  {
+                    "programmename": "GTVA call",
+                    "programmedescription": "Group Task Video Audio the of teleconference Weekly",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T07:00-08:00",
+                    "programmeendtime": "2018-03-13T09:00-08:00"
+                  }
+                ],
+                "lastaction": "channelup",
+                "actions": [
+                  {
+                    "action": "channelup",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                  },
+                  {
+                    "action": "channeldown",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                  }
+                ]
+              }
+            ],
+            "schema": {
+              "$ref": "#/definitions/channel-change-retrieve"
+            }
+          },
+          "404": {
+            "description": "This response is generated by the OIC Server when the client sends an invalid or not supported CRID channelid. The server responds with the current resource representation.",
+            "x-example": [
+              {
+                "rt": [
+                  "oic.r.channelchange"
+                ],
+                "id": "unique_example_id",
+                "channelid": "crid://localhost/1",
+                "channelname": "OCF TV",
+                "channelstatus": "OK",
+                "channelepg": [
+                  {
+                    "programmename": "AVTG call",
+                    "programmedescription": "Weekly teleconference of the Audio Video Task Group",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T06:00-08:00",
+                    "programmeendtime": "2018-03-13T07:00-08:00"
+                  },
+                  {
+                    "programmename": "Architecture call",
+                    "programmedescription": "Weekly teleconference of the Architecture Task Group",
+                    "contenttype": {
+                      "category": "Movie",
+                      "subcategory": "Science fiction"
+                    },
+                    "contentrating": 18,
+                    "programmestarttime": "2018-03-13T07:00-08:00",
+                    "programmeendtime": "2018-03-13T09:00-08:00"
+                  }
+                ],
+                "lastaction": "channelup",
+                "actions": [
+                  {
+                    "action": "channelup",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                  },
+                  {
+                    "action": "channeldown",
+                    "href": "channelchangeResURI",
+                    "rel": "self"
+                   }
+                ]
+              }
+            ],
+            "schema": {
+              "$ref": "#/definitions/channel-change-retrieve"
+            }
+          }
+        }
+      }
+    }
+  },
+  "parameters": {
+    "interface": {
+      "in": "query",
+      "name": "if",
+      "type": "string",
+      "enum": [
+        "oic.if.rw",
+        "oic.if.baseline"
+      ]
+    },
+    "channelid": {
+      "in": "query",
+      "name": "channelid",
+      "type": "string",
+      "format": "uri",
+      "description": "Channel Identifier (CRID).",
+      "x-example": [
+        {
+          "channelid": "crid://localhost/5"
+        }
+      ]
+    },
+    "action": {
+      "in": "query",
+      "name": "action",
+      "type": "string",
+      "description": "Action (channelup / channeldown).",
+      "enum": [
+        "channelup",
+        "channeldown"
+      ],
+      "x-example": [
+        {
+          "action": "channelup"
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "channel-change-actions": {
+      "title": "Actions for Channel Change",
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The name of the channel change action.",
+          "enum": [
+            "channelup",
+            "channeldown"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "channel-info": {
+      "title": "Channel Information",
+      "type": "object",
+      "properties": {
+        "programmename": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Program name"
+        },
+        "programmedescription": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Program description"
+        },
+        "contenttype": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/schemas/oic.genre.properties-schema.json#/definitions/category"
+            },
+            "subcategory": {
+              "$ref": "https://openconnectivityfoundation.github.io/IoTDataModels/schemas/oic.genre.properties-schema.json#/definitions/subcategory"
+            }
+          },
+          "required": [
+            "category"
+          ]
+        },
+        "contentrating": {
+          "type": "number",
+          "readOnly": true,
+          "description": "Content rating of the program"
+        },
+        "programstarttime": {
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true,
+          "description": "Program start time (RFC3339 formated, e.g.: 2016-02-15T09:19Z)"
+        },
+        "programendtime": {
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true,
+          "description": "Program end time (RFC3339 formated, e.g.: 2016-02-15T09:19Z)"
+        }
+      }
+    },
+    "channel-change": {
+      "title": "Channel Change properties",
+      "type": "object",
+      "properties": {
+        "channelid": {
+          "type": "string",
+          "description": "Id of the channel, formatted as a CRID (RFC4078)."
+        },
+        "channelname": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Name of the channel."
+        },
+        "channelstatus": {
+          "type": "string",
+          "readOnly": true,
+          "description": "Content availability of the channel.",
+          "enum": [
+            "OK",
+            "Parental",
+            "PPV",
+            "Unsubscribed"
+          ]
+        },
+        "channelepg": {
+          "type": "array",
+          "readOnly": true,
+          "description": "EPG for the channel.",
+          "items": {
+            "$ref": "#/definitions/channel-info"
+          }
+        },
+        "lastaction": {
+          "type": "string",
+          "description": "Last Action received for channel change."
+        },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/channel-change-actions"
+          },
+          "description": "The array of channel change actions that are supported for channel change."
+        },
+        "href": {
+          "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/href"
+        },
+        "if": {
+          "type": "array",
+          "minItems": 1,
+          "readOnly": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "oic.if.rw",
+              "oic.if.baseline"
+            ]
+          }
+        },
+        "rt": {
+          "type": "array",
+          "minItems": 1,
+          "readOnly": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "oic.r.channelchange"
+            ]
+          }
+        }
+      }
+    },
+    "channel-change-retrieve": {
+      "title": "Channel Change Retrieve Format",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "additionalProperties": true,
+        "type": "object",
+        "properties": {
+          "href": {
+            "description": "URI of the target resource relative assuming the collection URI as anchor",
+            "type": "string"
+          },
+          "rep": {
+            "description": " The response payload from a channel retrieve resource",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/channel-change"
+            },
+            "uniqueItems": true,
+            "required": [
+              "channelid",
+              "lastaction",
+              "actions"
+            ]
+          }
+        },
+        "required": [
+          "href",
+          "rep"
+        ]
+      }
+    }
+  }
+}
