@@ -18,7 +18,7 @@ traits:
       queryParameters:
         if:
           enum: ["oic.if.rw","oic.if.baseline"]
-  - Qplaystate:
+  - QplayState:
         queryParameters:
             play_state:
                 type: boolean
@@ -48,27 +48,27 @@ traits:
         https://tools.ietf.org/html/rfc6570
         where the expanded url will be:
         mediaControlResURI?media_speed=2.5
-        where the "allowed_values" gives the list of allowed values for the substitution
+        where the "allowed_speed_values" gives the list of allowed values for the substitution
       - rewind (trick modes) change, using uri templates:
         https://tools.ietf.org/html/rfc6570
         where the expanded url will be:
         mediaControlResURI?media_speed=-0.5
-        where the "allowed_values" gives the list of allowed values for the substitution
+        where the "allowed_speed_values" gives the list of allowed values for the substitution
       - stepforward (trick modes) change, using uri templates:
         https://tools.ietf.org/html/rfc6570
         where the expanded url will be:
         mediaControlResURI?media_location=2.5
-        where the "range" gives the range of allowed values and "range_step" give step increment for the substitution
+        where the "range_number" gives the range of allowed values and "step_number" give step increment for the substitution
       - stepbackward (trick modes) change, using uri templates:
         https://tools.ietf.org/html/rfc6570
         where the expanded url will be:
         mediaControlResURI?media_location=-0.5
-        where the "range" gives the range of allowed values and "range_step" give step increment for the substitution
+        where the "range_number" gives the range of allowed values and "step_number" give step increment for the substitution
       - seek (location change), using uri templates:
         https://tools.ietf.org/html/rfc6570
         where the expanded url will be:
         mediaControlResURI?media_location=53
-        where the "range" gives the range of allowed values for the substitution
+        where the "range_number" gives the range of allowed values for the substitution
     responses:
       200:
         body:
@@ -95,33 +95,33 @@ traits:
                   },
                   {
                     "action": "fastforward",
-                    "allowed_values" : [ 0.5, 2.5, 5],
+                    "allowed_speed_values" : [ 0.5, 2.5, 5],
                     "href": "mediaControlResURI?{?media_speed}",
                     "rel":   "self"
                   },
                   {
                     "action": "rewind",
-                    "allowed_values" : [ -0.5, -2.5, -5],
+                    "allowed_speed_values" : [ -0.5, -2.5, -5],
                     "href": "mediaControlResURI?{?media_speed}",
                     "rel":   "self"
                   },
                   {
                     "action": "stepforward",
-                    "range" : [ 0, 20],
-                    "range_step" : 1,
+                    "range_number" : [ 0, 20],
+                    "step_number" : 1,
                     "href": "mediaControlResURI?{?media_location}",
                     "rel":   "self"
                   },
                   {
                     "action": "stepbackward",
-                    "range" : [ 0, 20],
-                    "range_step" : 1,
+                    "range_number" : [ 0, 20],
+                    "step_number" : 1,
                     "href": "mediaControlResURI?{?media_location}",
                     "rel":   "self"
                   },
                   {
                     "action": "seek",
-                    "range" : [ 0, 3000],
+                    "range_number" : [ 0, 3000],
                     "href": "mediaControlResURI?{?media_location}",
                     "rel":   "self"
                   }
@@ -129,7 +129,7 @@ traits:
               }
 
   post:
-    is: [ interface, QmediaSpeed, Qplaystate, QmediaLocation ]
+    is: [ interface, QmediaSpeed, QplayState, QmediaLocation ]
     description: |
       Sets the current media control values
     body:
@@ -173,27 +173,27 @@ traits:
               },
               {
                 "action": "rewind",
-                "allowed_values" : [ -0.5, -2.5, -5],
+                "allowed_speed_values" : [ -0.5, -2.5, -5],
                 "href": "mediaControlResURI?{?media_speed}",
                 "rel":   "self"
               },
               {
                 "action": "stepforward",
-                "range" : [ 0, 20],
-                "range_step" : 1,
+                "range_number" : [ 0, 20],
+                "step_number" : 1,
                 "href": "mediaControlResURI?{?media_location}",
                 "rel":   "self"
               },
               {
                 "action": "stepbackward",
-                "range" : [ 0, 20],
-                "range_step" : 1,
+                "range_number" : [ 0, 20],
+                "step_number" : 1,
                 "href": "mediaControlResURI?{?media_location}",
                 "rel":   "self"
               },
               {
                 "action": "seek",
-                "range" : [ 0, 3000],
+                "range_number" : [ 0, 3000],
                 "href": "mediaControlResURI?{?media_location}",
                 "rel":   "self"
               }

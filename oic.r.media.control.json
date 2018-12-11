@@ -56,7 +56,7 @@
             "type": "number"
           }
         },
-        "range_step": {
+        "step_number": {
           "type": "number",
           "readOnly": true,
           "description": "Step value across the defined range"
