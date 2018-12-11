@@ -2,11 +2,13 @@
   "swagger": "2.0",
   "info": {
     "title": "Media Control",
-    "version": "v1.1.0-20181030",
+    "version": "v1.0.0-20181130",
     "license": {
-      "name": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved.",
-      "x-description": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n        1.  Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n        2.  Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\n        THIS SOFTWARE IS PROVIDED BY THE Open Connectivity Foundation, INC. \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE OR WARRANTIES OF NON-INFRINGEMENT, ARE DISCLAIMED.\n        IN NO EVENT SHALL THE Open Connectivity Foundation, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)\n        HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
-    }
+        "name": "BSD-2-CLAUSE",
+        "url": "https://openconnectivityfoundation.github.io/core/LICENSE.md",
+        "x-copyright": "copyright 2018 Open Connectivity Foundation, Inc. All rights reserved."
+    },
+    "termsOfService": "https://openconnectivityfoundation.github.io/core/DISCLAIMER.md"
   },
   "schemes": ["http"],
   "consumes": ["application/json"],
@@ -20,7 +22,7 @@
         ],
         "responses": {
             "200": {
-              "description" : "Retrieve/get Response",
+              "description" : "Retrieves the current media control state.",
               "x-example":
               {
                   "href": "/myMediaControlResURI",
@@ -322,10 +324,7 @@
                 "type": "number"
             },
             "href": {
-                "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
-                "format": "uri",
-                "maxLength": 256,
-                "type": "string"
+              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/href"
             },
             "rel": {
                 "anyOf": [
