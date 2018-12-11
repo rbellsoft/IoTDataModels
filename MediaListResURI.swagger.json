@@ -643,7 +643,7 @@
           "readOnly": true,
           "type": "array"
         },
-        "range_step": {
+        "step_number": {
           "description": "Step value across the defined range",
           "readOnly": true,
           "type": "number"
