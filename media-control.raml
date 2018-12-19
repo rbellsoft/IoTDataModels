@@ -85,45 +85,38 @@ traits:
                 "actions" :  [
                   {
                     "action": "stop",
-                    "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0",
-                    "rel":   "self"
+                    "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0"
                   },
                   {
                     "action": "pause",
-                    "href": "mediaControlResURI?play_state=false",
-                    "rel":   "self"
+                    "href": "mediaControlResURI?play_state=false"
                   },
                   {
                     "action": "fastforward",
                     "allowed_speed_values" : [ 0.5, 2.5, 5],
-                    "href": "mediaControlResURI?{?media_speed}",
-                    "rel":   "self"
+                    "href": "mediaControlResURI?{?media_speed}"
                   },
                   {
                     "action": "rewind",
                     "allowed_speed_values" : [ -0.5, -2.5, -5],
-                    "href": "mediaControlResURI?{?media_speed}",
-                    "rel":   "self"
+                    "href": "mediaControlResURI?{?media_speed}"
                   },
                   {
                     "action": "stepforward",
                     "range_number" : [ 0, 20],
                     "step_number" : 1,
-                    "href": "mediaControlResURI?{?media_location}",
-                    "rel":   "self"
+                    "href": "mediaControlResURI?{?media_location}"
                   },
                   {
                     "action": "stepbackward",
                     "range_number" : [ 0, 20],
                     "step_number" : 1,
-                    "href": "mediaControlResURI?{?media_location}",
-                    "rel":   "self"
+                    "href": "mediaControlResURI?{?media_location}"
                   },
                   {
                     "action": "seek",
                     "range_number" : [ 0, 3000],
-                    "href": "mediaControlResURI?{?media_location}",
-                    "rel":   "self"
+                    "href": "mediaControlResURI?{?media_location}"
                   }
                ]
               }
@@ -158,44 +151,37 @@ traits:
               "actions" : [
               {
               "action": "stop",
-              "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0",
-              "rel":   "self"
+              "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0"
               },
               {
                 "action": "play",
-                "href": "mediaControlResURI?media_speed=0",
-                "rel":   "self"
+                "href": "mediaControlResURI?media_speed=0"
               },
               {
                 "action": "pause",
-                "href": "mediaControlResURI?play_state=false",
-                "rel":   "self"
+                "href": "mediaControlResURI?play_state=false"
               },
               {
                 "action": "rewind",
                 "allowed_speed_values" : [ -0.5, -2.5, -5],
-                "href": "mediaControlResURI?{?media_speed}",
-                "rel":   "self"
+                "href": "mediaControlResURI?{?media_speed}"
               },
               {
                 "action": "stepforward",
                 "range_number" : [ 0, 20],
                 "step_number" : 1,
-                "href": "mediaControlResURI?{?media_location}",
-                "rel":   "self"
+                "href": "mediaControlResURI?{?media_location}"
               },
               {
                 "action": "stepbackward",
                 "range_number" : [ 0, 20],
                 "step_number" : 1,
-                "href": "mediaControlResURI?{?media_location}",
-                "rel":   "self"
+                "href": "mediaControlResURI?{?media_location}"
               },
               {
                 "action": "seek",
                 "range_number" : [ 0, 3000],
-                "href": "mediaControlResURI?{?media_location}",
-                "rel":   "self"
+                "href": "mediaControlResURI?{?media_location}"
               }
               ]
               }
