@@ -22,7 +22,7 @@
         ],
         "responses": {
             "200": {
-              "description" : "Retrieves the current media control state.",
+              "description" : "Retrieve/get Response",
               "x-example":
               {
                   "href": "/myMediaControlResURI",
@@ -35,45 +35,38 @@
                   "media_actions" :  [
                       {
                           "action": "stop",
-                          "href": "mediaControlResURI?play_state=false&media_speed=0&media_location_number=0",
-                          "rel":   "self"
+                          "href": "mediaControlResURI?play_state=false&media_speed=0&media_location_number=0"
                       },
                       {
                           "action": "pause",
-                          "href": "mediaControlResURI?play_state=false",
-                          "rel":   "self"
+                          "href": "mediaControlResURI?play_state=false"
                       },
                       {
                           "action": "fastforward",
                           "allowed_speed_values" : [ 0.5, 2.5, 5],
-                          "href": "mediaControlResURI?{?media_speed}",
-                          "rel":   "self"
+                          "href": "mediaControlResURI?{?media_speed}"
                       },
                       {
                           "action": "rewind",
                           "allowed_speed_values" : [ -0.5, -2.5, -5],
-                          "href": "mediaControlResURI?{?media_speed}",
-                          "rel":   "self"
+                          "href": "mediaControlResURI?{?media_speed}"
                       },
                       {
                           "action": "stepforward",
                           "range_number" : [ 0, 20],
                           "step_number" : 1,
-                          "href": "mediaControlResURI?{?media_location_number}",
-                          "rel":   "self"
+                          "href": "mediaControlResURI?{?media_location_number}"
                       },
                       {
                           "action": "stepbackward",
                           "range_number" : [ 0, 20],
                           "step_number" : 1,
-                          "href": "mediaControlResURI?{?media_location_number}",
-                          "rel":   "self"
+                          "href": "mediaControlResURI?{?media_location_number}"
                       },
                       {
                           "action": "seek",
                           "range_number" : [ 0, 3000],
-                          "href": "mediaControlResURI?{?media_location_number}",
-                          "rel":   "self"
+                          "href": "mediaControlResURI?{?media_location_number}"
                     }
                  ]
               },
@@ -119,44 +112,37 @@
                     "media_actions" : [
                         {
                             "action": "stop",
-                            "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0",
-                            "rel":   "self"
+                            "href": "mediaControlResURI?play_state=false&media_speed=0&media_location=0"
                         },
                         {
                             "action": "play",
-                            "href": "mediaControlResURI?media_speed=0",
-                            "rel":   "self"
+                            "href": "mediaControlResURI?media_speed=0"
                         },
                         {
                             "action": "pause",
-                            "href": "mediaControlResURI?play_state=false",
-                            "rel":   "self"
+                            "href": "mediaControlResURI?play_state=false"
                         },
                         {
                             "action": "rewind",
                             "allowed_speed_values" : [ -0.5, -2.5, -5],
-                            "href": "mediaControlResURI?{?media_speed}",
-                            "rel":   "self"
+                            "href": "mediaControlResURI?{?media_speed}"
                         },
                         {
                             "action": "stepforward",
                             "range_number" : [ 0, 20],
                             "step_number" : 1,
-                            "href": "mediaControlResURI?{?media_location}",
-                            "rel":   "self"
+                            "href": "mediaControlResURI?{?media_location}"
                         },
                         {
                             "action": "stepbackward",
                             "range_number" : [ 0, 20],
                             "step_number" : 1,
-                            "href": "mediaControlResURI?{?media_location}",
-                            "rel":   "self"
+                            "href": "mediaControlResURI?{?media_location}"
                         },
                         {
                             "action": "seek",
                             "range_number" : [ 0, 3000],
-                            "href": "mediaControlResURI?{?media_location}",
-                            "rel":   "self"
+                            "href": "mediaControlResURI?{?media_location}"
                         }
                     ]
                 },
@@ -324,26 +310,10 @@
                 "type": "number"
             },
             "href": {
-              "$ref": "https://openconnectivityfoundation.github.io/core/schemas/oic.links.properties.core-schema.json#/definitions/href"
-            },
-            "rel": {
-                "anyOf": [
-                    {
-                        "default": "self",
-                        "items": {
-                            "maxLength": 64,
-                            "type": "string"
-                        },
-                        "minItems": 1,
-                        "type": "array"
-                    },
-                    {
-                        "default": "self",
-                        "maxLength": 64,
-                        "type": "string"
-                    }
-                    ],
-                    "description": "The relation of the target URI referenced by the link to the context URI"
+                "description": "This is the target URI, it can be specified as a Relative Reference or fully-qualified URI. Relative Reference should be used along with the di parameter to make it unique.",
+                "format": "uri",
+                "maxLength": 256,
+                "type": "string"
             }
         },
         "type": "object",
